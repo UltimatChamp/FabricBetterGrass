@@ -10,26 +10,23 @@ jobs:
     strategy:
       matrix:
         java: [ 21 ]
-    runs-on: ubuntu-latest
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - name: Set up JDK ${{ matrix.java }}
         uses: actions/setup-java@v4
         with:
           java-version: ${{ matrix.java }}
           distribution: 'temurin'
-          cache: 'gradle'
+
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v3
-        with:
-          cache-read-only: ${{ !startsWith(github.ref, 'refs/heads/1.') && !startsWith(github.ref, 'refs/heads/dev/') && !startsWith(github.ref, 'refs/tags/v') }}
 
       - name: Build with Gradle
         run: ./gradlew build --stacktrace
 
       - uses: actions/upload-artifact@v4
         with:
-          name: Artifacts_j${{ matrix.java }}
+          name: Artifacts
           path: ./build/libs/
