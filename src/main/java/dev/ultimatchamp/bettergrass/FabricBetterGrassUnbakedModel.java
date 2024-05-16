@@ -1,4 +1,4 @@
-package com.ardacraft.ardagrass;
+package dev.ultimatchamp.bettergrass;
 
 import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.render.model.Baker;
@@ -12,10 +12,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Collection;
 import java.util.function.Function;
 
-public class ArdaGrassUnbakedModel implements UnbakedModel {
+public class FabricBetterGrassUnbakedModel implements UnbakedModel {
     private final UnbakedModel baseModel;
 
-    public ArdaGrassUnbakedModel(UnbakedModel unbakedModel) {
+    public FabricBetterGrassUnbakedModel(UnbakedModel unbakedModel) {
         this.baseModel = unbakedModel;
     }
 
@@ -33,6 +33,6 @@ public class ArdaGrassUnbakedModel implements UnbakedModel {
     @Nullable
     @Override
     public BakedModel bake(Baker loader, Function<SpriteIdentifier, Sprite> textureGetter, ModelBakeSettings rotationContainer, Identifier modelId) {
-        return new ArdaGrassBakedModel(this.baseModel.bake(loader, textureGetter, rotationContainer, modelId));
+        return new FabricBetterGrassBakedModel(this.baseModel.bake(loader, textureGetter, rotationContainer, modelId));
     }
 }

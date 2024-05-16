@@ -1,0 +1,13 @@
+{
+  "bettergrass.midnightconfig.title":"FabricBetterGrass",
+  "bettergrass.midnightconfig.category.config": "Config",
+  "bettergrass.midnightconfig.betterGrassMode":"Better Grass Mode",
+  "bettergrass.midnightconfig.enum.BetterGrassMode.FANCY":"Fancy",
+  "bettergrass.midnightconfig.enum.BetterGrassMode.FAST":"Fast",
+  "bettergrass.midnightconfig.enum.BetterGrassMode.OFF":"Off",
+  "bettergrass.midnightconfig.category.advanced": "For advanced users only!",
+  "bettergrass.midnightconfig.blockstates":"Blockstates",
+  "bettergrass.midnightconfig.blockstates.tooltip":"Grass Blocks",
+  "bettergrass.midnightconfig.tiles":"Tiles",
+  "bettergrass.midnightconfig.tiles.tooltip":"Grass Blocks"
+}

@@ -1,11 +1,6 @@
-package com.ardacraft.ardagrass.mixin;
+package dev.ultimatchamp.bettergrass.mixin;
 
-import com.ardacraft.ardagrass.ArdaGrass;
-import com.ardacraft.ardagrass.ArdaGrassBakedModel;
-import com.ardacraft.ardagrass.ArdaGrassUnbakedModel;
-import net.fabricmc.loader.impl.util.log.Log;
-import net.fabricmc.loader.impl.util.log.LogCategory;
-import net.minecraft.block.GrassBlock;
+import dev.ultimatchamp.bettergrass.FabricBetterGrassUnbakedModel;
 import net.minecraft.client.render.model.ModelLoader;
 import net.minecraft.client.render.model.UnbakedModel;
 import net.minecraft.client.util.ModelIdentifier;
@@ -17,13 +12,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import static dev.ultimatchamp.bettergrass.FabricBetterGrass.FabricBetterGrassConfig.blockstates;
+
 @Mixin(ModelLoader.class)
-public class ArdaGrassModelLoaderMixin {
+public class FabricBetterGrassModelLoaderMixin {
     @Shadow
     @Final
     private Map<Identifier, UnbakedModel> unbakedModels;
@@ -36,9 +31,9 @@ public class ArdaGrassModelLoaderMixin {
     private void onPutModel(Identifier id, UnbakedModel unbakedModel, CallbackInfo ci) {
         if (id instanceof ModelIdentifier modelId) {
             if (!modelId.getVariant().equals("inventory")) {
-                ArdaGrass.ardaGrassConfig.blockstates.forEach(s -> {
+                blockstates.forEach(s -> {
                     if (modelId.toString().startsWith(s.split("\\[")[0])) {
-                        var newModel = new ArdaGrassUnbakedModel(unbakedModel);
+                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
                         this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         ci.cancel();

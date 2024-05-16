@@ -1,4 +1,4 @@
-package com.ardacraft.ardagrass;
+package dev.ultimatchamp.bettergrass;
 
 import me.pepperbell.continuity.client.util.SpriteCalculator;
 import net.fabricmc.fabric.api.renderer.v1.mesh.MutableQuadView;
@@ -16,9 +16,14 @@ import net.minecraft.world.BlockRenderView;
 
 import java.util.function.Supplier;
 
-public class ArdaGrassBakedModel extends ForwardingBakedModel {
+import dev.ultimatchamp.bettergrass.FabricBetterGrass.FabricBetterGrassConfig;
 
-    public ArdaGrassBakedModel(BakedModel baseModel) {
+import static dev.ultimatchamp.bettergrass.FabricBetterGrass.FabricBetterGrassConfig.betterGrassMode;
+import static dev.ultimatchamp.bettergrass.FabricBetterGrass.FabricBetterGrassConfig.tiles;
+
+public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
+
+    public FabricBetterGrassBakedModel(BakedModel baseModel) {
         this.wrapped = baseModel;
     }
 
@@ -31,9 +36,9 @@ public class ArdaGrassBakedModel extends ForwardingBakedModel {
     public void emitBlockQuads(BlockRenderView blockView, BlockState state, BlockPos pos, Supplier<Random> randomSupplier, RenderContext context) {
         context.pushTransform(quad -> {
 
-            if (ArdaGrass.ardaGrassConfig.betterGrassMode.equals(ArdaGrassConfig.BetterGrassMode.OFF)) {
+            if (betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.OFF)) {
                 return true;
-            } else if (ArdaGrass.ardaGrassConfig.betterGrassMode.equals(ArdaGrassConfig.BetterGrassMode.FAST)) {
+            } else if (betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.FAST)) {
                 if (quad.nominalFace().getAxis() != Direction.Axis.Y) {
                     if (belowTileBlock(blockView, pos)) {
                         spriteBake(quad, blockView.getBlockState(pos.up()), randomSupplier);
@@ -45,7 +50,7 @@ public class ArdaGrassBakedModel extends ForwardingBakedModel {
                         return true;
                     }
                 }
-            } else if (ArdaGrass.ardaGrassConfig.betterGrassMode.equals(ArdaGrassConfig.BetterGrassMode.FANCY)) {
+            } else if (betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.FANCY)) {
                 if (quad.nominalFace() != Direction.UP && quad.nominalFace() != Direction.DOWN) {
 
                     Direction face = quad.nominalFace();
@@ -79,16 +84,15 @@ public class ArdaGrassBakedModel extends ForwardingBakedModel {
         context.popTransform();
     }
 
-    /*
         private static boolean canFullyConnect(BlockRenderView world, BlockState self, BlockPos selfPos, Direction direction) {
-            return diagonallySame(world, self, selfPos, selfPos.offset(direction));
+            return diagonallySame(world, self, selfPos, direction);
         }
-    */
+
     //block above has layers property
     private static boolean belowTileBlock(BlockRenderView world, BlockPos selfPos) {
         var upPos = selfPos.up();
         var up = world.getBlockState(upPos);
-        for (String tile : ArdaGrass.ardaGrassConfig.tiles) {
+        for (String tile : tiles) {
             try {
                 Block tileState = Registries.BLOCK.get(new Identifier(tile));
                 if (up.getBlock().getDefaultState().equals(tileState.getDefaultState())) {

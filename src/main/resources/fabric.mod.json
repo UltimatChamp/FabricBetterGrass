@@ -1,34 +1,41 @@
 {
   "schemaVersion": 1,
-  "id": "ardagrass",
+  "id": "bettergrass",
   "version": "${version}",
-  "name": "ArdaGrass",
-  "description": "Better grass using continuity",
+  "name": "FabricBetterGrass",
+  "description": "Better Grass for Fabric!",
   "authors": [
-    "JayemCeekay"
+    "JayemCeekay",
+    "UltimatChamp"
   ],
-  "contact": {},
-  "license": "MIT",
-  "icon": "assets/ArdaGrass/LOGO.png",
+  "contact": {
+    "homepage": "https://modrinth.com/mod/FabricBetterGrass",
+    "sources": "https://github.com/UltimatChamp/FabricBetterGrass",
+    "issues": "https://github.com/UltimatChamp/FabricBetterGrass/issues"
+  },
+  "license": "Apache License 2.0",
+  "icon": "assets/bettergrass/LOGO.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "com.ardacraft.ardagrass.ArdaGrass"
-    ],
-    "modmenu": [
-      "com.ardacraft.ardagrass.ArdaGrassModMenuIntegration"
+      "dev.ultimatchamp.bettergrass.FabricBetterGrass"
     ],
     "main": [
     ]
   },
   "mixins": [
-    "ArdaGrass.mixins.json"
+    "FabricBetterGrass.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.14",
+    "fabricloader": ">=0.15.11",
     "fabric": "*",
-    "minecraft": ">=1.20.1",
+    "minecraft": ">=1.20.6",
     "modmenu": "*",
-    "cloth-config2": "*"
+    "midnightlib": "*"
+  },
+  "modmenu": {
+    "links": {
+      "modmenu.discord": "https://discord.gg/kfKjjhv3pn"
+    }
   }
 }
