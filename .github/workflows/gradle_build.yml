@@ -24,7 +24,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
 
       - name: Build with Gradle
-        run: ./gradlew build --stacktrace
+        run: bash ./gradlew build --stacktrace
 
       - uses: actions/upload-artifact@v4
         with:
