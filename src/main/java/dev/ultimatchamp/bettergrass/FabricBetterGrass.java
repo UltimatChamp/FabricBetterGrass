@@ -10,21 +10,15 @@ import java.util.List;
 public class FabricBetterGrass implements ClientModInitializer {
 
     public static class FabricBetterGrassConfig extends MidnightConfig {
-        @Entry(category = "config") public static BetterGrassMode betterGrassMode = BetterGrassMode.FANCY;
+        @Entry(category = "config")
+        public static BetterGrassMode betterGrassMode = BetterGrassMode.FANCY;
+
         public enum BetterGrassMode {
-            FANCY, FAST, OFF
+            OFF, FAST, FANCY
         }
 
-        @Entry(category = "advanced") public static List<String> blockstates =
-                List.of("minecraft:grass_block",
-                        "minecraft:podzol",
-                        "minecraft:mycelium",
-                        "minecraft:crimson_nylium",
-                        "minecraft:warped_nylium",
-                        "conquest:clover_covered_grass",
-                        "conquest:taiga_grass");
-
-        @Entry(category = "advanced") public static List<String> tiles =
+        @Entry(category = "advanced")
+        public static List<String> blockstates =
                 List.of("minecraft:grass_block",
                         "minecraft:podzol",
                         "minecraft:mycelium",

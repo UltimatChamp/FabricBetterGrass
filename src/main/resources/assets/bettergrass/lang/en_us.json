@@ -7,7 +7,5 @@
   "bettergrass.midnightconfig.enum.BetterGrassMode.OFF":"Off",
   "bettergrass.midnightconfig.category.advanced": "For advanced users only!",
   "bettergrass.midnightconfig.blockstates":"Blockstates",
-  "bettergrass.midnightconfig.blockstates.tooltip":"Grass Blocks",
-  "bettergrass.midnightconfig.tiles":"Tiles",
-  "bettergrass.midnightconfig.tiles.tooltip":"Grass Blocks"
+  "bettergrass.midnightconfig.blockstates.tooltip":"Grass Blocks"
 }
