@@ -14,7 +14,7 @@
     "issues": "https://github.com/UltimatChamp/FabricBetterGrass/issues"
   },
   "license": "Apache License 2.0",
-  "icon": "LOGO.png",
+  "icon": "assets/bettergrass/LOGO.png",
   "environment": "*",
   "entrypoints": {
     "client": [
