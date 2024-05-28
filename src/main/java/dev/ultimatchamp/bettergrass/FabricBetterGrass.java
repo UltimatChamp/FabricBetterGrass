@@ -10,14 +10,14 @@ import java.util.List;
 public class FabricBetterGrass implements ClientModInitializer {
 
     public static class FabricBetterGrassConfig extends MidnightConfig {
-        @Entry(category = "config")
+        @Entry
         public static BetterGrassMode betterGrassMode = BetterGrassMode.FANCY;
 
         public enum BetterGrassMode {
             OFF, FAST, FANCY
         }
 
-        @Entry(category = "advanced")
+        @Entry
         public static List<String> blockstates =
                 List.of("minecraft:grass_block",
                         "minecraft:podzol",
