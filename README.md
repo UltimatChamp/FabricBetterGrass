@@ -30,7 +30,7 @@ For Quilt, it's recommended to use [**LambdaBetterGrass**](https://modrinth.com/
 
 > (Neo)Forge?
 
-**(Neo)Forge** will be supported, once **Continuity** supports it. _<small>(the mod may work with **Sinitra Connector** on 1.20.1)</small>_
+**(Neo)Forge** will be supported, once **Continuity** supports it. _<small>(the mod may work with **Sinytra Connector** on 1.20.1)</small>_
 
 </details>
 
