@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Map;
 import java.util.Set;
 
-import static dev.ultimatchamp.bettergrass.FabricBetterGrass.FabricBetterGrassConfig.blockstates;
+import dev.ultimatchamp.bettergrass.FabricBetterGrass.FabricBetterGrassConfig;
 
 @Mixin(ModelLoader.class)
 public class FabricBetterGrassModelLoaderMixin {
@@ -31,7 +31,7 @@ public class FabricBetterGrassModelLoaderMixin {
     private void onPutModel(Identifier id, UnbakedModel unbakedModel, CallbackInfo ci) {
         if (id instanceof ModelIdentifier modelId) {
             if (!modelId.getVariant().equals("inventory")) {
-                blockstates.forEach(s -> {
+                FabricBetterGrassConfig.blockstates.forEach(s -> {
                     if (modelId.toString().startsWith(s.split("\\[")[0])) {
                         var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
                         this.unbakedModels.put(id, newModel);
@@ -39,7 +39,6 @@ public class FabricBetterGrassModelLoaderMixin {
                         ci.cancel();
                     }
                 });
-
             }
         }
     }

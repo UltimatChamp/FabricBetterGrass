@@ -15,8 +15,6 @@ import java.util.function.Supplier;
 
 import dev.ultimatchamp.bettergrass.FabricBetterGrass.FabricBetterGrassConfig;
 
-import static dev.ultimatchamp.bettergrass.FabricBetterGrass.FabricBetterGrassConfig.betterGrassMode;
-
 public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
 
     public FabricBetterGrassBakedModel(BakedModel baseModel) {
@@ -32,14 +30,14 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
     public void emitBlockQuads(BlockRenderView blockView, BlockState state, BlockPos pos, Supplier<Random> randomSupplier, RenderContext context) {
         context.pushTransform(quad -> {
 
-            if (betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.OFF)) {
+            if (FabricBetterGrassConfig.betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.OFF)) {
                 return true;
-            } else if (betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.FAST)) {
+            } else if (FabricBetterGrassConfig.betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.FAST)) {
                 if (quad.nominalFace().getAxis() != Direction.Axis.Y) {
                     spriteBake(quad, blockView.getBlockState(pos), randomSupplier);
                     return true;
                 }
-            } else if (betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.FANCY)) {
+            } else if (FabricBetterGrassConfig.betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.FANCY)) {
                 if (quad.nominalFace().getAxis() != Direction.Axis.Y) {
                     Direction face = quad.nominalFace();
 
