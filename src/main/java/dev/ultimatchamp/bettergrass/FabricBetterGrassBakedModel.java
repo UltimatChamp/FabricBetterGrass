@@ -1,5 +1,6 @@
 package dev.ultimatchamp.bettergrass;
 
+import dev.ultimatchamp.bettergrass.FabricBetterGrass.FabricBetterGrassConfig;
 import me.pepperbell.continuity.client.util.SpriteCalculator;
 import net.fabricmc.fabric.api.renderer.v1.mesh.MutableQuadView;
 import net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel;
@@ -12,8 +13,6 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockRenderView;
 
 import java.util.function.Supplier;
-
-import dev.ultimatchamp.bettergrass.FabricBetterGrass.FabricBetterGrassConfig;
 
 public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
 
