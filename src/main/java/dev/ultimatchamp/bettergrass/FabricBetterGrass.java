@@ -23,9 +23,7 @@ public class FabricBetterGrass implements ClientModInitializer {
                         "minecraft:podzol",
                         "minecraft:mycelium",
                         "minecraft:crimson_nylium",
-                        "minecraft:warped_nylium",
-                        "conquest:clover_covered_grass",
-                        "conquest:taiga_grass");
+                        "minecraft:warped_nylium");
     }
 
     @Override
