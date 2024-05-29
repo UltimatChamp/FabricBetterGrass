@@ -3,14 +3,15 @@
   "id": "bettergrass",
   "version": "${version}",
   "name": "FabricBetterGrass",
-  "description": "Better Grass for Fabric!",
+  "description": "Gamers can finally touch grass!?\nOptiFine's Fancy and Fast better grass implemented on Fabric!",
   "authors": [
-    "JayemCeekay",
     "UltimatChamp"
   ],
+  "contributors": [
+    "JayemCeekay"
+  ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/FabricBetterGrass",
-    "sources": "https://github.com/UltimatChamp/FabricBetterGrass",
+    "homepage": "https://github.com/UltimatChamp/FabricBetterGrass",
     "issues": "https://github.com/UltimatChamp/FabricBetterGrass/issues"
   },
   "license": "Apache License 2.0",
@@ -36,9 +37,14 @@
   "breaks": {
     "minecraft": ">=1.20.5"
   },
-  "modmenu": {
-    "links": {
-      "modmenu.discord": "https://discord.gg/kfKjjhv3pn"
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.modrinth": "https://modrinth.com/mod/FabricBetterGrass",
+        "modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/fabricbettergrass",
+        "modmenu.discord": "https://discord.gg/kfKjjhv3pn"
+      },
+      "update_checker": true
     }
   }
 }

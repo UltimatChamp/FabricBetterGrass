@@ -10,6 +10,7 @@ import java.util.List;
 public class FabricBetterGrass implements ClientModInitializer {
 
     public static class FabricBetterGrassConfig extends MidnightConfig {
+        @Comment(category = "config", centered = true) public static Comment warn;
         @Entry(category = "config")
         public static BetterGrassMode betterGrassMode = BetterGrassMode.FANCY;
 
@@ -23,9 +24,7 @@ public class FabricBetterGrass implements ClientModInitializer {
                         "minecraft:podzol",
                         "minecraft:mycelium",
                         "minecraft:crimson_nylium",
-                        "minecraft:warped_nylium",
-                        "conquest:clover_covered_grass",
-                        "conquest:taiga_grass");
+                        "minecraft:warped_nylium");
     }
 
     @Override
