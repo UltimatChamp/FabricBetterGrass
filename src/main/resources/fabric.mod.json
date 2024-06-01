@@ -5,9 +5,7 @@
   "name": "FabricBetterGrass",
   "description": "Gamers can finally touch grass!?\nOptiFine's Fancy and Fast better grass implemented on Fabric!",
   "authors": [
-    "UltimatChamp"
-  ],
-  "contributors": [
+    "UltimatChamp",
     "JayemCeekay"
   ],
   "contact": {
@@ -30,9 +28,7 @@
   "depends": {
     "fabricloader": ">=0.15.11",
     "fabric": "*",
-    "minecraft": "1.20.x",
-    "continuity": "*",
-    "midnightlib": "*"
+    "minecraft": "1.20.x"
   },
   "breaks": {
     "minecraft": ">=1.20.5"
