@@ -1,7 +1,6 @@
 package dev.ultimatchamp.bettergrass;
 
 import dev.ultimatchamp.bettergrass.FabricBetterGrass.FabricBetterGrassConfig;
-import me.pepperbell.continuity.client.util.SpriteCalculator;
 import net.fabricmc.fabric.api.renderer.v1.mesh.MutableQuadView;
 import net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel;
 import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
@@ -69,7 +68,7 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
     }
 
     @SuppressWarnings("deprecation")
-    private static boolean spriteBake(MutableQuadView quad, BlockState state, Supplier<net.minecraft.util.math.random.Random> randomSupplier) {
+    private static boolean spriteBake(MutableQuadView quad, BlockState state, Supplier<Random> randomSupplier) {
         var sprite = SpriteCalculator.calculateSprite(state, Direction.UP, randomSupplier);
         if (sprite != null)
             quad.spriteBake(0, sprite, MutableQuadView.BAKE_LOCK_UV);

@@ -27,8 +27,8 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    modImplementation "maven.modrinth:continuity:${project.continuity_version}"
     modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
+    include "maven.modrinth:midnightlib:${project.midnightlib_version}"
 }
 
 processResources {
