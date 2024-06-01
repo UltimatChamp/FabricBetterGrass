@@ -3,7 +3,7 @@
   "bettergrass.midnightconfig.category.config": "General",
   "bettergrass.midnightconfig.warn":"\u00A7cWorld reload or F3+A is required to apply changes.",
   "bettergrass.midnightconfig.betterGrassMode":"Better Grass Mode",
-  "bettergrass.midnightconfig.betterGrassMode.tooltip":"\u00A74Off \u00A7r- Grass Blocks will look normal\n\u00A73Fast \u00A7r- Top Grass texture will be applied on all the sides of Grass Blocks (fast)\n\u00A7dFancy \u00A7r- Top Grass texture will be applied dynamically on the sides of Grass Blocks (slow)",
+  "bettergrass.midnightconfig.betterGrassMode.tooltip":"\u00A74Off \u00A7r- Grass Blocks look normal\n\u00A73Fast \u00A7r- Top Grass texture will be applied to all sides of the Grass Blocks (fast)\n\u00A7dFancy \u00A7r- Top Grass texture will be applied dynamically to required sides of the Grass Blocks (slow)",
   "bettergrass.midnightconfig.enum.BetterGrassMode.OFF":"Off",
   "bettergrass.midnightconfig.enum.BetterGrassMode.FAST":"Fast",
   "bettergrass.midnightconfig.enum.BetterGrassMode.FANCY":"Fancy",
