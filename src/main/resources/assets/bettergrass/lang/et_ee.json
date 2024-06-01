@@ -3,7 +3,7 @@
   "bettergrass.midnightconfig.category.config": "Üldine",
   "bettergrass.midnightconfig.warn":"\u00A7cMuudatuste rakendamiseks on vajalik maailma taaslaadimine või F3+A.",
   "bettergrass.midnightconfig.betterGrassMode":"Parema muru režiim",
-  "bettergrass.midnightconfig.betterGrassMode.tooltip":"\u00A74Väljas \u00A7r- tavapärase välimusega muruplokid\n\u00A73Kiire \u00A7r- pealmine murutekstuur rakendatakse muruplokkide kõigile külgedele (kiire)\n\u00A7dUhke \u00A7r- pealmine murutekstuur rakendatakse dünaamiliselt muruplokkide külgedele (aeglane)",
+  "bettergrass.midnightconfig.betterGrassMode.tooltip":"\u00A74Väljas \u00A7r- tavapärase välimusega muruplokid\n\u00A73Kiire \u00A7r- pealmine murutekstuur rakendatakse muruplokkide kõigile külgedele (kiire)\n\u00A7dUhke \u00A7r- pealmine murutekstuur rakendatakse dünaamiliselt muruplokkide vajalikele külgedele (aeglane)",
   "bettergrass.midnightconfig.enum.BetterGrassMode.OFF":"Väljas",
   "bettergrass.midnightconfig.enum.BetterGrassMode.FAST":"Kiire",
   "bettergrass.midnightconfig.enum.BetterGrassMode.FANCY":"Uhke",
