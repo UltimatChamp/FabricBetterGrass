@@ -28,7 +28,8 @@
   "depends": {
     "fabricloader": ">=0.15.11",
     "fabric": "*",
-    "minecraft": "1.20.x"
+    "minecraft": "1.20.x",
+    "midnightlib": "*"
   },
   "breaks": {
     "minecraft": ">=1.20.5"
