@@ -1,0 +1,13 @@
+{
+  "bettergrass.midnightconfig.title":"FabricBetterGrass",
+  "bettergrass.midnightconfig.category.config": "Generali",
+  "bettergrass.midnightconfig.warn":"\u00A7cPer rendere effettivi i cambiamenti è necessario un ricaricamento del mondo o F3+A.",
+  "bettergrass.midnightconfig.betterGrassMode":"Modalità Erba Migliorata",
+  "bettergrass.midnightconfig.betterGrassMode.tooltip":"\u00A74Disattivato \u00A7r- Blocchi di erba classici\n\u00A73Veloce \u00A7r- La texture superiore verrà applicata a tutti il lati del blocco d'erba (veloce)\n\u00A7dCarino \u00A7r- La texture superiore verrà applicata  dinamicamnete a i lati del blocco d'erba richiesti (lento)",
+  "bettergrass.midnightconfig.enum.BetterGrassMode.OFF":"Off",
+  "bettergrass.midnightconfig.enum.BetterGrassMode.FAST":"Veloce",
+  "bettergrass.midnightconfig.enum.BetterGrassMode.FANCY":"Carino",
+  "bettergrass.midnightconfig.category.advanced": "Avanzate",
+  "bettergrass.midnightconfig.blockstates":"Blocchi connessi",
+  "bettergrass.midnightconfig.blockstates.tooltip":"Blocchi come l'erba che dovrebbero essere connesssi sulle pendenze."
+}
