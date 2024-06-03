@@ -7,7 +7,7 @@
   "bettergrass.midnightconfig.enum.BetterGrassMode.OFF":"Выкл",
   "bettergrass.midnightconfig.enum.BetterGrassMode.FAST":"Быстро",
   "bettergrass.midnightconfig.enum.BetterGrassMode.FANCY":"Детально",
-  "bettergrass.midnightconfig.category.advanced": "Дополнительные настройки",
+  "bettergrass.midnightconfig.category.advanced": "Продвинутые настройки",
   "bettergrass.midnightconfig.blockstates":"Соединённые блоки",
   "bettergrass.midnightconfig.blockstates.tooltip":"Схожие с травой блоки, которые следует соединять на склонах"
 }
