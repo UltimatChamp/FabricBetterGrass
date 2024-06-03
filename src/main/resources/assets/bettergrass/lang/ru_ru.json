@@ -1,0 +1,13 @@
+{
+  "bettergrass.midnightconfig.title":"FabricBetterGrass",
+  "bettergrass.midnightconfig.category.config": "Основные настройки",
+  "bettergrass.midnightconfig.warn":"\u00A7cПерезапуск мира или F3+A необходимы чтобы применить эти изменения.",
+  "bettergrass.midnightconfig.betterGrassMode":"Режим улучшенной травы",
+  "bettergrass.midnightconfig.betterGrassMode.tooltip":"\u00A74Выкл \u00A7r- Блоки травы выглядят как обычно\n\u00A73Быстро \u00A7r- Верхняя текстура блока травы будет применена ко всем его сторонам (быстро)\n\u00A7dДетально \u00A7r- Верхняя текстура блока травы будет применена только к некоторым его сторонам (медленно)",
+  "bettergrass.midnightconfig.enum.BetterGrassMode.OFF":"Выкл",
+  "bettergrass.midnightconfig.enum.BetterGrassMode.FAST":"Быстро",
+  "bettergrass.midnightconfig.enum.BetterGrassMode.FANCY":"Детально",
+  "bettergrass.midnightconfig.category.advanced": "Продвинутые настройки",
+  "bettergrass.midnightconfig.blockstates":"Соединённые блоки",
+  "bettergrass.midnightconfig.blockstates.tooltip":"Схожие с травой блоки, которые следует соединять на склонах"
+}
