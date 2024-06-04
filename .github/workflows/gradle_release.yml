@@ -46,7 +46,8 @@ jobs:
           name: Artifacts
           path: build/libs/*.jar
 
-      - uses: Kir-Antipov/mc-publish@v3.3
+      - name: Publish release
+        uses: Kir-Antipov/mc-publish@v3.3
         with:
           modrinth-id: m5T5xmUy
           modrinth-featured: false
@@ -56,14 +57,14 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           github-tag: ${{ inputs.version }}
-          github-generate-changelog: true
+          github-generate-changelog: false
           github-draft: false
           github-prerelease: false
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
           files: |
-            build/libs/*.jar
-            build/libs/*-sources.jar
+            build/libs/!(*-@(sources)).jar
+            build/libs/*-@(sources).jar
 
           name: FabricBetterGrass ${{ inputs.version }}
           version: ${{ inputs.version }}
@@ -73,7 +74,7 @@ jobs:
           loaders: |
             fabric
           game-versions: |
-            >=1.20 <1.21
+            [1.20,1.20.6)
           game-version-filter: releases
           dependencies: |
             fabric-api(required){modrinth:P7dR8mSH}{curseforge:306612}#(ignore:github)
