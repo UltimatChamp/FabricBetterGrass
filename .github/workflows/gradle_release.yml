@@ -74,7 +74,7 @@ jobs:
           loaders: |
             fabric
           game-versions: |
-            [1.20,1.20.6)
+            [1.20,1.21)
           game-version-filter: releases
           dependencies: |
             fabric-api(required){modrinth:P7dR8mSH}{curseforge:306612}#(ignore:github)
