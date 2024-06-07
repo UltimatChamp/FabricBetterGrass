@@ -1,6 +1,7 @@
 package dev.ultimatchamp.bettergrass.mixin;
 
 import dev.ultimatchamp.bettergrass.FabricBetterGrassUnbakedModel;
+import dev.ultimatchamp.bettergrass.config.FabricBetterGrassConfig;
 import net.minecraft.client.render.model.ModelLoader;
 import net.minecraft.client.render.model.UnbakedModel;
 import net.minecraft.client.util.ModelIdentifier;
@@ -14,8 +15,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
 import java.util.Set;
-
-import dev.ultimatchamp.bettergrass.FabricBetterGrass.FabricBetterGrassConfig;
 
 @Mixin(ModelLoader.class)
 public class FabricBetterGrassModelLoaderMixin {
@@ -31,7 +30,7 @@ public class FabricBetterGrassModelLoaderMixin {
     private void onPutModel(Identifier id, UnbakedModel unbakedModel, CallbackInfo ci) {
         if (id instanceof ModelIdentifier modelId) {
             if (!modelId.getVariant().equals("inventory")) {
-                FabricBetterGrassConfig.blockstates.forEach(s -> {
+                FabricBetterGrassConfig.instance().grassBlocks.forEach(s -> {
                     if (modelId.toString().startsWith(s.split("\\[")[0])) {
                         var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
                         this.unbakedModels.put(id, newModel);
@@ -39,6 +38,24 @@ public class FabricBetterGrassModelLoaderMixin {
                         ci.cancel();
                     }
                 });
+
+                if (FabricBetterGrassConfig.instance().dirtPaths) {
+                    if (modelId.toString().startsWith("minecraft:dirt_path".split("\\[")[0])) {
+                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
+                        this.unbakedModels.put(id, newModel);
+                        this.modelsToLoad.addAll(newModel.getModelDependencies());
+                        ci.cancel();
+                    }
+                }
+
+                if (FabricBetterGrassConfig.instance().farmLands) {
+                    if (modelId.toString().startsWith("minecraft:farmland".split("\\[")[0])) {
+                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
+                        this.unbakedModels.put(id, newModel);
+                        this.modelsToLoad.addAll(newModel.getModelDependencies());
+                        ci.cancel();
+                    }
+                }
             }
         }
     }

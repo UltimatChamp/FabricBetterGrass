@@ -1,13 +1,15 @@
 {
-  "bettergrass.midnightconfig.title":"FabricBetterGrass",
-  "bettergrass.midnightconfig.category.config": "Generali",
-  "bettergrass.midnightconfig.warn":"\u00A7cPer rendere effettivi i cambiamenti è necessario un ricaricamento del mondo o F3+A.",
-  "bettergrass.midnightconfig.betterGrassMode":"Modalità Erba Migliorata",
-  "bettergrass.midnightconfig.betterGrassMode.tooltip":"\u00A74Disattivata \u00A7r- Blocchi di erba classici\n\u00A73Rapida \u00A7r- La texture superiore verrà applicata a tutti il lati del blocco d'erba (veloce)\n\u00A7dDettagliata \u00A7r- La texture superiore verrà applicata  dinamicamnete a i lati del blocco d'erba richiesti (lento)",
-  "bettergrass.midnightconfig.enum.BetterGrassMode.OFF":"Off",
-  "bettergrass.midnightconfig.enum.BetterGrassMode.FAST":"Rapida",
-  "bettergrass.midnightconfig.enum.BetterGrassMode.FANCY":"Dettagaliata",
-  "bettergrass.midnightconfig.category.advanced": "Avanzate",
-  "bettergrass.midnightconfig.blockstates":"Blocchi connessi",
-  "bettergrass.midnightconfig.blockstates.tooltip":"Blocchi come l'erba che dovrebbero essere connesssi sulle pendenze."
+  "yacl3.config.bettergrass:bettergrass_config.title":"FabricBetterGrass",
+  "yacl3.config.bettergrass:bettergrass_config.category.config": "Generali",
+  "yacl3.config.bettergrass:bettergrass_config.betterGrassMode":"Modalità Erba Migliorata",
+  "yacl3.config.bettergrass:bettergrass_config.betterGrassMode.desc":"\u00A74Disattivata \u00A7r- Blocchi di erba classici\n\u00A73Rapida \u00A7r- La texture superiore verrà applicata a tutti il lati del blocco d'erba (veloce)\n\u00A7dDettagliata \u00A7r- La texture superiore verrà applicata  dinamicamnete a i lati del blocco d'erba richiesti (lento)\n\n\u00A7cPer rendere effettivi i cambiamenti è necessario un ricaricamento del mondo o F3+A.",
+  "yacl3.config.enum.BetterGrassMode.off":"\u00A74Off",
+  "yacl3.config.enum.BetterGrassMode.fast":"\u00A73Rapida",
+  "yacl3.config.enum.BetterGrassMode.fancy":"\u00A7dDettagaliata",
+  "yacl3.config.bettergrass:bettergrass_config.category.additional":"Additional",
+  "yacl3.config.bettergrass:bettergrass_config.category.additional.group.connectedblocks":"Connected Blocks",
+  "yacl3.config.bettergrass:bettergrass_config.dirtPaths":"Dirt Paths",
+  "yacl3.config.bettergrass:bettergrass_config.dirtPaths.desc":"Connects dirt paths too!\n\n\u00A7cMay cause some visual bugs!",
+  "yacl3.config.bettergrass:bettergrass_config.farmLands":"Farmlands",
+  "yacl3.config.bettergrass:bettergrass_config.farmLands.desc":"Connects farmlands too!\n\n\u00A7cMay cause some visual bugs!"
 }

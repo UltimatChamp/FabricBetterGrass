@@ -1,6 +1,6 @@
 package dev.ultimatchamp.bettergrass;
 
-import dev.ultimatchamp.bettergrass.FabricBetterGrass.FabricBetterGrassConfig;
+import dev.ultimatchamp.bettergrass.config.FabricBetterGrassConfig;
 import net.fabricmc.fabric.api.renderer.v1.mesh.MutableQuadView;
 import net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel;
 import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
@@ -24,18 +24,22 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
         return false;
     }
 
+    public enum BetterGrassMode {
+        OFF, FAST, FANCY
+    }
+
     @Override
     public void emitBlockQuads(BlockRenderView blockView, BlockState state, BlockPos pos, Supplier<Random> randomSupplier, RenderContext context) {
         context.pushTransform(quad -> {
 
-            if (FabricBetterGrassConfig.betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.OFF)) {
+            if (FabricBetterGrassConfig.instance().betterGrassMode.equals(BetterGrassMode.OFF)) {
                 return true;
-            } else if (FabricBetterGrassConfig.betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.FAST)) {
+            } else if (FabricBetterGrassConfig.instance().betterGrassMode.equals(BetterGrassMode.FAST)) {
                 if (quad.nominalFace().getAxis() != Direction.Axis.Y) {
                     spriteBake(quad, blockView.getBlockState(pos), randomSupplier);
                     return true;
                 }
-            } else if (FabricBetterGrassConfig.betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.FANCY)) {
+            } else if (FabricBetterGrassConfig.instance().betterGrassMode.equals(BetterGrassMode.FANCY)) {
                 if (quad.nominalFace().getAxis() != Direction.Axis.Y) {
                     Direction face = quad.nominalFace();
 
