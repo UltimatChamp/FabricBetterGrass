@@ -7,6 +7,14 @@ on:
         description: 'Version'
         required: true
         type: string
+      min_mc:
+        description: 'Minimum MC Version'
+        required: true
+        type: string
+      incompat_mc:
+        description: 'Incompatible MC Version'
+        required: true
+        type: string
 
 jobs:
   build:
@@ -74,11 +82,11 @@ jobs:
           loaders: |
             fabric
           game-versions: |
-            [1.20,1.21)
+            [${{ inputs.min_mc }},${{ inputs.incompat_mc }})
           game-version-filter: releases
           dependencies: |
             fabric-api(required){modrinth:P7dR8mSH}{curseforge:306612}#(ignore:github)
-            midnightlib(required){modrinth:codAaoxh}{curseforge:488090}#(ignore:github)
+            yacl(required){modrinth:1eAoo2KR}{curseforge:667299}#(ignore:github)
 
           retry-attempts: 2
           retry-delay: 10000
