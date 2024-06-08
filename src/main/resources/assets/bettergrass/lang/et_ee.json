@@ -6,10 +6,10 @@
   "yacl3.config.enum.BetterGrassMode.off":"\u00A74Väljas",
   "yacl3.config.enum.BetterGrassMode.fast":"\u00A73Kiire",
   "yacl3.config.enum.BetterGrassMode.fancy":"\u00A7dUhke",
-  "yacl3.config.bettergrass:bettergrass_config.category.additional":"Additional",
-  "yacl3.config.bettergrass:bettergrass_config.category.additional.group.connectedblocks":"Connected Blocks",
-  "yacl3.config.bettergrass:bettergrass_config.dirtPaths":"Dirt Paths",
-  "yacl3.config.bettergrass:bettergrass_config.dirtPaths.desc":"Connects dirt paths too!\n\n\u00A7cMay cause some visual bugs!",
-  "yacl3.config.bettergrass:bettergrass_config.farmLands":"Farmlands",
-  "yacl3.config.bettergrass:bettergrass_config.farmLands.desc":"Connects farmlands too!\n\n\u00A7cMay cause some visual bugs!"
+  "yacl3.config.bettergrass:bettergrass_config.category.additional":"Täiendavad",
+  "yacl3.config.bettergrass:bettergrass_config.category.additional.group.connectedblocks":"Ühendatud plokid",
+  "yacl3.config.bettergrass:bettergrass_config.dirtPaths":"Mullarajad",
+  "yacl3.config.bettergrass:bettergrass_config.dirtPaths.desc":"Ühendab ka mullaradasid!\n\n\u00A7cVõib põhjustada visuaalseid ebaühtlusi!",
+  "yacl3.config.bettergrass:bettergrass_config.farmLands":"Põllumaa",
+  "yacl3.config.bettergrass:bettergrass_config.farmLands.desc":"Ühendab ka põllumaaplokke!\n\n\u00A7cVõib põhjustada visuaalseid ebaühtlusi!"
 }
