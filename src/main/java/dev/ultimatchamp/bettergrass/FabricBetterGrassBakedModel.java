@@ -24,6 +24,9 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
         return false;
     }
 
+    public static boolean isSnowy;
+    public static BlockState upBlock;
+
     public enum BetterGrassMode {
         OFF, FAST, FANCY
     }
@@ -36,6 +39,7 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
                 return true;
             } else if (FabricBetterGrassConfig.instance().betterGrassMode.equals(BetterGrassMode.FAST)) {
                 if (quad.nominalFace().getAxis() != Direction.Axis.Y) {
+                    fastSnowy(blockView, pos);
                     spriteBake(quad, blockView.getBlockState(pos), randomSupplier);
                     return true;
                 }
@@ -63,8 +67,19 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
         var adjacent = world.getBlockState(adjacentPos);
         var upPos = adjacentPos.up();
         var up = world.getBlockState(upPos);
+        upBlock = world.getBlockState(upPos);
+        isSnowy = !up.isFullCube(world, upPos) && up.isSideSolidFullSquare(world, upPos, Direction.DOWN);
 
-        return canConnect(self, adjacent) && (up.isAir() || !up.isSideSolidFullSquare(world, upPos, Direction.DOWN));
+        return canConnect(self, adjacent) && (up.isAir() || !up.isFullCube(world, upPos) || !up.isSideSolidFullSquare(world, upPos, Direction.DOWN));
+    }
+
+    private static boolean fastSnowy(BlockRenderView world, BlockPos adjacentPos) {
+        var upPos = adjacentPos.up();
+        var up = world.getBlockState(upPos);
+        upBlock = world.getBlockState(upPos);
+        isSnowy = !up.isFullCube(world, upPos) && up.isSideSolidFullSquare(world, upPos, Direction.DOWN);
+
+        return true;
     }
 
     private static boolean canConnect(BlockState self, BlockState adjacent) {
@@ -74,6 +89,11 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
     @SuppressWarnings("deprecation")
     private static boolean spriteBake(MutableQuadView quad, BlockState state, Supplier<Random> randomSupplier) {
         var sprite = SpriteCalculator.calculateSprite(state, Direction.UP, randomSupplier);
+
+        if (isSnowy) {
+            sprite = SpriteCalculator.calculateSprite(upBlock, Direction.UP, randomSupplier);
+        }
+
         if (sprite != null)
             quad.spriteBake(0, sprite, MutableQuadView.BAKE_LOCK_UV);
         return sprite != null;
