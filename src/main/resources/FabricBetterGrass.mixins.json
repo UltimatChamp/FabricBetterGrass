@@ -6,7 +6,8 @@
   "mixins": [
   ],
   "client": [
-    "FabricBetterGrassModelLoaderMixin"
+    "FabricBetterGrassModelLoaderMixin",
+    "MixinSodiumGameOptionsPages"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -50,6 +50,10 @@ public class FabricBetterGrassConfig {
         HANDLER.load();
     }
 
+    public static void save() {
+        HANDLER.save();
+    }
+
     public static FabricBetterGrassConfig instance() {
         return HANDLER.instance();
     }
