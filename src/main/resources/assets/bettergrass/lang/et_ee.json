@@ -11,5 +11,7 @@
   "yacl3.config.bettergrass:bettergrass_config.dirtPaths":"Mullarajad",
   "yacl3.config.bettergrass:bettergrass_config.dirtPaths.desc":"Ühendab ka mullaradasid!\n\n\u00A7cVõib põhjustada visuaalseid ebaühtlusi!",
   "yacl3.config.bettergrass:bettergrass_config.farmLands":"Põllumaa",
-  "yacl3.config.bettergrass:bettergrass_config.farmLands.desc":"Ühendab ka põllumaaplokke!\n\n\u00A7cVõib põhjustada visuaalseid ebaühtlusi!"
+  "yacl3.config.bettergrass:bettergrass_config.farmLands.desc":"Ühendab ka põllumaaplokke!\n\n\u00A7cVõib põhjustada visuaalseid ebaühtlusi!",
+  "yacl3.config.bettergrass:bettergrass_config.snowy":"Snowy grass",
+  "yacl3.config.bettergrass:bettergrass_config.snowy.desc":"Connects snowy grass too!"
 }

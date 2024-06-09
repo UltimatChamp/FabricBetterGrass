@@ -46,6 +46,11 @@ public class FabricBetterGrassConfig {
     @Boolean(formatter = Boolean.Formatter.YES_NO, colored = true)
     public boolean farmLands = false;
 
+    @SerialEntry(comment = "(default: true)")
+    @AutoGen(category = "additional", group = "connectedblocks")
+    @Boolean(formatter = Boolean.Formatter.YES_NO, colored = true)
+    public boolean snowy = true;
+
     public static void load() {
         HANDLER.load();
     }

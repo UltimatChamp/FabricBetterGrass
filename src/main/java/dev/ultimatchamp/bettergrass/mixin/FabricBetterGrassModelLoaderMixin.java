@@ -31,13 +31,24 @@ public class FabricBetterGrassModelLoaderMixin {
         if (id instanceof ModelIdentifier modelId) {
             if (!modelId.getVariant().equals("inventory")) {
                 FabricBetterGrassConfig.instance().grassBlocks.forEach(s -> {
-                    if (modelId.toString().startsWith(s.split("\\[")[0])) {
+                    if (modelId.toString().startsWith(s.split("\\[")[0]) && !modelId.toString().contains("snowy=true")) {
                         var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
                         this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         ci.cancel();
                     }
                 });
+
+                if (FabricBetterGrassConfig.instance().snowy) {
+                    FabricBetterGrassConfig.instance().grassBlocks.forEach(s -> {
+                        if (modelId.toString().startsWith(s.split("\\[")[0]) && modelId.toString().contains("snowy=true")) {
+                            var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
+                            this.unbakedModels.put(id, newModel);
+                            this.modelsToLoad.addAll(newModel.getModelDependencies());
+                            ci.cancel();
+                        }
+                    });
+                }
 
                 if (FabricBetterGrassConfig.instance().dirtPaths) {
                     if (modelId.toString().startsWith("minecraft:dirt_path".split("\\[")[0])) {

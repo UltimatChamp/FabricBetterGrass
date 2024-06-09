@@ -11,5 +11,7 @@
   "yacl3.config.bettergrass:bettergrass_config.dirtPaths":"Sentiero sterrato",
   "yacl3.config.bettergrass:bettergrass_config.dirtPaths.desc":"Connetti anche i sentieri sterrati!\n\n\u00A7cPotrebbe causare dei bug visuali!",
   "yacl3.config.bettergrass:bettergrass_config.farmLands":"Terra zappata",
-  "yacl3.config.bettergrass:bettergrass_config.farmLands.desc":"Connectti anche la terra zappata!\n\n\u00A7cPotrebbe causare dei bug visuali!"
+  "yacl3.config.bettergrass:bettergrass_config.farmLands.desc":"Connectti anche la terra zappata!\n\n\u00A7cPotrebbe causare dei bug visuali!",
+  "yacl3.config.bettergrass:bettergrass_config.snowy":"Snowy grass",
+  "yacl3.config.bettergrass:bettergrass_config.snowy.desc":"Connects snowy grass too!"
 }

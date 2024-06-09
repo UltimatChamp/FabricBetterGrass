@@ -11,5 +11,7 @@
   "yacl3.config.bettergrass:bettergrass_config.dirtPaths":"Dirt Paths",
   "yacl3.config.bettergrass:bettergrass_config.dirtPaths.desc":"Connects dirt paths too!\n\n\u00A7cMay cause some visual bugs!",
   "yacl3.config.bettergrass:bettergrass_config.farmLands":"Farmlands",
-  "yacl3.config.bettergrass:bettergrass_config.farmLands.desc":"Connects farmlands too!\n\n\u00A7cMay cause some visual bugs!"
+  "yacl3.config.bettergrass:bettergrass_config.farmLands.desc":"Connects farmlands too!\n\n\u00A7cMay cause some visual bugs!",
+  "yacl3.config.bettergrass:bettergrass_config.snowy":"Snowy grass",
+  "yacl3.config.bettergrass:bettergrass_config.snowy.desc":"Connects snowy grass too!"
 }
