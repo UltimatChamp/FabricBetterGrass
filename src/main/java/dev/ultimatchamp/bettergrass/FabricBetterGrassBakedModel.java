@@ -24,9 +24,6 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
         return false;
     }
 
-    public static boolean isSnowy;
-    public static BlockState upBlock;
-
     public enum BetterGrassMode {
         OFF, FAST, FANCY
     }
@@ -39,8 +36,10 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
                 return true;
             } else if (FabricBetterGrassConfig.instance().betterGrassMode.equals(BetterGrassMode.FAST)) {
                 if (quad.nominalFace().getAxis() != Direction.Axis.Y) {
-                    fastSnowy(blockView, pos);
-                    spriteBake(quad, blockView.getBlockState(pos), randomSupplier);
+                    if (isSnowy(blockView, pos))
+                        spriteBake(quad, blockView.getBlockState(pos.up()), randomSupplier);
+                    else
+                        spriteBake(quad, blockView.getBlockState(pos), randomSupplier);
                     return true;
                 }
             } else if (FabricBetterGrassConfig.instance().betterGrassMode.equals(BetterGrassMode.FANCY)) {
@@ -48,7 +47,10 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
                     Direction face = quad.nominalFace();
 
                     if (canFullyConnect(blockView, state, pos, face)) {
-                        spriteBake(quad, state, randomSupplier);
+                        if (isSnowy(blockView, pos))
+                            spriteBake(quad, blockView.getBlockState(pos.up()), randomSupplier);
+                        else
+                            spriteBake(quad, state, randomSupplier);
                     }
                 }
                 return true;
@@ -67,40 +69,25 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
         var adjacent = world.getBlockState(adjacentPos);
         var upPos = adjacentPos.up();
         var up = world.getBlockState(upPos);
-        upBlock = up;
-        isSnowy = String.valueOf(up).contains("minecraft:snow") && up.isSideSolidFullSquare(world, upPos, Direction.DOWN);
 
-        return canConnect(self, adjacent) && (up.isAir() || !up.isSideSolidFullSquare(world, upPos, Direction.DOWN) || isSnowy);
-    }
-
-    private static boolean fastSnowy(BlockRenderView world, BlockPos adjacentPos) {
-        var upPos = adjacentPos.up();
-        var up = world.getBlockState(upPos);
-        upBlock = up;
-        isSnowy = String.valueOf(up).contains("minecraft:snow") && up.isSideSolidFullSquare(world, upPos, Direction.DOWN);
-
-        return true;
+        return canConnect(self, adjacent) && (up.isAir() || isSnowy(world, selfPos) || !up.isSideSolidFullSquare(world, upPos, Direction.DOWN));
     }
 
     private static boolean canConnect(BlockState self, BlockState adjacent) {
         return self == adjacent;
     }
 
+    private static boolean isSnowy(BlockRenderView world, BlockPos selfPos) {
+        return String.valueOf(world.getBlockState(selfPos)).contains("block}[snowy=true]");
+    }
+
     @SuppressWarnings("deprecation")
     private static boolean spriteBake(MutableQuadView quad, BlockState state, Supplier<Random> randomSupplier) {
         var sprite = SpriteCalculator.calculateSprite(state, Direction.UP, randomSupplier);
 
-        if (isSnowy) {
-            sprite = SpriteCalculator.calculateSprite(upBlock, Direction.UP, randomSupplier);
-        }
-
-        if (sprite != null && (String.valueOf(sprite).contains("_top") || String.valueOf(sprite).contains("snow") || String.valueOf(sprite).contains("farmland") || String.valueOf(sprite).contains("path") || String.valueOf(sprite).contains("lium"))) {
-            if (!(isSnowy && !String.valueOf(upBlock).contains("minecraft:snow")) && !(isSnowy && String.valueOf(upBlock).contains("_top"))) {
-                quad.spriteBake(0, sprite, MutableQuadView.BAKE_LOCK_UV);
-                return true;
-            } else {
-                return false;
-            }
+        if (sprite != null && !String.valueOf(sprite).contains("missingno")) {
+            quad.spriteBake(0, sprite, MutableQuadView.BAKE_LOCK_UV);
+            return true;
         } else {
             return false;
         }
