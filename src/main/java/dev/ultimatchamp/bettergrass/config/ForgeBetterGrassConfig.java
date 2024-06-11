@@ -6,7 +6,7 @@ import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
 import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
 import dev.isxander.yacl3.config.v2.api.autogen.EnumCycler;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
-import dev.ultimatchamp.bettergrass.FabricBetterGrassBakedModel;
+import dev.ultimatchamp.bettergrass.ForgeBetterGrassBakedModel;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.util.Identifier;
@@ -14,8 +14,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class FabricBetterGrassConfig {
-    private static final ConfigClassHandler<FabricBetterGrassConfig> HANDLER = ConfigClassHandler.createBuilder(FabricBetterGrassConfig.class)
+public class ForgeBetterGrassConfig {
+    private static final ConfigClassHandler<ForgeBetterGrassConfig> HANDLER = ConfigClassHandler.createBuilder(ForgeBetterGrassConfig.class)
             .id(new Identifier("bettergrass", "bettergrass_config"))
             .serializer(config -> GsonConfigSerializerBuilder.create(config)
                     .setPath(FabricLoader.getInstance().getConfigDir().resolve("bettergrass.json5"))
@@ -26,7 +26,7 @@ public class FabricBetterGrassConfig {
     @SerialEntry(comment = "General\nOFF/FAST/FANCY (default: FANCY)")
     @AutoGen(category = "config")
     @EnumCycler()
-    public FabricBetterGrassBakedModel.BetterGrassMode betterGrassMode = FabricBetterGrassBakedModel.BetterGrassMode.FANCY;
+    public ForgeBetterGrassBakedModel.BetterGrassMode betterGrassMode = ForgeBetterGrassBakedModel.BetterGrassMode.FANCY;
 
     @SerialEntry(comment = "Advanced")
     public static List<String> grassBlocks =
@@ -59,7 +59,7 @@ public class FabricBetterGrassConfig {
         HANDLER.save();
     }
 
-    public static FabricBetterGrassConfig instance() {
+    public static ForgeBetterGrassConfig instance() {
         return HANDLER.instance();
     }
 

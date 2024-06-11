@@ -1,7 +1,7 @@
 package dev.ultimatchamp.bettergrass.mixin;
 
-import dev.ultimatchamp.bettergrass.FabricBetterGrassUnbakedModel;
-import dev.ultimatchamp.bettergrass.config.FabricBetterGrassConfig;
+import dev.ultimatchamp.bettergrass.ForgeBetterGrassUnbakedModel;
+import dev.ultimatchamp.bettergrass.config.ForgeBetterGrassConfig;
 import net.minecraft.client.render.model.ModelLoader;
 import net.minecraft.client.render.model.UnbakedModel;
 import net.minecraft.client.util.ModelIdentifier;
@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Set;
 
 @Mixin(ModelLoader.class)
-public class FabricBetterGrassModelLoaderMixin {
+public class ForgeBetterGrassModelLoaderMixin {
     @Shadow
     @Final
     private Map<Identifier, UnbakedModel> unbakedModels;
@@ -30,19 +30,19 @@ public class FabricBetterGrassModelLoaderMixin {
     private void onPutModel(Identifier id, UnbakedModel unbakedModel, CallbackInfo ci) {
         if (id instanceof ModelIdentifier modelId) {
             if (!modelId.getVariant().equals("inventory")) {
-                FabricBetterGrassConfig.instance().grassBlocks.forEach(s -> {
+                ForgeBetterGrassConfig.instance().grassBlocks.forEach(s -> {
                     if (modelId.toString().startsWith(s.split("\\[")[0]) && !modelId.toString().contains("snowy=true")) {
-                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
+                        var newModel = new ForgeBetterGrassUnbakedModel(unbakedModel);
                         this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         ci.cancel();
                     }
                 });
 
-                if (FabricBetterGrassConfig.instance().snowy) {
-                    FabricBetterGrassConfig.instance().grassBlocks.forEach(s -> {
+                if (ForgeBetterGrassConfig.instance().snowy) {
+                    ForgeBetterGrassConfig.instance().grassBlocks.forEach(s -> {
                         if (modelId.toString().startsWith(s.split("\\[")[0]) && modelId.toString().contains("snowy=true")) {
-                            var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
+                            var newModel = new ForgeBetterGrassUnbakedModel(unbakedModel);
                             this.unbakedModels.put(id, newModel);
                             this.modelsToLoad.addAll(newModel.getModelDependencies());
                             ci.cancel();
@@ -50,18 +50,18 @@ public class FabricBetterGrassModelLoaderMixin {
                     });
                 }
 
-                if (FabricBetterGrassConfig.instance().dirtPaths) {
+                if (ForgeBetterGrassConfig.instance().dirtPaths) {
                     if (modelId.toString().startsWith("minecraft:dirt_path".split("\\[")[0])) {
-                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
+                        var newModel = new ForgeBetterGrassUnbakedModel(unbakedModel);
                         this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         ci.cancel();
                     }
                 }
 
-                if (FabricBetterGrassConfig.instance().farmLands) {
+                if (ForgeBetterGrassConfig.instance().farmLands) {
                     if (modelId.toString().startsWith("minecraft:farmland".split("\\[")[0])) {
-                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
+                        var newModel = new ForgeBetterGrassUnbakedModel(unbakedModel);
                         this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         ci.cancel();

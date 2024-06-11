@@ -1,0 +1,29 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="Apache License 2.0"
+
+[[mods]]
+modId="bettergrass"
+version="1.0.10+1.20.1"
+displayName="ForgeBetterGrass"
+logoFile="icon.png"
+description='''
+Gamers can finally touch grass!?
+OptiFine's Fancy and Fast better grass standalone on Forge!
+'''
+credits="JayemCeekay, PepperCode1"
+authors="UltimatChamp"
+
+[[dependencies.bettergrass]]
+modId = "yet_another_config_lib_v3"
+mandatory = true
+versionRange = "*"
+ordering = "BEFORE"
+side = "CLIENT"
+
+[[dependencies.bettergrass]]
+modId = "fabric_api"
+mandatory = true
+versionRange = "*"
+ordering = "BEFORE"
+side = "CLIENT"

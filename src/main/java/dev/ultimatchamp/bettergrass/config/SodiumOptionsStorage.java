@@ -12,6 +12,6 @@ public class SodiumOptionsStorage implements OptionStorage<Object> {
 
     @Override
     public void save() {
-        FabricBetterGrassConfig.save();
+        ForgeBetterGrassConfig.save();
     }
 }

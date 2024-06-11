@@ -12,10 +12,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Collection;
 import java.util.function.Function;
 
-public class FabricBetterGrassUnbakedModel implements UnbakedModel {
+public class ForgeBetterGrassUnbakedModel implements UnbakedModel {
     private final UnbakedModel baseModel;
 
-    public FabricBetterGrassUnbakedModel(UnbakedModel unbakedModel) {
+    public ForgeBetterGrassUnbakedModel(UnbakedModel unbakedModel) {
         this.baseModel = unbakedModel;
     }
 
@@ -33,6 +33,6 @@ public class FabricBetterGrassUnbakedModel implements UnbakedModel {
     @Nullable
     @Override
     public BakedModel bake(Baker loader, Function<SpriteIdentifier, Sprite> textureGetter, ModelBakeSettings rotationContainer, Identifier modelId) {
-        return new FabricBetterGrassBakedModel(this.baseModel.bake(loader, textureGetter, rotationContainer, modelId));
+        return new ForgeBetterGrassBakedModel(this.baseModel.bake(loader, textureGetter, rotationContainer, modelId));
     }
 }
