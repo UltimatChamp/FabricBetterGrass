@@ -32,7 +32,7 @@ public class FabricBetterGrassUnbakedModel implements UnbakedModel {
 
     @Nullable
     @Override
-    public BakedModel bake(Baker loader, Function<SpriteIdentifier, Sprite> textureGetter, ModelBakeSettings rotationContainer, Identifier modelId) {
-        return new FabricBetterGrassBakedModel(this.baseModel.bake(loader, textureGetter, rotationContainer, modelId));
+    public BakedModel bake(Baker loader, Function<SpriteIdentifier, Sprite> textureGetter, ModelBakeSettings rotationContainer) {
+        return new FabricBetterGrassBakedModel(this.baseModel.bake(loader, textureGetter, rotationContainer));
     }
 }
