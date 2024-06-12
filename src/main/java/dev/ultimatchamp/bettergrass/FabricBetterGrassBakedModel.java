@@ -78,7 +78,7 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
     }
 
     private static boolean isSnowy(BlockRenderView world, BlockPos selfPos) {
-        return String.valueOf(world.getBlockState(selfPos)).contains("block}[snowy=true]");
+        return String.valueOf(world.getBlockState(selfPos)).contains("[snowy=true]");
     }
 
     @SuppressWarnings("deprecation")
