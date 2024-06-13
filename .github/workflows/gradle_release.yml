@@ -7,14 +7,6 @@ on:
         description: 'Version'
         required: true
         type: string
-      min_mc:
-        description: 'Minimum MC Version'
-        required: true
-        type: string
-      incompat_mc:
-        description: 'Incompatible MC Version'
-        required: true
-        type: string
 
 jobs:
   build:
@@ -54,7 +46,7 @@ jobs:
           name: Artifacts
           path: build/libs/*.jar
 
-      - name: Publish release
+      - name: (1) Publish release
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           modrinth-id: m5T5xmUy
@@ -64,26 +56,64 @@ jobs:
           curseforge-id: 1026394
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
-          github-tag: ${{ inputs.version }}
+          github-tag: ${{ inputs.version }}+1.20.6
           github-generate-changelog: false
           github-draft: false
           github-prerelease: false
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
           files: |
-            build/libs/!(*-@(sources)).jar
-            build/libs/*-@(sources).jar
+            build/libs/*1.20.6.jar
+            build/libs/*1.20.6-sources.jar
 
-          name: FabricBetterGrass ${{ inputs.version }}
-          version: ${{ inputs.version }}
+          name: FabricBetterGrass ${{ inputs.version }}+1.20.6
+          version: ${{ inputs.version }}+1.20.6
           version-type: release
           changelog-file: CHANGELOG.md
 
           loaders: |
             fabric
           game-versions: |
-            [${{ inputs.min_mc }},${{ inputs.incompat_mc }})
+            [1.20,1.21)
           game-version-filter: releases
+          dependencies: |
+            fabric-api(required){modrinth:P7dR8mSH}{curseforge:306612}#(ignore:github)
+            yacl(required){modrinth:1eAoo2KR}{curseforge:667299}#(ignore:github)
+
+          retry-attempts: 2
+          retry-delay: 10000
+          fail-mode: fail
+
+      - name: (2) Publish release
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-id: m5T5xmUy
+          modrinth-featured: false
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          curseforge-id: 1026394
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+
+          github-tag: ${{ inputs.version }}+1.21rc1
+          github-generate-changelog: false
+          github-draft: false
+          github-prerelease: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+          files: |
+            build/libs/*1.21rc1.jar
+            build/libs/*1.21rc1-sources.jar
+
+          name: FabricBetterGrass ${{ inputs.version }}+1.21rc1
+          version: ${{ inputs.version }}+1.21rc1
+          version-type: release
+          changelog-file: CHANGELOG.md
+
+          loaders: |
+            fabric
+          game-versions: |
+            >1.20.6
+          game-version-filter: none
           dependencies: |
             fabric-api(required){modrinth:P7dR8mSH}{curseforge:306612}#(ignore:github)
             yacl(required){modrinth:1eAoo2KR}{curseforge:667299}#(ignore:github)

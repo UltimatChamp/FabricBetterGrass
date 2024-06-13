@@ -1,9 +1,16 @@
 plugins {
     id 'fabric-loom' version '1.6.+'
-    id 'maven-publish'
 }
 
-version = project.mod_version
+// for snapshots
+def mcVer = ""
+for (char c in (property('deps.minecraft_version') as List<Character>)) {
+    if (c.toString() != '-') {
+        mcVer += c
+    }
+}
+
+version = project.mod_version + "+" + mcVer
 group = project.maven_group
 
 repositories {
@@ -22,15 +29,21 @@ repositories {
 }
 
 dependencies {
-    // To change the versions see the gradle.properties file
-    minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    minecraft "com.mojang:minecraft:${property('deps.minecraft_version')}"
+    mappings "net.fabricmc:yarn:${property('deps.yarn_mappings')}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
-    modImplementation "maven.modrinth:modmenu:${project.modmenu_version}"
-    modImplementation "maven.modrinth:sodium:${project.sodium_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${property('deps.fabric_version')}"
+    modImplementation "dev.isxander:yet-another-config-lib:${property('deps.yacl_version')}"
+    modImplementation "maven.modrinth:modmenu:${property('deps.modmenu_version')}"
+    modImplementation "maven.modrinth:sodium:${property('deps.sodium_version')}"
+}
+
+loom {
+    runConfigs.all {
+        ideConfigGenerated true
+        runDir "../../run"
+    }
 }
 
 processResources {
