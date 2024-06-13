@@ -3,15 +3,9 @@
   "yacl3.config.bettergrass:bettergrass_config.category.config": "Основные настройки",
   "yacl3.config.bettergrass:bettergrass_config.betterGrassMode":"Режим улучшенной травы",
   "yacl3.config.bettergrass:bettergrass_config.betterGrassMode.desc":"\u00A74Выкл \u00A7r- Блоки травы выглядят как обычно\n\u00A73Быстро \u00A7r- Верхняя текстура блока травы будет применена ко всем его сторонам (быстро)\n\u00A7dДетально \u00A7r- Верхняя текстура блока травы будет применена только к некоторым его сторонам (медленно)\n\n\u00A7cПерезапуск мира или F3+A необходимы чтобы применить эти изменения.",
-  "yacl3.config.enum.BetterGrassMode.off":"\u00A74Выкл",
-  "yacl3.config.enum.BetterGrassMode.fast":"\u00A73Быстро",
-  "yacl3.config.enum.BetterGrassMode.fancy":"\u00A7dДетально",
   "yacl3.config.bettergrass:bettergrass_config.category.additional":"Additional",
   "yacl3.config.bettergrass:bettergrass_config.category.additional.group.connectedblocks":"Connected Blocks",
-  "yacl3.config.bettergrass:bettergrass_config.dirtPaths":"Dirt Paths",
   "yacl3.config.bettergrass:bettergrass_config.dirtPaths.desc":"Connects dirt paths too!\n\n\u00A7cMay cause some visual bugs!",
-  "yacl3.config.bettergrass:bettergrass_config.farmLands":"Farmlands",
   "yacl3.config.bettergrass:bettergrass_config.farmLands.desc":"Connects farmlands too!\n\n\u00A7cMay cause some visual bugs!",
-  "yacl3.config.bettergrass:bettergrass_config.snowy":"Snowy grass",
   "yacl3.config.bettergrass:bettergrass_config.snowy.desc":"Connects snowy grass too!"
 }

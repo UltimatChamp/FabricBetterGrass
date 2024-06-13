@@ -3,15 +3,9 @@
   "yacl3.config.bettergrass:bettergrass_config.category.config": "Generali",
   "yacl3.config.bettergrass:bettergrass_config.betterGrassMode":"Modalità Erba Migliorata",
   "yacl3.config.bettergrass:bettergrass_config.betterGrassMode.desc":"\u00A74Disattivata \u00A7r- Blocchi di erba classici\n\u00A73Rapida \u00A7r- La texture superiore verrà applicata a tutti il lati del blocco d'erba (veloce)\n\u00A7dDettagliata \u00A7r- La texture superiore verrà applicata  dinamicamnete a i lati del blocco d'erba richiesti (lento)\n\n\u00A7cPer rendere effettivi i cambiamenti è necessario un ricaricamento del mondo o F3+A.",
-  "yacl3.config.enum.BetterGrassMode.off":"\u00A74Off",
-  "yacl3.config.enum.BetterGrassMode.fast":"\u00A73Rapida",
-  "yacl3.config.enum.BetterGrassMode.fancy":"\u00A7dDettagliata",
   "yacl3.config.bettergrass:bettergrass_config.category.additional":"Aggiuntive",
   "yacl3.config.bettergrass:bettergrass_config.category.additional.group.connectedblocks":"Blocchi Connessi",
-  "yacl3.config.bettergrass:bettergrass_config.dirtPaths":"Sentiero sterrato",
   "yacl3.config.bettergrass:bettergrass_config.dirtPaths.desc":"Connetti anche i sentieri sterrati!\n\n\u00A7cPotrebbe causare dei bug visuali!",
-  "yacl3.config.bettergrass:bettergrass_config.farmLands":"Terra zappata",
   "yacl3.config.bettergrass:bettergrass_config.farmLands.desc":"Connectti anche la terra zappata!\n\n\u00A7cPotrebbe causare dei bug visuali!",
-  "yacl3.config.bettergrass:bettergrass_config.snowy":"Snowy grass",
   "yacl3.config.bettergrass:bettergrass_config.snowy.desc":"Connects snowy grass too!"
 }
