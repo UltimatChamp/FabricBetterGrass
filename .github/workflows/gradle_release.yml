@@ -44,7 +44,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Artifacts
-          path: build/libs/*.jar
+          path: versions/*.jar
 
       - name: (1) Publish release
         uses: Kir-Antipov/mc-publish@v3.3
@@ -63,8 +63,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
           files: |
-            build/libs/*1.20.6.jar
-            build/libs/*1.20.6-sources.jar
+            versions/*1.20.6.jar
+            versions/*1.20.6-sources.jar
 
           name: FabricBetterGrass ${{ inputs.version }}+1.20.6
           version: ${{ inputs.version }}+1.20.6
@@ -101,8 +101,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
           files: |
-            build/libs/*1.21rc1.jar
-            build/libs/*1.21rc1-sources.jar
+            versions/*1.21rc1.jar
+            versions/*1.21rc1-sources.jar
 
           name: FabricBetterGrass ${{ inputs.version }}+1.21rc1
           version: ${{ inputs.version }}+1.21rc1
