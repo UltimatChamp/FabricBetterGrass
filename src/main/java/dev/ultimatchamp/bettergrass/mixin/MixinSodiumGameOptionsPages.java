@@ -35,7 +35,7 @@ public class MixinSodiumGameOptionsPages {
                     .setFlags(OptionFlag.REQUIRES_RENDERER_RELOAD)
                     .build()
                 ).add(OptionImpl.createBuilder(boolean.class, SodiumOptionsStorage.INSTANCE)
-                                .setName(Text.translatable("yacl3.config.bettergrass:bettergrass_config.dirtPaths"))
+                                .setName(Text.translatable("block.minecraft.dirt_path"))
                                 .setTooltip(Text.translatable("yacl3.config.bettergrass:bettergrass_config.dirtPaths.desc"))
                                 .setControl(TickBoxControl::new)
                                 .setBinding((options, value) -> FabricBetterGrassConfig.instance().dirtPaths = value,
@@ -44,7 +44,7 @@ public class MixinSodiumGameOptionsPages {
                                 .setFlags(OptionFlag.REQUIRES_ASSET_RELOAD)
                                 .build()
                 ).add(OptionImpl.createBuilder(boolean.class, SodiumOptionsStorage.INSTANCE)
-                        .setName(Text.translatable("yacl3.config.bettergrass:bettergrass_config.farmLands"))
+                        .setName(Text.translatable("block.minecraft.farmland"))
                         .setTooltip(Text.translatable("yacl3.config.bettergrass:bettergrass_config.farmLands.desc"))
                         .setControl(TickBoxControl::new)
                         .setBinding((options, value) -> FabricBetterGrassConfig.instance().farmLands = value,
@@ -53,7 +53,7 @@ public class MixinSodiumGameOptionsPages {
                         .setFlags(OptionFlag.REQUIRES_ASSET_RELOAD)
                         .build()
                 ).add(OptionImpl.createBuilder(boolean.class, SodiumOptionsStorage.INSTANCE)
-                        .setName(Text.translatable("yacl3.config.bettergrass:bettergrass_config.snowy"))
+                        .setName(Text.translatable("block.minecraft.snow"))
                         .setTooltip(Text.translatable("yacl3.config.bettergrass:bettergrass_config.snowy.desc"))
                         .setControl(TickBoxControl::new)
                         .setBinding((options, value) -> FabricBetterGrassConfig.instance().snowy = value,

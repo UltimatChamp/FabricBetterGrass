@@ -18,6 +18,7 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
+    maven { url "https://maven.isxander.dev/releases" }
 }
 
 dependencies {
@@ -27,7 +28,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    modImplementation "maven.modrinth:yacl:${project.yacl_version}"
+    modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
     modImplementation "maven.modrinth:modmenu:${project.modmenu_version}"
     modImplementation "maven.modrinth:sodium:${project.sodium_version}"
 }
