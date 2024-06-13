@@ -4,6 +4,7 @@ import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
 import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
+import dev.isxander.yacl3.config.v2.api.autogen.CustomName;
 import dev.isxander.yacl3.config.v2.api.autogen.EnumCycler;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import dev.ultimatchamp.bettergrass.FabricBetterGrassBakedModel;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class FabricBetterGrassConfig {
     private static final ConfigClassHandler<FabricBetterGrassConfig> HANDLER = ConfigClassHandler.createBuilder(FabricBetterGrassConfig.class)
-            .id(new Identifier("bettergrass", "bettergrass_config"))
+            .id(Identifier.of("bettergrass", "bettergrass_config"))
             .serializer(config -> GsonConfigSerializerBuilder.create(config)
                     .setPath(FabricLoader.getInstance().getConfigDir().resolve("bettergrass.json5"))
                     .setJson5(true)
@@ -38,16 +39,19 @@ public class FabricBetterGrassConfig {
 
     @SerialEntry(comment = "Additional\n(default: false)")
     @AutoGen(category = "additional", group = "connectedblocks")
+    @CustomName("block.minecraft.dirt_path")
     @Boolean(formatter = Boolean.Formatter.YES_NO, colored = true)
     public boolean dirtPaths = false;
 
     @SerialEntry(comment = "(default: false)")
     @AutoGen(category = "additional", group = "connectedblocks")
+    @CustomName("block.minecraft.farmland")
     @Boolean(formatter = Boolean.Formatter.YES_NO, colored = true)
     public boolean farmLands = false;
 
     @SerialEntry(comment = "(default: true)")
     @AutoGen(category = "additional", group = "connectedblocks")
+    @CustomName("block.minecraft.snow")
     @Boolean(formatter = Boolean.Formatter.YES_NO, colored = true)
     public boolean snowy = true;
 

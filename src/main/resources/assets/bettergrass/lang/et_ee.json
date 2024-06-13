@@ -3,15 +3,9 @@
   "yacl3.config.bettergrass:bettergrass_config.category.config": "Üldine",
   "yacl3.config.bettergrass:bettergrass_config.betterGrassMode":"Parema muru režiim",
   "yacl3.config.bettergrass:bettergrass_config.betterGrassMode.desc":"\u00A74Väljas \u00A7r- tavapärase välimusega muruplokid\n\u00A73Kiire \u00A7r- pealmine murutekstuur rakendatakse muruplokkide kõigile külgedele (kiire)\n\u00A7dUhke \u00A7r- pealmine murutekstuur rakendatakse dünaamiliselt muruplokkide vajalikele külgedele (aeglane)\n\n\u00a7cMuudatuste rakendamiseks on vajalik maailma taaslaadimine või F3+A.",
-  "yacl3.config.enum.BetterGrassMode.off":"\u00A74Väljas",
-  "yacl3.config.enum.BetterGrassMode.fast":"\u00A73Kiire",
-  "yacl3.config.enum.BetterGrassMode.fancy":"\u00A7dUhke",
   "yacl3.config.bettergrass:bettergrass_config.category.additional":"Täiendavad",
   "yacl3.config.bettergrass:bettergrass_config.category.additional.group.connectedblocks":"Ühendatud plokid",
-  "yacl3.config.bettergrass:bettergrass_config.dirtPaths":"Mullarajad",
   "yacl3.config.bettergrass:bettergrass_config.dirtPaths.desc":"Ühendab ka mullaradasid!\n\n\u00A7cVõib põhjustada visuaalseid ebaühtlusi!",
-  "yacl3.config.bettergrass:bettergrass_config.farmLands":"Põllumaa",
   "yacl3.config.bettergrass:bettergrass_config.farmLands.desc":"Ühendab ka põllumaaplokke!\n\n\u00A7cVõib põhjustada visuaalseid ebaühtlusi!",
-  "yacl3.config.bettergrass:bettergrass_config.snowy":"Snowy grass",
   "yacl3.config.bettergrass:bettergrass_config.snowy.desc":"Connects snowy grass too!"
 }
