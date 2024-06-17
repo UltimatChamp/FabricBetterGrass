@@ -153,7 +153,6 @@ publishMods {
         accessToken = providers.environmentVariable("GITHUB_TOKEN")
         repository = "UltimatChamp/FabricBetterGrass"
         commitish = "main"
-        tagName = "release/${version}"
 
         // Discord
         announcementTitle = "Download from GitHub"
