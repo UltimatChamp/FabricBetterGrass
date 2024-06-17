@@ -95,11 +95,11 @@ publishMods {
     type = STABLE
     file = remapJar.archiveFile
     modLoaders.add("fabric")
-    displayName = "FabricBetterGrass $version"
+    displayName = "FabricBetterGrass ${version}"
 
     if (version.toString().contains("1.20.6")) {
         modrinth("m1.20.x") {
-            projectId = "$modrinthId"
+            projectId = modrinthId.toString()
             accessToken = providers.environmentVariable("MODRINTH_TOKEN")
             requires("fabric-api", "yacl")
             minecraftVersionRange {
@@ -113,7 +113,7 @@ publishMods {
         }
 
         curseforge("c1.20.x") {
-            projectId = "$curseforgeId"
+            projectId = curseforgeId.toString()
             accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
             requires("fabric-api", "yacl")
             minecraftVersionRange {
@@ -129,7 +129,7 @@ publishMods {
 
     if (version.toString().contains("1.21")) {
         modrinth("m1.21") {
-            projectId = "$modrinthId"
+            projectId = modrinthId.toString()
             accessToken = providers.environmentVariable("MODRINTH_TOKEN")
             minecraftVersions.add("1.21")
 
@@ -139,7 +139,7 @@ publishMods {
         }
 
         curseforge("c1.21") {
-            projectId = "$curseforgeId"
+            projectId = curseforgeId.toString()
             accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
             minecraftVersions.add("1.21")
 
@@ -153,7 +153,7 @@ publishMods {
         accessToken = providers.environmentVariable("GITHUB_TOKEN")
         repository = "UltimatChamp/FabricBetterGrass"
         commitish = "main"
-        tagName = "$version"
+        tagName = version.toString()
 
         // Discord
         announcementTitle = "Download from GitHub"
@@ -162,6 +162,6 @@ publishMods {
     discord {
         webhookUrl = providers.environmentVariable("DISCORD_WEBHOOK")
         username = "FabricBetterGrass Releases"
-        avatarUrl = "https://cdn.modrinth.com/data/$modrinthId/c67c1f900e8344e462bb5c21fb512579f3b0be46.png"
+        avatarUrl = "https://cdn.modrinth.com/data/${modrinthId}/c67c1f900e8344e462bb5c21fb512579f3b0be46.png"
     }
 }
