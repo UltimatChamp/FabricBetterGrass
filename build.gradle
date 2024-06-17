@@ -14,10 +14,6 @@ for (char c in (property('deps.minecraft_version') as List<Character>)) {
 version = project.mod_version + "+" + mcVer
 group = project.maven_group
 
-// Providers
-def modrinthId = "m5T5xmUy"
-def curseforgeId = "1026394"
-
 repositories {
     exclusiveContent {
         forRepository {
@@ -99,7 +95,7 @@ publishMods {
 
     if (version.toString().contains("1.20.6")) {
         modrinth("m1.20.x") {
-            projectId = modrinthId.toString()
+            projectId = "m5T5xmUy"
             accessToken = providers.environmentVariable("MODRINTH_TOKEN")
             requires("fabric-api", "yacl")
             minecraftVersionRange {
@@ -113,7 +109,7 @@ publishMods {
         }
 
         curseforge("c1.20.x") {
-            projectId = curseforgeId.toString()
+            projectId = "1026394"
             accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
             requires("fabric-api", "yacl")
             minecraftVersionRange {
@@ -129,7 +125,7 @@ publishMods {
 
     if (version.toString().contains("1.21")) {
         modrinth("m1.21") {
-            projectId = modrinthId.toString()
+            projectId = "m5T5xmUy"
             accessToken = providers.environmentVariable("MODRINTH_TOKEN")
             minecraftVersions.add("1.21")
 
@@ -139,7 +135,7 @@ publishMods {
         }
 
         curseforge("c1.21") {
-            projectId = curseforgeId.toString()
+            projectId = "1026394"
             accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
             minecraftVersions.add("1.21")
 
@@ -161,6 +157,6 @@ publishMods {
     discord {
         webhookUrl = providers.environmentVariable("DISCORD_WEBHOOK")
         username = "FabricBetterGrass Releases"
-        avatarUrl = "https://cdn.modrinth.com/data/${modrinthId}/c67c1f900e8344e462bb5c21fb512579f3b0be46.png"
+        avatarUrl = "https://cdn.modrinth.com/data/m5T5xmUy/c67c1f900e8344e462bb5c21fb512579f3b0be46.png"
     }
 }
