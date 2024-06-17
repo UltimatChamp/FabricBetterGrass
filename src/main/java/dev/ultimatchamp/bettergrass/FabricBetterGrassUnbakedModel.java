@@ -32,7 +32,12 @@ public class FabricBetterGrassUnbakedModel implements UnbakedModel {
 
     @Nullable
     @Override
+    //? if >1.20.6 {
     public BakedModel bake(Baker loader, Function<SpriteIdentifier, Sprite> textureGetter, ModelBakeSettings rotationContainer) {
         return new FabricBetterGrassBakedModel(this.baseModel.bake(loader, textureGetter, rotationContainer));
     }
+    //?} else
+    /*public BakedModel bake(Baker loader, Function<SpriteIdentifier, Sprite> textureGetter, ModelBakeSettings rotationContainer, Identifier modelId) {
+        return new FabricBetterGrassBakedModel(this.baseModel.bake(loader, textureGetter, rotationContainer, modelId));
+    }*/
 }

@@ -1,5 +1,6 @@
 plugins {
     id 'fabric-loom' version '1.6.+'
+    id 'me.modmuss50.mod-publish-plugin' version '0.5.1'
 }
 
 // for snapshots
@@ -13,6 +14,10 @@ for (char c in (property('deps.minecraft_version') as List<Character>)) {
 version = project.mod_version + "+" + mcVer
 group = project.maven_group
 
+// Providers
+def modrinthId = "m5T5xmUy"
+def curseforgeId = "1026394"
+
 repositories {
     exclusiveContent {
         forRepository {
@@ -25,7 +30,6 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
-    maven { url "https://maven.isxander.dev/releases" }
 }
 
 dependencies {
@@ -34,7 +38,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${property('deps.fabric_version')}"
-    modImplementation "dev.isxander:yet-another-config-lib:${property('deps.yacl_version')}"
+    modImplementation "maven.modrinth:yacl:${property('deps.yacl_version')}"
     modImplementation "maven.modrinth:modmenu:${property('deps.modmenu_version')}"
     modImplementation "maven.modrinth:sodium:${property('deps.sodium_version')}"
 }
@@ -43,6 +47,14 @@ loom {
     runConfigs.all {
         ideConfigGenerated true
         runDir "../../run"
+    }
+}
+
+if (stonecutter.current.isActive) {
+    rootProject.tasks.register("buildActive") {
+        group = "project"
+        dependsOn(tasks.named("build"))
+        dependsOn(tasks.named("publishMods"))
     }
 }
 
@@ -75,5 +87,81 @@ java {
 jar {
     from("LICENSE") {
         rename { "${it}_${project.archivesBaseName}" }
+    }
+}
+
+publishMods {
+    changelog = file("../../CHANGELOG.md").text
+    type = STABLE
+    file = remapJar.archiveFile
+    modLoaders.add("fabric")
+    displayName = "FabricBetterGrass $version"
+
+    if (version.toString().contains("1.20.6")) {
+        modrinth("m1.20.x") {
+            projectId = "$modrinthId"
+            accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+            requires("fabric-api", "yacl")
+            minecraftVersionRange {
+                start = "1.20"
+                end = "1.20.6"
+            }
+
+            // Discord
+            announcementTitle = "Download from CurseForge"
+            projectSlug = "fabricbettergrass"
+        }
+
+        curseforge("c1.20.x") {
+            projectId = "$curseforgeId"
+            accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
+            requires("fabric-api", "yacl")
+            minecraftVersionRange {
+                start = "1.20"
+                end = "1.20.6"
+            }
+
+            // Discord
+            announcementTitle = "Download from CurseForge"
+            projectSlug = "fabricbettergrass"
+        }
+    }
+
+    if (version.toString().contains("1.21")) {
+        modrinth("m1.21") {
+            projectId = "$modrinthId"
+            accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+            minecraftVersions.add("1.21")
+
+            // Discord
+            announcementTitle = "Download from Modrinth"
+            projectSlug = "fabricbettergrass"
+        }
+
+        curseforge("c1.21") {
+            projectId = "$curseforgeId"
+            accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
+            minecraftVersions.add("1.21")
+
+            // Discord
+            announcementTitle = "Download from CurseForge"
+            projectSlug = "fabricbettergrass"
+        }
+    }
+
+    github {
+        accessToken = providers.environmentVariable("GITHUB_TOKEN")
+        repository = "UltimatChamp/FabricBetterGrass"
+        commitish = "main"
+        tagName = "$version"
+
+        // Discord
+        announcementTitle = "Download from GitHub"
+    }
+
+    discord {
+        webhookUrl = providers.environmentVariable("DISCORD_WEBHOOK")
+        username = "FabricBetterGrass Releases"
+        avatarUrl = "https://cdn.modrinth.com/data/$modrinthId/c67c1f900e8344e462bb5c21fb512579f3b0be46.png"
     }
 }
