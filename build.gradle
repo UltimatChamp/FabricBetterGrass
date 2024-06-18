@@ -93,7 +93,7 @@ publishMods {
     modLoaders.add("fabric")
     displayName = "FabricBetterGrass ${version}"
 
-    if (version.toString().contains("1.20.6")) {
+    if ("${project.version}".contains("1.20.6")) {
         modrinth("m1.20.x") {
             projectId = "m5T5xmUy"
             accessToken = providers.environmentVariable("MODRINTH_TOKEN")
@@ -105,7 +105,6 @@ publishMods {
 
             // Discord
             announcementTitle = "Download from CurseForge"
-            projectSlug = "fabricbettergrass"
         }
 
         curseforge("c1.20.x") {
@@ -123,7 +122,7 @@ publishMods {
         }
     }
 
-    if (version.toString().contains("1.21")) {
+    if ("${project.version}".contains("1.21")) {
         modrinth("m1.21") {
             projectId = "m5T5xmUy"
             accessToken = providers.environmentVariable("MODRINTH_TOKEN")
@@ -131,7 +130,6 @@ publishMods {
 
             // Discord
             announcementTitle = "Download from Modrinth"
-            projectSlug = "fabricbettergrass"
         }
 
         curseforge("c1.21") {
