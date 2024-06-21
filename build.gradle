@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.6.+'
+    id 'fabric-loom' version '1.7.+'
     id 'me.modmuss50.mod-publish-plugin' version '0.5.1'
 }
 
@@ -63,7 +63,12 @@ processResources {
     }
 }
 
-def targetJavaVersion = 21
+def targetJavaVersion
+if ("${project.version}".contains("1.20"))
+    targetJavaVersion = 17
+else
+    targetJavaVersion = 21
+
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
@@ -93,7 +98,7 @@ publishMods {
     modLoaders.add("fabric")
     displayName = "FabricBetterGrass ${project.version}"
 
-    if ("${project.version}".contains("1.20.6")) {
+    if ("${project.version}".contains("1.20")) {
         modrinth("m1.20.x") {
             projectId = "m5T5xmUy"
             accessToken = providers.environmentVariable("MODRINTH_TOKEN")
