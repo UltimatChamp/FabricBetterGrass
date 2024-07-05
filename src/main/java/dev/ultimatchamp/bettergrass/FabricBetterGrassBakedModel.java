@@ -1,13 +1,11 @@
 package dev.ultimatchamp.bettergrass;
 
-import dev.isxander.yacl3.api.NameableEnum;
 import dev.ultimatchamp.bettergrass.config.FabricBetterGrassConfig;
 import net.fabricmc.fabric.api.renderer.v1.mesh.MutableQuadView;
 import net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel;
 import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.render.model.BakedModel;
-import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -26,29 +24,13 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
         return false;
     }
 
-    public enum BetterGrassMode implements NameableEnum {
-        OFF("options.off"),
-        FAST("options.graphics.fast"),
-        FANCY("options.graphics.fancy");
-
-        private final String displayName;
-        BetterGrassMode(String displayName) {
-            this.displayName = displayName;
-        }
-
-        @Override
-        public Text getDisplayName() {
-            return Text.translatable(displayName);
-        }
-    }
-
     @Override
     public void emitBlockQuads(BlockRenderView blockView, BlockState state, BlockPos pos, Supplier<Random> randomSupplier, RenderContext context) {
         context.pushTransform(quad -> {
 
-            if (FabricBetterGrassConfig.instance().betterGrassMode.equals(BetterGrassMode.OFF)) {
+            if (FabricBetterGrassConfig.instance().betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.OFF)) {
                 return true;
-            } else if (FabricBetterGrassConfig.instance().betterGrassMode.equals(BetterGrassMode.FAST)) {
+            } else if (FabricBetterGrassConfig.instance().betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.FAST)) {
                 if (quad.nominalFace().getAxis() != Direction.Axis.Y) {
                     if (isSnowy(blockView, pos))
                         spriteBake(quad, blockView.getBlockState(pos.up()), randomSupplier);
@@ -56,7 +38,7 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
                         spriteBake(quad, blockView.getBlockState(pos), randomSupplier);
                     return true;
                 }
-            } else if (FabricBetterGrassConfig.instance().betterGrassMode.equals(BetterGrassMode.FANCY)) {
+            } else if (FabricBetterGrassConfig.instance().betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.FANCY)) {
                 if (quad.nominalFace().getAxis() != Direction.Axis.Y) {
                     Direction face = quad.nominalFace();
 

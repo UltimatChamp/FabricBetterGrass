@@ -1,6 +1,5 @@
 package dev.ultimatchamp.bettergrass.mixin;
 
-import dev.ultimatchamp.bettergrass.FabricBetterGrassBakedModel;
 import dev.ultimatchamp.bettergrass.config.FabricBetterGrassConfig;
 import dev.ultimatchamp.bettergrass.config.SodiumOptionsStorage;
 import me.jellysquid.mods.sodium.client.gui.SodiumGameOptionPages;
@@ -21,10 +20,10 @@ public class MixinSodiumGameOptionsPages {
     @Inject(method = "quality", at = @At(value = "INVOKE", target = "Lme/jellysquid/mods/sodium/client/gui/options/OptionGroup;createBuilder()Lme/jellysquid/mods/sodium/client/gui/options/OptionGroup$Builder;", ordinal = 1, shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILSOFT, remap = false)
     private static void betterGrass(CallbackInfoReturnable<OptionPage> cir, List<OptionGroup> groups) {
         groups.add(OptionGroup.createBuilder()
-                .add(OptionImpl.createBuilder(FabricBetterGrassBakedModel.BetterGrassMode.class, SodiumOptionsStorage.INSTANCE)
+                .add(OptionImpl.createBuilder(FabricBetterGrassConfig.BetterGrassMode.class, SodiumOptionsStorage.INSTANCE)
                     .setName(Text.translatable("yacl3.config.bettergrass:bettergrass_config.betterGrassMode"))
                     .setTooltip(Text.translatable("yacl3.config.bettergrass:bettergrass_config.betterGrassMode.desc"))
-                    .setControl((opt) -> new CyclingControl<>(opt, FabricBetterGrassBakedModel.BetterGrassMode.class, new Text[]{
+                    .setControl((opt) -> new CyclingControl<>(opt, FabricBetterGrassConfig.BetterGrassMode.class, new Text[]{
                         Text.translatable("options.off"),
                         Text.translatable("options.graphics.fast"),
                         Text.translatable("options.graphics.fancy")

@@ -9,6 +9,9 @@ public class FabricBetterGrass implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         FabricBetterGrassConfig.load();
-        Log.info(LogCategory.LOG, "Gamers can finally touch grass!?");
+        if (FabricBetterGrassConfig.instance().betterGrassMode == FabricBetterGrassConfig.BetterGrassMode.OFF)
+            Log.info(LogCategory.LOG, "[FabricBetterGrass] Better Grass is disabled.");
+        else
+            Log.info(LogCategory.LOG, "[FabricBetterGrass] [" + FabricBetterGrassConfig.instance().betterGrassMode.toString() + "] Gamers can finally touch grass!?");
     }
 }

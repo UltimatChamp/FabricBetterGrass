@@ -1,15 +1,14 @@
 package dev.ultimatchamp.bettergrass.config;
 
+import dev.isxander.yacl3.api.NameableEnum;
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
-import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
+import dev.isxander.yacl3.config.v2.api.autogen.*;
 import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
-import dev.isxander.yacl3.config.v2.api.autogen.CustomName;
-import dev.isxander.yacl3.config.v2.api.autogen.EnumCycler;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
-import dev.ultimatchamp.bettergrass.FabricBetterGrassBakedModel;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
@@ -27,7 +26,23 @@ public class FabricBetterGrassConfig {
     @SerialEntry(comment = "General\nOFF/FAST/FANCY (default: FANCY)")
     @AutoGen(category = "config")
     @EnumCycler()
-    public FabricBetterGrassBakedModel.BetterGrassMode betterGrassMode = FabricBetterGrassBakedModel.BetterGrassMode.FANCY;
+    public BetterGrassMode betterGrassMode = BetterGrassMode.FANCY;
+
+    public static enum BetterGrassMode implements NameableEnum {
+        OFF("options.off"),
+        FAST("options.graphics.fast"),
+        FANCY("options.graphics.fancy");
+
+        private final String displayName;
+        BetterGrassMode(String displayName) {
+            this.displayName = displayName;
+        }
+
+        @Override
+        public Text getDisplayName() {
+            return Text.translatable(displayName);
+        }
+    }
 
     @SerialEntry(comment = "Advanced")
     public static List<String> grassBlocks =
