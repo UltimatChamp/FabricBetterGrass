@@ -109,7 +109,7 @@ publishMods {
             }
 
             // Discord
-            announcementTitle = "Download from CurseForge"
+            announcementTitle = "Download from Modrinth"
         }
 
         curseforge("c1.20.x") {
