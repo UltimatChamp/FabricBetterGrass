@@ -33,7 +33,7 @@ _OptiFine's Fancy_ and _Fast **better grass**_ implemented on Fabric!
 <hr>
 
 ### **Fully Configurable**
-<center><img alt="YACL" width="250px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/1f9c023236d4c49e65f9a9640c7cf0a5ea69d94d.png"><img alt="Sodium" width="250px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/2b728cbec1560784c72e8ae7b0c043391707f86f.png"></center>
+<center><img alt="YACL" width="250px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/7f7ae8f22bc0898f932b438faa983de17b79c944.png"><img alt="Sodium" width="250px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/2b728cbec1560784c72e8ae7b0c043391707f86f.png"></center>
 
 <hr>
 
