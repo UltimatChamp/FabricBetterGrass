@@ -7,7 +7,8 @@
   ],
   "client": [
     "FabricBetterGrassModelLoaderMixin",
-    "MixinSodiumGameOptionsPages"
+    "SodiumGameOptionsPagesMixin",
+    "VideoOptionsScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
