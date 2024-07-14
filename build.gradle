@@ -1,18 +1,22 @@
 plugins {
-    id 'fabric-loom' version '1.7.+'
-    id 'me.modmuss50.mod-publish-plugin' version '0.5.1'
+    id "fabric-loom" version "1.7.+"
+    id "me.modmuss50.mod-publish-plugin" version "0.5.2"
 }
 
 // for snapshots
 def mcVer = ""
-for (char c in (property('deps.minecraft_version') as List<Character>)) {
-    if (c.toString() != '-') {
+for (char c in (property("deps.minecraft_version") as List<Character>)) {
+    if (c.toString() != "-") {
         mcVer += c
     }
 }
 
 version = project.mod_version + "+" + mcVer
 group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
 
 repositories {
     exclusiveContent {
@@ -28,22 +32,22 @@ repositories {
     }
 }
 
-dependencies {
-    minecraft "com.mojang:minecraft:${property('deps.minecraft_version')}"
-    mappings "net.fabricmc:yarn:${property('deps.yarn_mappings')}:v2"
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${property('deps.fabric_version')}"
-    modImplementation "maven.modrinth:yacl:${property('deps.yacl_version')}"
-    modImplementation "maven.modrinth:modmenu:${property('deps.modmenu_version')}"
-    modImplementation "maven.modrinth:sodium:${property('deps.sodium_version')}"
-}
-
 loom {
     runConfigs.all {
         ideConfigGenerated true
         runDir "../../run"
     }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${property("deps.minecraft_version")}"
+    mappings "net.fabricmc:yarn:${property("deps.yarn_mappings")}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_version")}"
+    modImplementation "maven.modrinth:yacl:${property("deps.yacl_version")}"
+    modImplementation "maven.modrinth:modmenu:${property("deps.modmenu_version")}"
+    modImplementation "maven.modrinth:sodium:${property("deps.sodium_version")}"
 }
 
 if (stonecutter.current.isActive) {
@@ -56,10 +60,10 @@ if (stonecutter.current.isActive) {
 
 processResources {
     inputs.property "version", project.version
-    filteringCharset "UTF-8"
+    inputs.property "mcrange", project.property("deps.mc_range")
 
     filesMatching("fabric.mod.json") {
-        expand "version": project.version
+        expand "version": project.version, "mcrange": project.property("deps.mc_range")
     }
 }
 
@@ -70,24 +74,19 @@ else
     targetJavaVersion = 21
 
 tasks.withType(JavaCompile).configureEach {
-    it.options.encoding = "UTF-8"
-    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
-        it.options.release = targetJavaVersion
-    }
+    it.options.release = targetJavaVersion
 }
 
 java {
-    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
-    if (JavaVersion.current() < javaVersion) {
-        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
-    }
-    archivesBaseName = project.archives_base_name
     withSourcesJar()
+
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 jar {
     from("LICENSE") {
-        rename { "${it}_${project.archivesBaseName}" }
+        rename { "${it}_${project.base.archivesName.get()}"}
     }
 }
 

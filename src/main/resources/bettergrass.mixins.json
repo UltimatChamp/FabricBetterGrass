@@ -1,13 +1,11 @@
 {
   "required": true,
   "package": "dev.ultimatchamp.bettergrass.mixin",
-  "minVersion": "0.8",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-  ],
-  "client": [
     "FabricBetterGrassModelLoaderMixin",
-    "MixinSodiumGameOptionsPages"
+    "SodiumGameOptionsPagesMixin",
+    "VideoOptionsScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

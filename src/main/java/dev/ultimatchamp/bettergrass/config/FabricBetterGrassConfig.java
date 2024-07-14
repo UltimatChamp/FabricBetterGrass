@@ -6,17 +6,17 @@ import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.autogen.*;
 import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
+import dev.isxander.yacl3.platform.YACLPlatform;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class FabricBetterGrassConfig {
     private static final ConfigClassHandler<FabricBetterGrassConfig> HANDLER = ConfigClassHandler.createBuilder(FabricBetterGrassConfig.class)
-            .id(Identifier.of("bettergrass", "bettergrass_config"))
+            .id(YACLPlatform.rl("bettergrass", "bettergrass_config"))
             .serializer(config -> GsonConfigSerializerBuilder.create(config)
                     .setPath(FabricLoader.getInstance().getConfigDir().resolve("bettergrass.json5"))
                     .setJson5(true)
@@ -84,5 +84,8 @@ public class FabricBetterGrassConfig {
 
     public static Screen createScreen(@Nullable Screen parent) {
         return HANDLER.generateGui().generateScreen(parent);
+    }
+    public static Screen createConfigScreen(Screen parent) {
+        return createScreen(parent);
     }
 }
