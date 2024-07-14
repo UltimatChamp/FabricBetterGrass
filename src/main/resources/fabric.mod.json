@@ -3,7 +3,7 @@
   "id": "bettergrass",
   "version": "${version}",
   "name": "FabricBetterGrass",
-  "description": "<underline><i>Gamers can finally touch grass!?</i></underline>\n<i>OptiFine's Fancy</i> and <i>Fast <b>better grass</b></i> implemented on Fabric!",
+  "description": "Gamers can finally touch grass!?\nOptiFine's Fancy and Fast better grass implemented on Fabric!",
   "authors": [
     "UltimatChamp",
     "JayemCeekay"
@@ -19,14 +19,13 @@
     "client": [
       "dev.ultimatchamp.bettergrass.FabricBetterGrass"
     ],
-    "main": [
-    ],
     "modmenu" : ["dev.ultimatchamp.bettergrass.config.ModMenuAPIImpl"]
   },
   "mixins": [
-    "FabricBetterGrass.mixins.json"
+    "bettergrass.mixins.json"
   ],
   "depends": {
+    "minecraft": "${mcrange}",
     "fabricloader": ">=0.15.11",
     "fabric": "*",
     "yet_another_config_lib_v3": "*"

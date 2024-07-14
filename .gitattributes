@@ -1,0 +1,5 @@
+# Linux
+/gradlew        text eol=lf
+
+# Windows
+*.bat           text eol=crlf
