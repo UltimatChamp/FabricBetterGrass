@@ -1,11 +1,13 @@
 {
   "yacl3.config.bettergrass:bettergrass_config.title":"FabricBetterGrass",
-  "yacl3.config.bettergrass:bettergrass_config.category.config": "一般",
+  "yacl3.config.bettergrass:bettergrass_config.category.general": "一般",
   "yacl3.config.bettergrass:bettergrass_config.betterGrassMode":"更好的草地",
   "yacl3.config.bettergrass:bettergrass_config.betterGrassMode.desc":"\u00A74關閉 \u00A7r- 預設的草地紋理\n\u00A73流暢 \u00A7r- 草地側面全部使用草地紋理（較慢）\n\u00A7d精緻 \u00A7r- 草地側面紋理動態化（最慢）\n\n\u00A7c需要重新載入世界或按下 F3+A 才能套用變更。",
-  "yacl3.config.bettergrass:bettergrass_config.category.additional":"額外功能",
-  "yacl3.config.bettergrass:bettergrass_config.category.additional.group.connectedblocks":"連接的方塊",
+  "yacl3.config.bettergrass:bettergrass_config.category.general.group.connectedblocks":"連接的方塊",
   "yacl3.config.bettergrass:bettergrass_config.dirtPaths.desc":"也會連接泥土小徑！\n\n\u00A7c可能會造成一些視覺上的錯誤！",
   "yacl3.config.bettergrass:bettergrass_config.farmLands.desc":"也會連接耕地！\n\n\u00A7c可能會造成一些視覺上的錯誤！",
-  "yacl3.config.bettergrass:bettergrass_config.snowy.desc":"也會連接雪地草方塊！"
+  "yacl3.config.bettergrass:bettergrass_config.snowy.desc":"也會連接雪地草方塊！",
+  "yacl3.config.bettergrass:bettergrass_config.category.advanced":"Advanced",
+  "yacl3.config.bettergrass:bettergrass_config.grassBlocks":"",
+  "yacl3.config.bettergrass:bettergrass_config.grassBlocks.desc":"Grass-like blocks that should be connected on slopes.\n\n\u00A7cFor advanced users only!"
 }

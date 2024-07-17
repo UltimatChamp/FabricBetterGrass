@@ -33,11 +33,12 @@ _OptiFine's Fancy_ and _Fast **better grass**_ implemented on Fabric!
 <hr>
 
 ### **Fully Configurable**
-<center><img alt="YACL" width="250px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/7f7ae8f22bc0898f932b438faa983de17b79c944.png"><img alt="Sodium" width="250px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/2b728cbec1560784c72e8ae7b0c043391707f86f.png"></center>
+<center><img alt="YACL" width="250px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/ff2efff790c20ec0e7eaa0f20a66df34a0e79522.png"><img alt="Sodium" width="250px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/2b728cbec1560784c72e8ae7b0c043391707f86f.png"></center>
 
 <hr>
 
-#### **Modded grass blocks** can be added manually, in the config file!
+### **Modded grass blocks** can be added manually!
+<center><img alt="More Blocks" width="500px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/f43c1e16464710ca5371ff6e62aa25d2004cbad0.png"></center>
 
 <hr>
 
