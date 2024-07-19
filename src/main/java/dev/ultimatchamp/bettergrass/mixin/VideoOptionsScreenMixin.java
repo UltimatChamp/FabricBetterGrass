@@ -43,9 +43,9 @@ public abstract class VideoOptionsScreenMixin extends GameOptionsScreen {
     )
     private void bettergrass$addConfigButton(CallbackInfo ci) {
         //? if =1.21 {
-        this.body.addSingleOptionEntry(new SimpleOption<>("yacl3.config.bettergrass:bettergrass_config.title", SimpleOption.constantTooltip(Text.empty()), (arg, object) -> Text.empty(), SimpleOption.BOOLEAN, true, (parent) -> this.client.setScreen(FabricBetterGrassConfig.createConfigScreen(this))));
+        this.body.addSingleOptionEntry(new SimpleOption<>("bettergrass.title", SimpleOption.constantTooltip(Text.empty()), (arg, object) -> Text.empty(), SimpleOption.BOOLEAN, true, (parent) -> this.client.setScreen(FabricBetterGrassConfig.createConfigScreen(this))));
         //?} elif =1.20.1 {
-        /*this.list.addSingleOptionEntry(new SimpleOption<>("yacl3.config.bettergrass:bettergrass_config.title", SimpleOption.constantTooltip(Text.empty()), (arg, object) -> Text.empty(), SimpleOption.BOOLEAN, true, (parent) -> this.client.setScreen(FabricBetterGrassConfig.createConfigScreen(this))));
+        /*this.list.addSingleOptionEntry(new SimpleOption<>("bettergrass.title", SimpleOption.constantTooltip(Text.empty()), (arg, object) -> Text.empty(), SimpleOption.BOOLEAN, true, (parent) -> this.client.setScreen(FabricBetterGrassConfig.createConfigScreen(this))));
         *///?}
     }
 }

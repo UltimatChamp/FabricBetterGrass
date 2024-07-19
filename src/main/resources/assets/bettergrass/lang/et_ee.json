@@ -1,13 +1,12 @@
 {
-  "yacl3.config.bettergrass:bettergrass_config.title":"FabricBetterGrass",
-  "yacl3.config.bettergrass:bettergrass_config.category.general": "Üldine",
-  "yacl3.config.bettergrass:bettergrass_config.betterGrassMode":"Parema muru režiim",
-  "yacl3.config.bettergrass:bettergrass_config.betterGrassMode.desc":"\u00A74Väljas \u00A7r- tavapärase välimusega muruplokid\n\u00A73Kiire \u00A7r- pealmine murutekstuur rakendatakse muruplokkide kõigile külgedele (kiire)\n\u00A7dUhke \u00A7r- pealmine murutekstuur rakendatakse dünaamiliselt muruplokkide vajalikele külgedele (aeglane)\n\n\u00a7cMuudatuste rakendamiseks on vajalik maailma taaslaadimine või F3+A.",
-  "yacl3.config.bettergrass:bettergrass_config.category.general.group.connectedblocks":"Ühendatud plokid",
-  "yacl3.config.bettergrass:bettergrass_config.dirtPaths.desc":"Ühendab ka mullaradasid!\n\n\u00A7cVõib põhjustada visuaalseid ebaühtlusi!",
-  "yacl3.config.bettergrass:bettergrass_config.farmLands.desc":"Ühendab ka põllumaaplokke!\n\n\u00A7cVõib põhjustada visuaalseid ebaühtlusi!",
-  "yacl3.config.bettergrass:bettergrass_config.snowy.desc":"Connects snowy grass too!",
-  "yacl3.config.bettergrass:bettergrass_config.category.advanced":"Täpsem",
-  "yacl3.config.bettergrass:bettergrass_config.grassBlocks":"",
-  "yacl3.config.bettergrass:bettergrass_config.grassBlocks.desc":"Murusarnased plokid, mis peaksid kallakutel ühendatud olema.\n\n\u00A7cFor advanced users only!"
+  "bettergrass.title":"FabricBetterGrass",
+  "bettergrass.category.general": "Üldine",
+  "bettergrass.betterGrassMode":"Parema muru režiim",
+  "bettergrass.betterGrassMode.desc":"\u00A74Väljas \u00A7r- tavapärase välimusega muruplokid\n\u00A73Kiire \u00A7r- pealmine murutekstuur rakendatakse muruplokkide kõigile külgedele (kiire)\n\u00A7dUhke \u00A7r- pealmine murutekstuur rakendatakse dünaamiliselt muruplokkide vajalikele külgedele (aeglane)",
+  "bettergrass.category.general.group.connectedblocks":"Ühendatud plokid",
+  "bettergrass.dirtPaths.desc":"Ühendab ka mullaradasid!\n\n\u00A7cVõib põhjustada visuaalseid ebaühtlusi!",
+  "bettergrass.farmLands.desc":"Ühendab ka põllumaaplokke!\n\n\u00A7cVõib põhjustada visuaalseid ebaühtlusi!",
+  "bettergrass.snowy.desc":"Connects snowy grass too!",
+  "bettergrass.category.advanced":"Täpsem",
+  "bettergrass.grassBlocks.desc":"Murusarnased plokid, mis peaksid kallakutel ühendatud olema.\n\n\u00A7cFor advanced users only!"
 }

@@ -21,8 +21,8 @@ public class SodiumGameOptionsPagesMixin {
     private static void betterGrass(CallbackInfoReturnable<OptionPage> cir, List<OptionGroup> groups) {
         groups.add(OptionGroup.createBuilder()
                 .add(OptionImpl.createBuilder(FabricBetterGrassConfig.BetterGrassMode.class, SodiumOptionsStorage.INSTANCE)
-                    .setName(Text.translatable("yacl3.config.bettergrass:bettergrass_config.betterGrassMode"))
-                    .setTooltip(Text.translatable("yacl3.config.bettergrass:bettergrass_config.betterGrassMode.desc"))
+                    .setName(Text.translatable("bettergrass.betterGrassMode"))
+                    .setTooltip(Text.translatable("bettergrass.betterGrassMode.desc"))
                     .setControl((opt) -> new CyclingControl<>(opt, FabricBetterGrassConfig.BetterGrassMode.class, new Text[]{
                         Text.translatable("options.off"),
                         Text.translatable("options.graphics.fast"),
@@ -35,7 +35,7 @@ public class SodiumGameOptionsPagesMixin {
                     .build()
                 ).add(OptionImpl.createBuilder(boolean.class, SodiumOptionsStorage.INSTANCE)
                                 .setName(Text.translatable("block.minecraft.dirt_path"))
-                                .setTooltip(Text.translatable("yacl3.config.bettergrass:bettergrass_config.dirtPaths.desc"))
+                                .setTooltip(Text.translatable("bettergrass.dirtPaths.desc"))
                                 .setControl(TickBoxControl::new)
                                 .setBinding((options, value) -> FabricBetterGrassConfig.instance().dirtPaths = value,
                                         (options) -> FabricBetterGrassConfig.instance().dirtPaths)
@@ -44,7 +44,7 @@ public class SodiumGameOptionsPagesMixin {
                                 .build()
                 ).add(OptionImpl.createBuilder(boolean.class, SodiumOptionsStorage.INSTANCE)
                         .setName(Text.translatable("block.minecraft.farmland"))
-                        .setTooltip(Text.translatable("yacl3.config.bettergrass:bettergrass_config.farmLands.desc"))
+                        .setTooltip(Text.translatable("bettergrass.farmLands.desc"))
                         .setControl(TickBoxControl::new)
                         .setBinding((options, value) -> FabricBetterGrassConfig.instance().farmLands = value,
                                 (options) -> FabricBetterGrassConfig.instance().farmLands)
@@ -53,7 +53,7 @@ public class SodiumGameOptionsPagesMixin {
                         .build()
                 ).add(OptionImpl.createBuilder(boolean.class, SodiumOptionsStorage.INSTANCE)
                         .setName(Text.translatable("block.minecraft.snow"))
-                        .setTooltip(Text.translatable("yacl3.config.bettergrass:bettergrass_config.snowy.desc"))
+                        .setTooltip(Text.translatable("bettergrass.snowy.desc"))
                         .setControl(TickBoxControl::new)
                         .setBinding((options, value) -> FabricBetterGrassConfig.instance().snowy = value,
                                 (options) -> FabricBetterGrassConfig.instance().snowy)

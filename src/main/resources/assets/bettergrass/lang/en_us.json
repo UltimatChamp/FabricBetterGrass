@@ -1,13 +1,12 @@
 {
-  "yacl3.config.bettergrass:bettergrass_config.title":"FabricBetterGrass",
-  "yacl3.config.bettergrass:bettergrass_config.category.general": "General",
-  "yacl3.config.bettergrass:bettergrass_config.betterGrassMode":"Better Grass Mode",
-  "yacl3.config.bettergrass:bettergrass_config.betterGrassMode.desc":"\u00A74Off \u00A7r- Grass Blocks look normal\n\u00A73Fast \u00A7r- Top Grass texture will be applied to all sides of the Grass Blocks (fast)\n\u00A7dFancy \u00A7r- Top Grass texture will be applied dynamically to required sides of the Grass Blocks (slow)\n\n\u00A7cWorld reload or F3+A is required to apply changes.",
-  "yacl3.config.bettergrass:bettergrass_config.category.general.group.connectedblocks":"Connected Blocks",
-  "yacl3.config.bettergrass:bettergrass_config.dirtPaths.desc":"Connects dirt paths too!\n\n\u00A7cMay cause some visual bugs!",
-  "yacl3.config.bettergrass:bettergrass_config.farmLands.desc":"Connects farmlands too!\n\n\u00A7cMay cause some visual bugs!",
-  "yacl3.config.bettergrass:bettergrass_config.snowy.desc":"Connects snowy grass too!",
-  "yacl3.config.bettergrass:bettergrass_config.category.advanced":"Advanced",
-  "yacl3.config.bettergrass:bettergrass_config.grassBlocks":"",
-  "yacl3.config.bettergrass:bettergrass_config.grassBlocks.desc":"Grass-like blocks that should be connected on slopes.\n\n\u00A7cFor advanced users only!"
+  "bettergrass.title":"FabricBetterGrass",
+  "bettergrass.category.general": "General",
+  "bettergrass.betterGrassMode":"Better Grass Mode",
+  "bettergrass.betterGrassMode.desc":"\u00A74Off \u00A7r- Grass Blocks look normal\n\u00A73Fast \u00A7r- Top Grass texture will be applied to all sides of the Grass Blocks (fast)\n\u00A7dFancy \u00A7r- Top Grass texture will be applied dynamically to required sides of the Grass Blocks (slow)",
+  "bettergrass.category.general.group.connectedblocks":"Connected Blocks",
+  "bettergrass.dirtPaths.desc":"Connects dirt paths too!\n\n\u00A7cMay cause some visual bugs!",
+  "bettergrass.farmLands.desc":"Connects farmlands too!\n\n\u00A7cMay cause some visual bugs!",
+  "bettergrass.snowy.desc":"Connects snowy grass too!",
+  "bettergrass.category.advanced":"Advanced",
+  "bettergrass.grassBlocks.desc":"Grass-like blocks that should be connected on slopes.\n\n\u00A7cFor advanced users only!"
 }

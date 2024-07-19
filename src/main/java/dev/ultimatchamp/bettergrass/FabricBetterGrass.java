@@ -2,16 +2,18 @@ package dev.ultimatchamp.bettergrass;
 
 import dev.ultimatchamp.bettergrass.config.FabricBetterGrassConfig;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.loader.impl.util.log.Log;
-import net.fabricmc.loader.impl.util.log.LogCategory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FabricBetterGrass implements ClientModInitializer {
+    public static final Logger LOGGER = LoggerFactory.getLogger("YetAnotherConfigLib");
+
     @Override
     public void onInitializeClient() {
         FabricBetterGrassConfig.load();
         if (FabricBetterGrassConfig.instance().betterGrassMode == FabricBetterGrassConfig.BetterGrassMode.OFF)
-            Log.info(LogCategory.LOG, "[FabricBetterGrass] Better Grass is disabled.");
+            LOGGER.info("[FabricBetterGrass] Better Grass is disabled.");
         else
-            Log.info(LogCategory.LOG, "[FabricBetterGrass] [" + FabricBetterGrassConfig.instance().betterGrassMode.toString() + "] Gamers can finally touch grass!?");
+            LOGGER.info("[FabricBetterGrass] [" + FabricBetterGrassConfig.instance().betterGrassMode.toString() + "] Gamers can finally touch grass!?");
     }
 }
