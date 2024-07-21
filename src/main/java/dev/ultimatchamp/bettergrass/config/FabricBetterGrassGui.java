@@ -13,7 +13,7 @@ public class FabricBetterGrassGui {
         return YetAnotherConfigLib.create(FabricBetterGrassConfig.handler(), (defaults, config, builder) -> builder
                         .title(Text.translatable("bettergrass.title"))
                         .category(ConfigCategory.createBuilder()
-                                .name(Text.translatable("bettergrass.category.general"))
+                                .name(Text.translatable("stat.generalButton"))
                                 .option(Option.<FabricBetterGrassConfig.BetterGrassMode>createBuilder()
                                         .name(Text.translatable("bettergrass.betterGrassMode"))
                                         .description(OptionDescription.createBuilder()
@@ -27,8 +27,32 @@ public class FabricBetterGrassGui {
                                         )
                                         .customController(opt -> new EnumController<>(opt, FabricBetterGrassConfig.BetterGrassMode.class))
                                         .build())
+                                .option(Option.<Boolean>createBuilder()
+                                        .name(Text.translatable("block.minecraft.snow"))
+                                        .description(OptionDescription.createBuilder()
+                                                .text(Text.translatable("bettergrass.snowy.desc"))
+                                                .build())
+                                        .binding(
+                                                defaults.snowy,
+                                                () -> config.snowy,
+                                                (value) -> config.snowy = value
+                                        )
+                                        .controller(TickBoxControllerBuilder::create)
+                                        .build())
                                 .group(OptionGroup.createBuilder()
-                                        .name(Text.translatable("bettergrass.category.general.group.connectedblocks"))
+                                        .name(Text.translatable("soundCategory.block"))
+                                        .option(Option.<Boolean>createBuilder()
+                                                .name(Text.translatable("block.minecraft.grass_block"))
+                                                .description(OptionDescription.createBuilder()
+                                                        .text(Text.translatable("bettergrass.grassBlocks.desc"))
+                                                        .build())
+                                                .binding(
+                                                        defaults.grassBlocks,
+                                                        () -> config.grassBlocks,
+                                                        (value) -> config.grassBlocks = value
+                                                )
+                                                .controller(TickBoxControllerBuilder::create)
+                                                .build())
                                         .option(Option.<Boolean>createBuilder()
                                                 .name(Text.translatable("block.minecraft.dirt_path"))
                                                 .description(OptionDescription.createBuilder()
@@ -54,30 +78,66 @@ public class FabricBetterGrassGui {
                                                 .controller(TickBoxControllerBuilder::create)
                                                 .build())
                                         .option(Option.<Boolean>createBuilder()
-                                                .name(Text.translatable("block.minecraft.snow"))
+                                                .name(Text.translatable("block.minecraft.podzol"))
                                                 .description(OptionDescription.createBuilder()
-                                                        .text(Text.translatable("bettergrass.snowy.desc"))
+                                                        .text(Text.translatable("bettergrass.podzol.desc"))
                                                         .build())
                                                 .binding(
-                                                        defaults.snowy,
-                                                        () -> config.snowy,
-                                                        (value) -> config.snowy = value
+                                                        defaults.podzol,
+                                                        () -> config.podzol,
+                                                        (value) -> config.podzol = value
+                                                )
+                                                .controller(TickBoxControllerBuilder::create)
+                                                .build())
+                                        .option(Option.<Boolean>createBuilder()
+                                                .name(Text.translatable("block.minecraft.mycelium"))
+                                                .description(OptionDescription.createBuilder()
+                                                        .text(Text.translatable("bettergrass.mycelium.desc"))
+                                                        .build())
+                                                .binding(
+                                                        defaults.mycelium,
+                                                        () -> config.mycelium,
+                                                        (value) -> config.mycelium = value
+                                                )
+                                                .controller(TickBoxControllerBuilder::create)
+                                                .build())
+                                        .option(Option.<Boolean>createBuilder()
+                                                .name(Text.translatable("block.minecraft.crimson_nylium"))
+                                                .description(OptionDescription.createBuilder()
+                                                        .text(Text.translatable("bettergrass.crimsonNylium.desc"))
+                                                        .build())
+                                                .binding(
+                                                        defaults.crimsonNylium,
+                                                        () -> config.crimsonNylium,
+                                                        (value) -> config.crimsonNylium = value
+                                                )
+                                                .controller(TickBoxControllerBuilder::create)
+                                                .build())
+                                        .option(Option.<Boolean>createBuilder()
+                                                .name(Text.translatable("block.minecraft.warped_nylium"))
+                                                .description(OptionDescription.createBuilder()
+                                                        .text(Text.translatable("bettergrass.warpedNylium.desc"))
+                                                        .build())
+                                                .binding(
+                                                        defaults.warpedNylium,
+                                                        () -> config.warpedNylium,
+                                                        (value) -> config.warpedNylium = value
                                                 )
                                                 .controller(TickBoxControllerBuilder::create)
                                                 .build())
                                         .build())
                                 .build())
                         .category(ConfigCategory.createBuilder()
-                                .name(Text.translatable("bettergrass.category.advanced"))
+                                .name(Text.translatable("createWorld.customize.custom.page2"))
                                 .group(ListOption.<String>createBuilder()
                                         .name(Text.translatable("soundCategory.block"))
                                         .description(OptionDescription.createBuilder()
-                                                .text(Text.translatable("bettergrass.grassBlocks.desc"))
+                                                .text(Text.translatable("bettergrass.moreBlocks.desc"))
                                                 .build())
                                         .binding(
-                                                defaults.grassBlocks,
-                                                () -> config.grassBlocks,
-                                                val -> config.grassBlocks = val
+                                                defaults.moreBlocks,
+                                                () -> config.moreBlocks,
+                                                val -> config.moreBlocks = val
                                         )
                                         .controller(StringControllerBuilder::create)
                                         .initial("")

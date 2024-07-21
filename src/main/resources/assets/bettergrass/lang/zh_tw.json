@@ -1,12 +1,14 @@
 {
-  "bettergrass.title":"FabricBetterGrass",
-  "bettergrass.category.general": "一般",
-  "bettergrass.betterGrassMode":"更好的草地",
-  "bettergrass.betterGrassMode.desc":"\u00A74關閉 \u00A7r- 預設的草地紋理\n\u00A73流暢 \u00A7r- 草地側面全部使用草地紋理（較慢）\n\u00A7d精緻 \u00A7r- 草地側面紋理動態化（最慢）",
-  "bettergrass.category.general.group.connectedblocks":"連接的方塊",
-  "bettergrass.dirtPaths.desc":"也會連接泥土小徑！\n\n\u00A7c可能會造成一些視覺上的錯誤！",
-  "bettergrass.farmLands.desc":"也會連接耕地！\n\n\u00A7c可能會造成一些視覺上的錯誤！",
-  "bettergrass.snowy.desc":"也會連接雪地草方塊！",
-  "bettergrass.category.advanced":"Advanced",
-  "bettergrass.grassBlocks.desc":"Grass-like blocks that should be connected on slopes.\n\n\u00A7cFor advanced users only!"
+  "bettergrass.title": "FabricBetterGrass Config",
+  "bettergrass.betterGrassMode": "更好的草地",
+  "bettergrass.betterGrassMode.desc": "§4關閉 §r- 預設的草地紋理\n§3流暢 §r- 草地側面全部使用草地紋理（較慢）\n§d精緻 §r- 草地側面紋理動態化（最慢）",
+  "bettergrass.snowy.desc": "也會連接雪地草方塊！",
+  "bettergrass.grassBlocks.desc": "Connects grass blocks too!",
+  "bettergrass.dirtPaths.desc": "也會連接泥土小徑！\n\n§c可能會造成一些視覺上的錯誤！",
+  "bettergrass.farmLands.desc": "也會連接耕地！\n\n§c可能會造成一些視覺上的錯誤！",
+  "bettergrass.podzol.desc": "Connects podzol too!",
+  "bettergrass.mycelium.desc": "Connects mycelium too!",
+  "bettergrass.crimsonNylium.desc": "Connects crimson nylium too!",
+  "bettergrass.warpedNylium.desc": "Connects warped nylium too!",
+  "bettergrass.moreBlocks.desc": "Grass-like blocks that should be connected on slopes."
 }

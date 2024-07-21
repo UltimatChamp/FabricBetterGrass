@@ -94,7 +94,7 @@ publishMods {
     changelog = "# ${project.version}\n" + file("CHANGELOG.md").text
     type = STABLE
     file = remapJar.archiveFile
-    modLoaders.add(["fabric", "quilt"])
+    modLoaders.addAll("fabric", "quilt")
     displayName = "FabricBetterGrass ${project.version}"
 
     if ("${project.version}".contains("1.20")) {

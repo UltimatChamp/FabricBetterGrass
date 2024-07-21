@@ -1,12 +1,14 @@
 {
-  "bettergrass.title":"FabricBetterGrass",
-  "bettergrass.category.general": "Üldine",
-  "bettergrass.betterGrassMode":"Parema muru režiim",
-  "bettergrass.betterGrassMode.desc":"\u00A74Väljas \u00A7r- tavapärase välimusega muruplokid\n\u00A73Kiire \u00A7r- pealmine murutekstuur rakendatakse muruplokkide kõigile külgedele (kiire)\n\u00A7dUhke \u00A7r- pealmine murutekstuur rakendatakse dünaamiliselt muruplokkide vajalikele külgedele (aeglane)",
-  "bettergrass.category.general.group.connectedblocks":"Ühendatud plokid",
-  "bettergrass.dirtPaths.desc":"Ühendab ka mullaradasid!\n\n\u00A7cVõib põhjustada visuaalseid ebaühtlusi!",
-  "bettergrass.farmLands.desc":"Ühendab ka põllumaaplokke!\n\n\u00A7cVõib põhjustada visuaalseid ebaühtlusi!",
-  "bettergrass.snowy.desc":"Connects snowy grass too!",
-  "bettergrass.category.advanced":"Täpsem",
-  "bettergrass.grassBlocks.desc":"Murusarnased plokid, mis peaksid kallakutel ühendatud olema.\n\n\u00A7cFor advanced users only!"
+  "bettergrass.title": "FabricBetterGrass Config",
+  "bettergrass.betterGrassMode": "Parema muru režiim",
+  "bettergrass.betterGrassMode.desc": "§4Väljas §r- tavapärase välimusega muruplokid\n§3Kiire §r- pealmine murutekstuur rakendatakse muruplokkide kõigile külgedele (kiire)\n§dUhke §r- pealmine murutekstuur rakendatakse dünaamiliselt muruplokkide vajalikele külgedele (aeglane)",
+  "bettergrass.snowy.desc": "Connects snowy grass too!",
+  "bettergrass.grassBlocks.desc": "Connects grass blocks too!",
+  "bettergrass.dirtPaths.desc": "Ühendab ka mullaradasid!\n\n§cVõib põhjustada visuaalseid ebaühtlusi!",
+  "bettergrass.farmLands.desc": "Ühendab ka põllumaaplokke!\n\n§cVõib põhjustada visuaalseid ebaühtlusi!",
+  "bettergrass.podzol.desc": "Connects podzol too!",
+  "bettergrass.mycelium.desc": "Connects mycelium too!",
+  "bettergrass.crimsonNylium.desc": "Connects crimson nylium too!",
+  "bettergrass.warpedNylium.desc": "Connects warped nylium too!",
+  "bettergrass.moreBlocks.desc": "Grass-like blocks that should be connected on slopes."
 }

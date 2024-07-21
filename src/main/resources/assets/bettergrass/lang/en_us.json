@@ -1,12 +1,14 @@
 {
-  "bettergrass.title":"FabricBetterGrass",
-  "bettergrass.category.general": "General",
-  "bettergrass.betterGrassMode":"Better Grass Mode",
-  "bettergrass.betterGrassMode.desc":"\u00A74Off \u00A7r- Grass Blocks look normal\n\u00A73Fast \u00A7r- Top Grass texture will be applied to all sides of the Grass Blocks (fast)\n\u00A7dFancy \u00A7r- Top Grass texture will be applied dynamically to required sides of the Grass Blocks (slow)",
-  "bettergrass.category.general.group.connectedblocks":"Connected Blocks",
-  "bettergrass.dirtPaths.desc":"Connects dirt paths too!\n\n\u00A7cMay cause some visual bugs!",
-  "bettergrass.farmLands.desc":"Connects farmlands too!\n\n\u00A7cMay cause some visual bugs!",
-  "bettergrass.snowy.desc":"Connects snowy grass too!",
-  "bettergrass.category.advanced":"Advanced",
-  "bettergrass.grassBlocks.desc":"Grass-like blocks that should be connected on slopes.\n\n\u00A7cFor advanced users only!"
+  "bettergrass.title": "FabricBetterGrass Config",
+  "bettergrass.betterGrassMode": "Better Grass Mode",
+  "bettergrass.betterGrassMode.desc": "§4Off §r- Grass Blocks look normal\n§3Fast §r- Top Grass texture will be applied to all sides of the Grass Blocks (fast)\n§dFancy §r- Top Grass texture will be applied dynamically to required sides of the Grass Blocks (slow)",
+  "bettergrass.snowy.desc": "Connects snowy grass too!",
+  "bettergrass.grassBlocks.desc": "Connects grass blocks too!",
+  "bettergrass.dirtPaths.desc": "Connects dirt paths too!\n\n§cMay cause some visual bugs!",
+  "bettergrass.farmLands.desc": "Connects farmlands too!\n\n§cMay cause some visual bugs!",
+  "bettergrass.podzol.desc": "Connects podzol too!",
+  "bettergrass.mycelium.desc": "Connects mycelium too!",
+  "bettergrass.crimsonNylium.desc": "Connects crimson nylium too!",
+  "bettergrass.warpedNylium.desc": "Connects warped nylium too!",
+  "bettergrass.moreBlocks.desc": "Grass-like blocks that should be connected on slopes."
 }

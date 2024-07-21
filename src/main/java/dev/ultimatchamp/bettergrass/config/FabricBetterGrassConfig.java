@@ -39,22 +39,32 @@ public class FabricBetterGrassConfig {
         }
     }
 
-    @SerialEntry(comment = "\nAdditional\n(default: false)")
+    @SerialEntry(comment = "(default: true)")
+    public boolean snowy = true;
+
+    @SerialEntry(comment = "\nConnected Blocks\n(default: true)")
+    public boolean grassBlocks = true;
+
+    @SerialEntry(comment = "(default: false)")
     public boolean dirtPaths = false;
 
     @SerialEntry(comment = "(default: false)")
     public boolean farmLands = false;
 
     @SerialEntry(comment = "(default: true)")
-    public boolean snowy = true;
+    public boolean podzol = true;
+
+    @SerialEntry(comment = "(default: true)")
+    public boolean mycelium = true;
+
+    @SerialEntry(comment = "(default: true)")
+    public boolean crimsonNylium = true;
+
+    @SerialEntry(comment = "(default: true)")
+    public boolean warpedNylium = true;
 
     @SerialEntry(comment = "\nAdvanced")
-    public List<String> grassBlocks =
-            Lists.newArrayList("minecraft:grass_block",
-                    "minecraft:podzol",
-                    "minecraft:mycelium",
-                    "minecraft:crimson_nylium",
-                    "minecraft:warped_nylium");
+    public List<String> moreBlocks = Lists.newArrayList();
 
     public static ConfigClassHandler<FabricBetterGrassConfig> handler() {
         return GSON;
