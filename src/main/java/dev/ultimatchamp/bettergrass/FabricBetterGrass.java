@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class FabricBetterGrass implements ClientModInitializer {
-    public static final Logger LOGGER = LoggerFactory.getLogger("YetAnotherConfigLib");
+    public static final Logger LOGGER = LoggerFactory.getLogger("bettergrass");
 
     @Override
     public void onInitializeClient() {
