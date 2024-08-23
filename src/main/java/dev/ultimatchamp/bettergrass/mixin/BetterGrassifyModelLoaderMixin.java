@@ -1,7 +1,7 @@
 package dev.ultimatchamp.bettergrass.mixin;
 
-import dev.ultimatchamp.bettergrass.FabricBetterGrassUnbakedModel;
-import dev.ultimatchamp.bettergrass.config.FabricBetterGrassConfig;
+import dev.ultimatchamp.bettergrass.BetterGrassifyUnbakedModel;
+import dev.ultimatchamp.bettergrass.config.BetterGrassifyConfig;
 import net.minecraft.client.render.model.ModelLoader;
 import net.minecraft.client.render.model.UnbakedModel;
 import net.minecraft.client.util.ModelIdentifier;
@@ -17,10 +17,10 @@ import java.util.Map;
 import java.util.Set;
 
 @Mixin(ModelLoader.class)
-public class FabricBetterGrassModelLoaderMixin {
+public class BetterGrassifyModelLoaderMixin {
     @Shadow
     @Final
-    //? if =1.21 {
+    //? if >1.20.1 {
     private Map<ModelIdentifier, UnbakedModel> modelsToBake;
     //?} elif =1.20.1 {
     /*private Map<Identifier, UnbakedModel> unbakedModels;
@@ -30,7 +30,7 @@ public class FabricBetterGrassModelLoaderMixin {
     private Set<Identifier> modelsToLoad;
     *///?}
 
-    //? if =1.21 {
+    //? if >1.20.1 {
     @Inject(method = "addModelToBake", at = @At("HEAD"), cancellable = true)
     private void onAddModelToBake(ModelIdentifier id, UnbakedModel unbakedModel, CallbackInfo ci) {
     //?} elif =1.20.1 {
@@ -39,10 +39,10 @@ public class FabricBetterGrassModelLoaderMixin {
     *///?}
         if (id instanceof ModelIdentifier modelId) {
             if (!modelId.getVariant().equals("inventory")) {
-                FabricBetterGrassConfig.instance().moreBlocks.forEach(s -> {
+                BetterGrassifyConfig.instance().moreBlocks.forEach(s -> {
                     if (modelId.toString().startsWith(s.split("\\[")[0]) && !modelId.toString().contains("snowy=true")) {
-                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
-                        //? if =1.21 {
+                        var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
+                        //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
                         //?} elif =1.20.1 {
                         /*this.unbakedModels.put(id, newModel);
@@ -50,10 +50,10 @@ public class FabricBetterGrassModelLoaderMixin {
                         *///?}
                         ci.cancel();
                     }
-                    if (FabricBetterGrassConfig.instance().snowy) {
+                    if (BetterGrassifyConfig.instance().snowy) {
                         if (modelId.toString().startsWith(s.split("\\[")[0]) && modelId.toString().contains("snowy=true")) {
-                            var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
-                            //? if =1.21 {
+                            var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
+                            //? if >1.20.1 {
                             this.modelsToBake.put(id, newModel);
                             //?} elif =1.20.1 {
                             /*this.unbakedModels.put(id, newModel);
@@ -64,19 +64,19 @@ public class FabricBetterGrassModelLoaderMixin {
                     }
                 });
 
-                if (FabricBetterGrassConfig.instance().grassBlocks) {
+                if (BetterGrassifyConfig.instance().grassBlocks) {
                     if (modelId.toString().startsWith("minecraft:grass_block".split("\\[")[0]) && !modelId.toString().contains("snowy=true")) {
-                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
-                        //? if =1.21 {
+                        var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
+                        //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
                         //?} elif =1.20.1 {
                         /*this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         *///?}
                         ci.cancel();
-                    } else if (modelId.toString().startsWith("minecraft:grass_block".split("\\[")[0]) && modelId.toString().contains("snowy=true") && FabricBetterGrassConfig.instance().snowy) {
-                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
-                        //? if =1.21 {
+                    } else if (modelId.toString().startsWith("minecraft:grass_block".split("\\[")[0]) && modelId.toString().contains("snowy=true") && BetterGrassifyConfig.instance().snowy) {
+                        var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
+                        //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
                         //?} elif =1.20.1 {
                         /*this.unbakedModels.put(id, newModel);
@@ -86,10 +86,10 @@ public class FabricBetterGrassModelLoaderMixin {
                     }
                 }
 
-                if (FabricBetterGrassConfig.instance().dirtPaths) {
+                if (BetterGrassifyConfig.instance().dirtPaths) {
                     if (modelId.toString().startsWith("minecraft:dirt_path".split("\\[")[0])) {
-                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
-                        //? if =1.21 {
+                        var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
+                        //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
                         //?} elif =1.20.1 {
                         /*this.unbakedModels.put(id, newModel);
@@ -99,10 +99,10 @@ public class FabricBetterGrassModelLoaderMixin {
                     }
                 }
 
-                if (FabricBetterGrassConfig.instance().farmLands) {
+                if (BetterGrassifyConfig.instance().farmLands) {
                     if (modelId.toString().startsWith("minecraft:farmland".split("\\[")[0])) {
-                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
-                        //? if =1.21 {
+                        var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
+                        //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
                         //?} elif =1.20.1 {
                         /*this.unbakedModels.put(id, newModel);
@@ -112,19 +112,19 @@ public class FabricBetterGrassModelLoaderMixin {
                     }
                 }
 
-                if (FabricBetterGrassConfig.instance().podzol) {
+                if (BetterGrassifyConfig.instance().podzol) {
                     if (modelId.toString().startsWith("minecraft:podzol".split("\\[")[0]) && !modelId.toString().contains("snowy=true")) {
-                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
-                        //? if =1.21 {
+                        var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
+                        //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
                         //?} elif =1.20.1 {
                         /*this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         *///?}
                         ci.cancel();
-                    } else if (modelId.toString().startsWith("minecraft:podzol".split("\\[")[0]) && modelId.toString().contains("snowy=true") && FabricBetterGrassConfig.instance().snowy) {
-                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
-                        //? if =1.21 {
+                    } else if (modelId.toString().startsWith("minecraft:podzol".split("\\[")[0]) && modelId.toString().contains("snowy=true") && BetterGrassifyConfig.instance().snowy) {
+                        var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
+                        //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
                         //?} elif =1.20.1 {
                         /*this.unbakedModels.put(id, newModel);
@@ -134,19 +134,19 @@ public class FabricBetterGrassModelLoaderMixin {
                     }
                 }
 
-                if (FabricBetterGrassConfig.instance().mycelium) {
+                if (BetterGrassifyConfig.instance().mycelium) {
                     if (modelId.toString().startsWith("minecraft:mycelium".split("\\[")[0]) && !modelId.toString().contains("snowy=true")) {
-                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
-                        //? if =1.21 {
+                        var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
+                        //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
                         //?} elif =1.20.1 {
                         /*this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         *///?}
                         ci.cancel();
-                    } else if (modelId.toString().startsWith("minecraft:mycelium".split("\\[")[0]) && modelId.toString().contains("snowy=true") && FabricBetterGrassConfig.instance().snowy) {
-                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
-                        //? if =1.21 {
+                    } else if (modelId.toString().startsWith("minecraft:mycelium".split("\\[")[0]) && modelId.toString().contains("snowy=true") && BetterGrassifyConfig.instance().snowy) {
+                        var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
+                        //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
                         //?} elif =1.20.1 {
                         /*this.unbakedModels.put(id, newModel);
@@ -156,10 +156,10 @@ public class FabricBetterGrassModelLoaderMixin {
                     }
                 }
 
-                if (FabricBetterGrassConfig.instance().crimsonNylium) {
+                if (BetterGrassifyConfig.instance().crimsonNylium) {
                     if (modelId.toString().startsWith("minecraft:crimson_nylium".split("\\[")[0])) {
-                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
-                        //? if =1.21 {
+                        var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
+                        //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
                         //?} elif =1.20.1 {
                         /*this.unbakedModels.put(id, newModel);
@@ -169,10 +169,10 @@ public class FabricBetterGrassModelLoaderMixin {
                     }
                 }
 
-                if (FabricBetterGrassConfig.instance().warpedNylium) {
+                if (BetterGrassifyConfig.instance().warpedNylium) {
                     if (modelId.toString().startsWith("minecraft:warped_nylium".split("\\[")[0])) {
-                        var newModel = new FabricBetterGrassUnbakedModel(unbakedModel);
-                        //? if =1.21 {
+                        var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
+                        //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
                         //?} elif =1.20.1 {
                         /*this.unbakedModels.put(id, newModel);

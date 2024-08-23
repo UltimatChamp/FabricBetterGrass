@@ -1,23 +1,20 @@
 {
   "schemaVersion": 1,
-  "id": "bettergrass",
-  "version": "${version}",
-  "name": "FabricBetterGrass",
-  "description": "Gamers can finally touch grass!?\nOptiFine's Fancy and Fast better grass implemented on Fabric!",
-  "authors": [
-    "UltimatChamp",
-    "JayemCeekay"
-  ],
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": ["${mod_authors}"],
   "contact": {
-    "homepage": "https://github.com/UltimatChamp/FabricBetterGrass",
-    "issues": "https://github.com/UltimatChamp/FabricBetterGrass/issues"
+    "homepage": "https://github.com/UltimatChamp/BetterGrassify",
+    "issues": "https://github.com/UltimatChamp/BetterGrassify/issues"
   },
-  "license": "Apache License 2.0",
+  "license": "${mod_license}",
   "icon": "assets/bettergrass/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "dev.ultimatchamp.bettergrass.FabricBetterGrass"
+      "dev.ultimatchamp.bettergrass.BetterGrassify"
     ],
     "modmenu" : ["dev.ultimatchamp.bettergrass.config.ModMenuAPIImpl"]
   },
@@ -25,16 +22,19 @@
     "bettergrass.mixins.json"
   ],
   "depends": {
-    "minecraft": "${mcrange}",
-    "fabricloader": ">=0.15.11",
+    "minecraft": "${minecraft_range}",
+    "fabricloader": "*",
     "fabric": "*",
     "yet_another_config_lib_v3": "*"
+  },
+  "breaks": {
+    "sodium": "${sodium_incompat_range}"
   },
   "custom": {
     "modmenu": {
       "links": {
-        "modmenu.modrinth": "https://modrinth.com/mod/FabricBetterGrass",
-        "modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/fabricbettergrass",
+        "modmenu.modrinth": "https://modrinth.com/mod/BetterGrassify",
+        "modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/bettergrassify",
         "modmenu.discord": "https://discord.gg/kfKjjhv3pn"
       },
       "update_checker": true

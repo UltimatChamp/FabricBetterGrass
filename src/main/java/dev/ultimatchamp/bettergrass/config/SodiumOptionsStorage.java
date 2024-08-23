@@ -1,6 +1,10 @@
 package dev.ultimatchamp.bettergrass.config;
 
-import me.jellysquid.mods.sodium.client.gui.options.storage.OptionStorage;
+//? if =1.20.1 {
+/*import me.jellysquid.mods.sodium.client.gui.options.storage.OptionStorage;
+*///?} else {
+import net.caffeinemc.mods.sodium.client.gui.options.storage.OptionStorage;
+//?}
 
 public class SodiumOptionsStorage implements OptionStorage<Object> {
     public static final OptionStorage<?> INSTANCE = new SodiumOptionsStorage();
@@ -12,6 +16,6 @@ public class SodiumOptionsStorage implements OptionStorage<Object> {
 
     @Override
     public void save() {
-        FabricBetterGrassConfig.save();
+        BetterGrassifyConfig.save();
     }
 }

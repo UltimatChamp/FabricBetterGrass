@@ -1,5 +1,5 @@
 {
-  "bettergrass.title": "FabricBetterGrass Config",
+  "bettergrass.title": "BetterGrassify Config",
   "bettergrass.betterGrassMode": "Better Grass Mode",
   "bettergrass.betterGrassMode.desc": "§4Off §r- Grass Blocks look normal\n§3Fast §r- Top Grass texture will be applied to all sides of the Grass Blocks (fast)\n§dFancy §r- Top Grass texture will be applied dynamically to required sides of the Grass Blocks (slow)",
   "bettergrass.snowy.desc": "Connects snowy grass too!",
@@ -10,5 +10,6 @@
   "bettergrass.mycelium.desc": "Connects mycelium too!",
   "bettergrass.crimsonNylium.desc": "Connects crimson nylium too!",
   "bettergrass.warpedNylium.desc": "Connects warped nylium too!",
-  "bettergrass.moreBlocks.desc": "Grass-like blocks that should be connected on slopes."
+  "bettergrass.moreBlocks.desc": "Grass-like blocks that should be connected on slopes.",
+  "bettergrass.noconfig.warn": "§cBetterGrassify for (Neo)Forge 1.20.1 is unable to display a configuration screen due to a limitation in Forge. Please use the configuration file instead. Sorry for the inconvenience!§r\n\nIf you're using Embeddium, you can change most of the configurations in the \"Video Settings Menu.\""
 }

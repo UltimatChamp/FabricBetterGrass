@@ -1,3 +1,4 @@
+//? if !forge {
 package dev.ultimatchamp.bettergrass.config;
 
 import dev.isxander.yacl3.api.*;
@@ -7,14 +8,13 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class FabricBetterGrassGui {
+public class BetterGrassifyGui {
     public static Screen createConfigScreen(Screen parent) {
-        FabricBetterGrassConfig.load();
-        return YetAnotherConfigLib.create(FabricBetterGrassConfig.handler(), (defaults, config, builder) -> builder
+        return YetAnotherConfigLib.create(BetterGrassifyConfig.handler(), (defaults, config, builder) -> builder
                         .title(Text.translatable("bettergrass.title"))
                         .category(ConfigCategory.createBuilder()
                                 .name(Text.translatable("stat.generalButton"))
-                                .option(Option.<FabricBetterGrassConfig.BetterGrassMode>createBuilder()
+                                .option(Option.<BetterGrassifyConfig.BetterGrassMode>createBuilder()
                                         .name(Text.translatable("bettergrass.betterGrassMode"))
                                         .description(OptionDescription.createBuilder()
                                                 .text(Text.translatable("bettergrass.betterGrassMode.desc"))
@@ -25,7 +25,7 @@ public class FabricBetterGrassGui {
                                                 () -> config.betterGrassMode,
                                                 (value) -> config.betterGrassMode = value
                                         )
-                                        .customController(opt -> new EnumController<>(opt, FabricBetterGrassConfig.BetterGrassMode.class))
+                                        .customController(opt -> new EnumController<>(opt, BetterGrassifyConfig.BetterGrassMode.class))
                                         .build())
                                 .option(Option.<Boolean>createBuilder()
                                         .name(Text.translatable("block.minecraft.snow"))
@@ -127,6 +127,7 @@ public class FabricBetterGrassGui {
                                                 .build())
                                         .build())
                                 .build())
+                        //? if !forge {
                         .category(ConfigCategory.createBuilder()
                                 .name(Text.translatable("createWorld.customize.custom.page2"))
                                 .group(ListOption.<String>createBuilder()
@@ -144,8 +145,10 @@ public class FabricBetterGrassGui {
                                         .insertEntriesAtEnd(true)
                                         .build())
                                 .build())
-                        .save(FabricBetterGrassConfig.handler()::save)
+                        //?}
+                        .save(BetterGrassifyConfig.handler()::save)
                 )
                 .generateScreen(parent);
     }
 }
+//?}

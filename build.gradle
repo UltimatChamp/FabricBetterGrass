@@ -1,21 +1,20 @@
 plugins {
-    id "fabric-loom" version "1.7.+"
-    id "me.modmuss50.mod-publish-plugin" version "0.5.2"
+    id "dev.architectury.loom" version "1.7.+"
+    id "me.modmuss50.mod-publish-plugin" version "0.6.3"
 }
 
-// for snapshots
-def mcVer = ""
-for (char c in (property("deps.minecraft_version") as List<Character>)) {
-    if (c.toString() != "-") {
-        mcVer += c
-    }
-}
+def loader = property("loom.platform")
+if (property("loom.platform") == "neoforge")
+    loader = "neo"
+def isFabric = loader == "fabric"
+def isNeo = loader == "neo"
+def isForge = loader == "forge"
 
-version = project.mod_version + "+" + mcVer
+version = project.mod_version + "+" + loader + "." + property("deps.minecraft_version")
 group = project.maven_group
 
 base {
-    archivesName = project.archives_base_name
+    archivesName = project.mod_name
 }
 
 repositories {
@@ -30,6 +29,8 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
+    maven { url "https://maven.su5ed.dev/releases" }
+    maven { url "https://maven.neoforged.net/releases" }
 }
 
 loom {
@@ -37,17 +38,42 @@ loom {
         ideConfigGenerated true
         runDir "../../run"
     }
+
+    if (loader == "forge") {
+        forge {
+            mixinConfig "bettergrass.mixins.json"
+        }
+    }
 }
 
 dependencies {
     minecraft "com.mojang:minecraft:${property("deps.minecraft_version")}"
-    mappings "net.fabricmc:yarn:${property("deps.yarn_mappings")}:v2"
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    mappings(loom.layered {
+        mappings("net.fabricmc:yarn:${property("deps.yarn_mappings")}:v2")
+        if (stonecutter.eval(property("deps.minecraft_version"), ">1.20.1")) {
+            mappings("dev.architectury:yarn-mappings-patch-neoforge:${property("deps.layered_mappings")}")
+        }
+    })
 
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_version")}"
+    if (isFabric) {
+        modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+        modImplementation "net.fabricmc.fabric-api:fabric-api:${property("deps.fapi_version")}"
+        modImplementation "maven.modrinth:modmenu:${property("deps.modmenu_version")}"
+        modImplementation "maven.modrinth:sodium:${property("deps.sodium_version")}"
+    } else if (isNeo) {
+        neoForge "net.neoforged:neoforge:${property("deps.neoforge")}"
+
+        modImplementation "org.sinytra.forgified-fabric-api:forgified-fabric-api:${property("deps.fapi_version")}"
+        modImplementation "maven.modrinth:sodium:${property("deps.sodium_version")}"
+    } else if (isForge) {
+        forge "net.minecraftforge:forge:${property("deps.fml")}"
+
+        modImplementation "dev.su5ed.sinytra.fabric-api:fabric-api:${property("deps.fapi_version")}"
+        modImplementation "maven.modrinth:embeddium:${property("deps.embeddium_version")}"
+    }
+
     modImplementation "maven.modrinth:yacl:${property("deps.yacl_version")}"
-    modImplementation "maven.modrinth:modmenu:${property("deps.modmenu_version")}"
-    modImplementation "maven.modrinth:sodium:${property("deps.sodium_version")}"
 }
 
 if (stonecutter.current.isActive) {
@@ -58,12 +84,42 @@ if (stonecutter.current.isActive) {
     }
 }
 
-processResources {
-    inputs.property "version", project.version
-    inputs.property "mcrange", project.property("deps.mc_range")
+afterEvaluate {
+    stonecutter {
+        stonecutter.const("fabric", isFabric)
+        stonecutter.const("neo", isNeo)
+        stonecutter.const("forge", isForge)
+    }
+}
 
-    filesMatching("fabric.mod.json") {
-        expand "version": project.version, "mcrange": project.property("deps.mc_range")
+processResources {
+    var replaceProperties = [
+            minecraft_range      : project.property("deps.mc_range"),
+            mod_id               : mod_id,
+            mod_name             : mod_name,
+            mod_license          : mod_license,
+            mod_version          : project.version,
+            mod_authors          : mod_authors,
+            mod_description      : mod_description,
+            sodium_incompat_range: project.property("deps.sodium_incompat_range")
+    ]
+    replaceProperties.each { key, value -> inputs.property(key, value) }
+
+    if (isFabric) {
+        filesMatching("fabric.mod.json") {
+            expand replaceProperties
+        }
+        exclude(["META-INF/mods.toml", "META-INF/neoforge.mods.toml"])
+    } else if (isNeo) {
+        filesMatching("META-INF/neoforge.mods.toml") {
+            expand replaceProperties
+        }
+        exclude(["fabric.mod.json", "META-INF/mods.toml"])
+    } else if (isForge) {
+        filesMatching("META-INF/mods.toml") {
+            expand replaceProperties
+        }
+        exclude(["fabric.mod.json", "META-INF/neoforge.mods.toml"])
     }
 }
 
@@ -92,16 +148,31 @@ jar {
 
 publishMods {
     changelog = "# ${project.version}\n" + file("CHANGELOG.md").text
-    type = STABLE
+    if (!"${project.version}".contains("1.20")) {
+        type = BETA
+    } else {
+        type = STABLE
+    }
     file = remapJar.archiveFile
-    modLoaders.addAll("fabric", "quilt")
-    displayName = "FabricBetterGrass ${project.version}"
+    displayName = "BetterGrassify ${project.version}"
+    def deps
+
+    if (isFabric){
+        deps = ["fabric-api", "yacl"]
+        modLoaders.addAll("fabric", "quilt")
+    } else if (isNeo) {
+        deps = ["forgified-fabric-api", "yacl"]
+        modLoaders.add("neoforge")
+    } else {
+        deps = ["forgified-fabric-api", "yacl"]
+        modLoaders.add("forge")
+    }
 
     if ("${project.version}".contains("1.20")) {
         modrinth("m1.20.x") {
             projectId = "m5T5xmUy"
             accessToken = providers.environmentVariable("MODRINTH_TOKEN")
-            requires("fabric-api", "yacl")
+            requires(deps[0], deps[1])
             minecraftVersionRange {
                 start = "1.20"
                 end = "1.20.6"
@@ -114,7 +185,7 @@ publishMods {
         curseforge("c1.20.x") {
             projectId = "1026394"
             accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
-            requires("fabric-api", "yacl")
+            requires(deps[0], deps[1])
             minecraftVersionRange {
                 start = "1.20"
                 end = "1.20.6"
@@ -122,7 +193,7 @@ publishMods {
 
             // Discord
             announcementTitle = "Download from CurseForge"
-            projectSlug = "fabricbettergrass"
+            projectSlug = "bettergrassify"
         }
     }
 
@@ -130,7 +201,7 @@ publishMods {
         modrinth("m1.21") {
             projectId = "m5T5xmUy"
             accessToken = providers.environmentVariable("MODRINTH_TOKEN")
-            requires("fabric-api", "yacl")
+            requires(deps[0], deps[1])
             minecraftVersionRange {
                 start = "1.21"
                 end = "1.21.1"
@@ -143,7 +214,7 @@ publishMods {
         curseforge("c1.21") {
             projectId = "1026394"
             accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
-            requires("fabric-api", "yacl")
+            requires(deps[0], deps[1])
             minecraftVersionRange {
                 start = "1.21"
                 end = "1.21.1"
@@ -151,13 +222,13 @@ publishMods {
 
             // Discord
             announcementTitle = "Download from CurseForge"
-            projectSlug = "fabricbettergrass"
+            projectSlug = "bettergrassify"
         }
     }
 
     github {
         accessToken = providers.environmentVariable("GITHUB_TOKEN")
-        repository = "UltimatChamp/FabricBetterGrass"
+        repository = "UltimatChamp/BetterGrassify"
         commitish = "main"
 
         // Discord
@@ -166,7 +237,7 @@ publishMods {
 
     discord {
         webhookUrl = providers.environmentVariable("DISCORD_WEBHOOK")
-        username = "FabricBetterGrass Releases"
+        username = "BetterGrassify Releases"
         avatarUrl = "https://cdn.modrinth.com/data/m5T5xmUy/c67c1f900e8344e462bb5c21fb512579f3b0be46.png"
     }
 }

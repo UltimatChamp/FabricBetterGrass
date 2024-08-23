@@ -5,16 +5,16 @@ import dev.isxander.yacl3.api.NameableEnum;
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
-import net.fabricmc.loader.api.FabricLoader;
+import dev.isxander.yacl3.platform.YACLPlatform;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 
 import java.util.List;
 
-public class FabricBetterGrassConfig {
-    private static final ConfigClassHandler<FabricBetterGrassConfig> GSON = ConfigClassHandler.createBuilder(FabricBetterGrassConfig.class)
+public class BetterGrassifyConfig {
+    private static final ConfigClassHandler<BetterGrassifyConfig> GSON = ConfigClassHandler.createBuilder(BetterGrassifyConfig.class)
             .serializer(config -> GsonConfigSerializerBuilder.create(config)
-                    .setPath(FabricLoader.getInstance().getConfigDir().resolve("bettergrass.json5"))
+                    .setPath(YACLPlatform.getConfigDir().resolve("bettergrass.json5"))
                     .setJson5(true)
                     .build())
             .build();
@@ -66,7 +66,7 @@ public class FabricBetterGrassConfig {
     @SerialEntry(comment = "\nAdvanced")
     public List<String> moreBlocks = Lists.newArrayList();
 
-    public static ConfigClassHandler<FabricBetterGrassConfig> handler() {
+    public static ConfigClassHandler<BetterGrassifyConfig> handler() {
         return GSON;
     }
 
@@ -78,11 +78,15 @@ public class FabricBetterGrassConfig {
         GSON.save();
     }
 
-    public static FabricBetterGrassConfig instance() {
+    public static BetterGrassifyConfig instance() {
         return GSON.instance();
     }
 
     public static Screen createConfigScreen(Screen parent) {
-        return FabricBetterGrassGui.createConfigScreen(parent);
+        //? if !forge {
+        return BetterGrassifyGui.createConfigScreen(parent);
+        //?} else {
+        /*return new NoConfigScreenWarning(parent);
+        *///?}
     }
 }

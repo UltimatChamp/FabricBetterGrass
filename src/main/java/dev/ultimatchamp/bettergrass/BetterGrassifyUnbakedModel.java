@@ -12,10 +12,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Collection;
 import java.util.function.Function;
 
-public class FabricBetterGrassUnbakedModel implements UnbakedModel {
+public class BetterGrassifyUnbakedModel implements UnbakedModel {
     private final UnbakedModel baseModel;
 
-    public FabricBetterGrassUnbakedModel(UnbakedModel unbakedModel) {
+    public BetterGrassifyUnbakedModel(UnbakedModel unbakedModel) {
         this.baseModel = unbakedModel;
     }
 
@@ -32,13 +32,13 @@ public class FabricBetterGrassUnbakedModel implements UnbakedModel {
 
     @Nullable
     @Override
-    //? if =1.21 {
+    //? if >1.20.1 {
     public BakedModel bake(Baker loader, Function<SpriteIdentifier, Sprite> textureGetter, ModelBakeSettings rotationContainer) {
-        return new FabricBetterGrassBakedModel(this.baseModel.bake(loader, textureGetter, rotationContainer));
+        return new BetterGrassifyBakedModel(this.baseModel.bake(loader, textureGetter, rotationContainer));
     }
     //?} elif =1.20.1 {
     /*public BakedModel bake(Baker loader, Function<SpriteIdentifier, Sprite> textureGetter, ModelBakeSettings rotationContainer, Identifier modelId) {
-        return new FabricBetterGrassBakedModel(this.baseModel.bake(loader, textureGetter, rotationContainer, modelId));
+        return new BetterGrassifyBakedModel(this.baseModel.bake(loader, textureGetter, rotationContainer, modelId));
     }
     *///?}
 }

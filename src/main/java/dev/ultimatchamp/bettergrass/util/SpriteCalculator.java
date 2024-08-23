@@ -4,7 +4,7 @@
     1) Using calculateSprite() from Continuity's SpriteCalculator class
 */
 
-package dev.ultimatchamp.bettergrass;
+package dev.ultimatchamp.bettergrass.util;
 
 import java.util.List;
 import java.util.function.Supplier;

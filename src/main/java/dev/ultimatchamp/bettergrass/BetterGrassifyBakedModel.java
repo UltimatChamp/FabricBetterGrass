@@ -1,6 +1,7 @@
 package dev.ultimatchamp.bettergrass;
 
-import dev.ultimatchamp.bettergrass.config.FabricBetterGrassConfig;
+import dev.ultimatchamp.bettergrass.config.BetterGrassifyConfig;
+import dev.ultimatchamp.bettergrass.util.SpriteCalculator;
 import net.fabricmc.fabric.api.renderer.v1.mesh.MutableQuadView;
 import net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel;
 import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
@@ -13,9 +14,9 @@ import net.minecraft.world.BlockRenderView;
 
 import java.util.function.Supplier;
 
-public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
+public class BetterGrassifyBakedModel extends ForwardingBakedModel {
 
-    public FabricBetterGrassBakedModel(BakedModel baseModel) {
+    public BetterGrassifyBakedModel(BakedModel baseModel) {
         this.wrapped = baseModel;
     }
 
@@ -28,9 +29,9 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
     public void emitBlockQuads(BlockRenderView blockView, BlockState state, BlockPos pos, Supplier<Random> randomSupplier, RenderContext context) {
         context.pushTransform(quad -> {
 
-            if (FabricBetterGrassConfig.instance().betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.OFF)) {
+            if (BetterGrassifyConfig.instance().betterGrassMode.equals(BetterGrassifyConfig.BetterGrassMode.OFF)) {
                 return true;
-            } else if (FabricBetterGrassConfig.instance().betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.FAST)) {
+            } else if (BetterGrassifyConfig.instance().betterGrassMode.equals(BetterGrassifyConfig.BetterGrassMode.FAST)) {
                 if (quad.nominalFace().getAxis() != Direction.Axis.Y) {
                     if (isSnowy(blockView, pos))
                         spriteBake(quad, blockView.getBlockState(pos.up()), randomSupplier);
@@ -38,7 +39,7 @@ public class FabricBetterGrassBakedModel extends ForwardingBakedModel {
                         spriteBake(quad, blockView.getBlockState(pos), randomSupplier);
                     return true;
                 }
-            } else if (FabricBetterGrassConfig.instance().betterGrassMode.equals(FabricBetterGrassConfig.BetterGrassMode.FANCY)) {
+            } else if (BetterGrassifyConfig.instance().betterGrassMode.equals(BetterGrassifyConfig.BetterGrassMode.FANCY)) {
                 if (quad.nominalFace().getAxis() != Direction.Axis.Y) {
                     Direction face = quad.nominalFace();
 

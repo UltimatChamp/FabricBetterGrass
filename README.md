@@ -1,8 +1,14 @@
-# <font color="#1bd96a">FabricBetterGrass</font>
+---
+modrinth:
+  issues_url: "https://github.com/UltimatChamp/BetterGrassify/issues/new/choose"
+  source_url: "https://github.com/UltimatChamp/BetterGrassify"
+  discord_url: "https://discord.gg/kfKjjhv3pn"
+---
+# <font color="#1bd96a">BetterGrassify</font>
 
 <center><img alt="Logo" width="100px" src="https://cdn.modrinth.com/data/m5T5xmUy/c67c1f900e8344e462bb5c21fb512579f3b0be46.png"><br><br>
 
-[![Discord](https://img.shields.io/badge/Discord-Server-%2300AF5C?style=for-the-badge&logo=discord&logoColor=%23fff&color=%235865F2)](https://discord.gg/kfKjjhv3pn) [![Modrinth](https://img.shields.io/badge/On-Modrinth-%2300AF5C?style=for-the-badge&logo=modrinth)](https://modrinth.com/mod/fabricbettergrass) [![CurseForge](https://img.shields.io/badge/On-CurseForge-%23f16436?style=for-the-badge&logo=curseforge)](https://www.curseforge.com/minecraft/mc-mods/fabricbettergrass) [![Modpack](https://img.shields.io/badge/modpack-%2300AF5C?style=for-the-badge&logo=modrinth&label=my)](https://modrinth.com/modpack/optimum-fuse)
+[![Discord](https://img.shields.io/badge/Discord-Server-%2300AF5C?style=for-the-badge&logo=discord&logoColor=%23fff&color=%235865F2)](https://discord.gg/kfKjjhv3pn) [![Modrinth](https://img.shields.io/badge/On-Modrinth-%2300AF5C?style=for-the-badge&logo=modrinth)](https://modrinth.com/mod/bettergrassify) [![CurseForge](https://img.shields.io/badge/On-CurseForge-%23f16436?style=for-the-badge&logo=curseforge)](https://www.curseforge.com/minecraft/mc-mods/bettergrassify) [![Modpack](https://img.shields.io/badge/modpack-%2300AF5C?style=for-the-badge&logo=modrinth&label=my)](https://modrinth.com/modpack/optimum-fuse)
 
 <hr>
 

@@ -1,6 +1,6 @@
 package dev.ultimatchamp.bettergrass.mixin;
 
-import dev.ultimatchamp.bettergrass.config.FabricBetterGrassConfig;
+import dev.ultimatchamp.bettergrass.config.BetterGrassifyConfig;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.option.GameOptionsScreen;
 import net.minecraft.client.gui.widget.OptionListWidget;
@@ -26,14 +26,14 @@ public abstract class VideoOptionsScreenMixin extends GameOptionsScreen {
     }
 
     @Inject(
-            //? if =1.21 {
+            //? if >1.20.1 {
             method = "addOptions",
             //?} elif =1.20.1 {
             /*method = "init",
             *///?}
             at = @At(
                     value = "INVOKE",
-                    //? if =1.21 {
+                    //? if >1.20.1 {
                     target = "Lnet/minecraft/client/gui/widget/OptionListWidget;addSingleOptionEntry(Lnet/minecraft/client/option/SimpleOption;)V",
                     //?} elif =1.20.1 {
                     /*target = "Lnet/minecraft/client/gui/widget/OptionListWidget;addSingleOptionEntry(Lnet/minecraft/client/option/SimpleOption;)I",
@@ -42,10 +42,10 @@ public abstract class VideoOptionsScreenMixin extends GameOptionsScreen {
             )
     )
     private void bettergrass$addConfigButton(CallbackInfo ci) {
-        //? if =1.21 {
-        this.body.addSingleOptionEntry(new SimpleOption<>("bettergrass.title", SimpleOption.constantTooltip(Text.empty()), (arg, object) -> Text.empty(), SimpleOption.BOOLEAN, true, (parent) -> this.client.setScreen(FabricBetterGrassConfig.createConfigScreen(this))));
+        //? if >1.20.1 {
+        this.body.addSingleOptionEntry(new SimpleOption<>("bettergrass.title", SimpleOption.constantTooltip(Text.empty()), (arg, object) -> Text.empty(), SimpleOption.BOOLEAN, true, (parent) -> this.client.setScreen(BetterGrassifyConfig.createConfigScreen(this))));
         //?} elif =1.20.1 {
-        /*this.list.addSingleOptionEntry(new SimpleOption<>("bettergrass.title", SimpleOption.constantTooltip(Text.empty()), (arg, object) -> Text.empty(), SimpleOption.BOOLEAN, true, (parent) -> this.client.setScreen(FabricBetterGrassConfig.createConfigScreen(this))));
+        /*this.list.addSingleOptionEntry(new SimpleOption<>("bettergrass.title", SimpleOption.constantTooltip(Text.empty()), (arg, object) -> Text.empty(), SimpleOption.BOOLEAN, true, (parent) -> this.client.setScreen(BetterGrassifyConfig.createConfigScreen(this))));
         *///?}
     }
 }
