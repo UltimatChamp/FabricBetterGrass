@@ -8,7 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
@@ -42,14 +41,3 @@ jobs:
         with:
           name: Artifacts
           path: versions/*/build/libs/*.jar
-
-  modrinth-desc:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout sources
-        uses: actions/checkout@v4
-
-      - uses: funnyboy-roks/modrinth-auto-desc@v1.6
-        with:
-          auth-token: ${{ secrets.MODRINTH_TOKEN }}
-          slug: 'BetterGrassify'

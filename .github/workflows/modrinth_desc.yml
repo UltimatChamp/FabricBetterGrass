@@ -1,0 +1,17 @@
+name: Update Modrinth Description
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  modrinth-desc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      - uses: funnyboy-roks/modrinth-auto-desc@v1.6
+        with:
+          auth-token: ${{ secrets.MODRINTH_TOKEN }}
+          slug: 'BetterGrassify'
