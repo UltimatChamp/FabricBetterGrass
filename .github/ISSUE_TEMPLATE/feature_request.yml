@@ -1,0 +1,10 @@
+name: Feature Request
+description: Suggest a feature you would like to be added into the mod.
+labels: suggestion
+body:
+  - type: textarea
+    attributes:
+      label: Request Description
+      description: Describe the feature or improvement that you want to be added into the mod.
+    validations:
+      required: true

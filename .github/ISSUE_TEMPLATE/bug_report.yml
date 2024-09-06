@@ -1,0 +1,35 @@
+name: Bug Report
+description: Report an issue with the mod. If you are unsure, report on Discord.
+labels: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before reporting an issue, please search the open issues to make sure it has not already been reported. 
+
+  - type: textarea
+    attributes:
+      label: Describe your issue
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Mod version
+      description: What version of the mod are you using?
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Launcher
+      description: Which launcher are you using?
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: Screenshots, video or any other information. If it is a crash, please post it to [mclo.gs](https://mclo.gs/) and add a link here.
+    validations:
+      required: false
