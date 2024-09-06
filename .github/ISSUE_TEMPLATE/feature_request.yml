@@ -1,6 +1,6 @@
 name: Feature Request
 description: Suggest a feature you would like to be added into the mod.
-labels: suggestion
+labels: enhancement
 body:
   - type: textarea
     attributes:
