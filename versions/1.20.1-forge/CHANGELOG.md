@@ -1,7 +1,7 @@
-🗃️**Detailed Changelog: [1.0.23+1.20.1 --> 1.1.0+forge.1.20.1](https://github.com/UltimatChamp/BetterGrassify/compare/1.0.23+1.20.1...1.1.0+forge.1.20.1)**
+🗃️**Detailed Changelog: [1.1.0+forge.1.20.1 --> 1.1.1+forge.1.20.1](https://github.com/UltimatChamp/BetterGrassify/compare/1.1.0+forge.1.20.1...1.1.1+forge.1.20.1)**
 
 ### 🛠️Changes
 
-- Rebranded the project to **BetterGrassify**. _(Maybe time for a new logo?)_
-- Added support for **Forge** and **NeoForge**! _(Requires **Forgified Fabric API**)_
+- Updated **Traditional Chinese** translation. [(**#22**)](https://github.com/UltimatChamp/FabricBetterGrass/pull/22)
+- Added **Simplified Chinese** translation. [(**#23**)](https://github.com/UltimatChamp/FabricBetterGrass/pull/23)
 - Help **translate** the mod to your language! [**[GitHub]**](https://github.com/UltimatChamp/BetterGrassify)
