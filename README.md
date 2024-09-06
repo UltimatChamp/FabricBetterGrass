@@ -6,7 +6,7 @@ modrinth:
 ---
 # <font color="#1bd96a">BetterGrassify</font>
 
-<center><img alt="Logo" width="100px" src="https://cdn.modrinth.com/data/m5T5xmUy/c67c1f900e8344e462bb5c21fb512579f3b0be46.png"><br><br>
+<center><img alt="Logo" width="200px" src="https://cdn.modrinth.com/data/m5T5xmUy/c67c1f900e8344e462bb5c21fb512579f3b0be46.png"><br><br>
 
 [![Discord](https://img.shields.io/badge/Discord-Server-%2300AF5C?style=for-the-badge&logo=discord&logoColor=%23fff&color=%235865F2)](https://discord.gg/kfKjjhv3pn) [![Modrinth](https://img.shields.io/badge/On-Modrinth-%2300AF5C?style=for-the-badge&logo=modrinth)](https://modrinth.com/mod/bettergrassify) [![CurseForge](https://img.shields.io/badge/On-CurseForge-%23f16436?style=for-the-badge&logo=curseforge)](https://www.curseforge.com/minecraft/mc-mods/bettergrassify) [![Modpack](https://img.shields.io/badge/modpack-%2300AF5C?style=for-the-badge&logo=modrinth&label=my)](https://modrinth.com/modpack/optimum-fuse)
 
@@ -16,9 +16,9 @@ _<small>Gamers can finally touch grass!?</small>_
 
 <hr>
 
-_OptiFine's Fancy_ and _Fast **better grass**_ implemented on Fabric!
+_OptiFine's Fancy_ and _Fast **better grass**_ implemented on Fabric and NeoForge!
 
-<img alt="Banner" width="750px" src="https://i.pinimg.com/originals/63/7d/dd/637ddd587f478f40dc7c4a3d25e67c3b.png"></center>
+<img alt="Banner" width="750px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/7b81f0b5a85d97ab9d791d0139319012b5a5d7ec.png"></center>
 
 ## Features
 
@@ -39,31 +39,19 @@ _OptiFine's Fancy_ and _Fast **better grass**_ implemented on Fabric!
 <hr>
 
 ### **Fully Configurable**
-<center><img alt="YACL" width="250px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/ff2efff790c20ec0e7eaa0f20a66df34a0e79522.png"><img alt="Sodium" width="250px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/2b728cbec1560784c72e8ae7b0c043391707f86f.png"></center>
+<center>
+    <img alt="YACL" width="250px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/04353df9655cb5d933546399bbcb6f36c943292c.png">
+    <img alt="Reese's" width="250px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/6686b481b056b1be7f57c07b0dada389a8e748b2.png"><br>
+    <img alt="Xander's" width="500px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/55435e2054339fa70efb934ede682f4754c086ac.png">
+</center>
 
 <hr>
 
 ### **Modded grass blocks** can be added manually!
-<center><img alt="More Blocks" width="500px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/f43c1e16464710ca5371ff6e62aa25d2004cbad0.png"></center>
+<center><img alt="More Blocks" width="500px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/37f7b8d4ad1712710136969e06f78b5458bd6d66.png"></center>
 
 <hr>
 
-<details><summary><b>FAQs</b></summary>
-
-> Backports?
-
-No! For versions below `1.19.3`, use [**LambdaBetterGrass**](https://modrinth.com/mod/lambdabettergrass).
-
-> Quilt?
-
-For Quilt, it's recommended to use [**LambdaBetterGrass**](https://modrinth.com/mod/lambdabettergrass). _<small>(however, the mod may work on **Quilt**)</small>_
-
-> (Neo)Forge?
-
-**(Neo)Forge** will be supported, once **Continuity** supports it. _<small>(the mod may work with **Sinytra Connector** on 1.20.1)</small>_
-
-</details><hr>
-
 ## Credits!
 
-[**ArdaGrass**](https://modrinth.com/mod/ardagrass)
+### [**ArdaGrass**](https://modrinth.com/mod/ardagrass)
