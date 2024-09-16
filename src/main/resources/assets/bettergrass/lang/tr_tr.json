@@ -11,5 +11,5 @@
   " bettergrass.crimsonNylium.desc": " Kızıl nesilyumu da bağlar!" ,
   " bettergrass.warpedNylium.desc": " Çarpık niselyumu da bağlar!" ,
   " bettergrass.moreBlocks.desc": " Yamaçlarda bağlanması gereken çimen benzeri bloklar." ,
-  " bettergrass.noconfig.warn": " §cBetterGrassify (Neo)Forge 1.20.1 için Forge'daki bir sınırlama nedeniyle bir konfigürasyon ekranı görüntülenemiyor. Lütfen bunun yerine konfigürasyon dosyasını kullanın. Rahatsızlık için özür dileriz!“§r\n\nEğer Embeddium kullanıyorsanız, konfigürasyonların çoğunu "Video Ayarları Menüsü"" üzerinden değiştirebilirsiniz.”
+  " bettergrass.noconfig.warn": " §cBetterGrassify (Neo)Forge 1.20.1 için Forge'daki bir sınırlama nedeniyle bir konfigürasyon ekranı görüntülenemiyor. Lütfen bunun yerine konfigürasyon dosyasını kullanın. Rahatsızlık için özür dileriz!“§r\n\nEğer Embeddium kullanıyorsanız, konfigürasyonların çoğunu \"Video Ayarları Menüsü.\"" üzerinden değiştirebilirsiniz."
 }
