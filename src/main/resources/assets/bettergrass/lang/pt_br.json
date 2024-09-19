@@ -1,0 +1,15 @@
+{
+  "bettergrass.title": "Configuração BetterGrassify",
+  "bettergrass.betterGrassMode": "Modo de Melhor Grama",
+  "bettergrass.betterGrassMode.desc": "§4Desligado §r- Blocos de grama aparentam normal\n§3Rápido §r- A textura do topo da grama será aplicado em todos os lados do bloco (rápido)\n§dBonito §r- A textura do topo de grama será aplicado dinamicamente aos lados do bloco (lento)",
+  "bettergrass.snowy.desc": "Conecta grama com neve também!",
+  "bettergrass.grassBlocks.desc": "Conecta bloco de grama também!",
+  "bettergrass.dirtPaths.desc": "Conecta caminhos de grama também!\n\n§cTalvez cause alguns bugs visuais!",
+  "bettergrass.farmLands.desc": "Conecta terra arada também!\n\n§cTalvez cause alguns bugs visuais!",
+  "bettergrass.podzol.desc": "Conecta podzol também!",
+  "bettergrass.mycelium.desc": "Conecta micélio também!",
+  "bettergrass.crimsonNylium.desc": "Conecta nicélio carmesim também!",
+  "bettergrass.warpedNylium.desc": "Conecta nicélio distorcido também!",
+  "bettergrass.moreBlocks.desc": "Blocos tipo grama que deveriam conectar em rampas.",
+  "bettergrass.noconfig.warn": "§cBetterGrassify para (Neo)Forge 1.20.1 está indisponivel para mostrar a tela de configuração devido à uma limitação no Forge. Por favor, utilize os arquivos de configuração no lugar. Desculpe pela inconveniência!§r\n\nIf you're using Embeddium, you can change most of the configurations in the \"Video Settings Menu.\""
+}
