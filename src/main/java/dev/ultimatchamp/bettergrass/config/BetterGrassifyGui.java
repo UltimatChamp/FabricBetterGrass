@@ -39,6 +39,20 @@ public class BetterGrassifyGui {
                                         )
                                         .controller(TickBoxControllerBuilder::create)
                                         .build())
+                                //? if >1.20.1 {
+                                .option(Option.<BetterGrassifyConfig.BetterSnowMode>createBuilder()
+                                        .name(Text.translatable("bettergrass.betterSnowMode"))
+                                        .description(OptionDescription.createBuilder()
+                                                .text(Text.translatable("bettergrass.betterSnowMode.desc"))
+                                                .build())
+                                        .binding(
+                                                defaults.betterSnowMode,
+                                                () -> config.betterSnowMode,
+                                                (value) -> config.betterSnowMode = value
+                                        )
+                                        .customController(opt -> new EnumController<>(opt, BetterGrassifyConfig.BetterSnowMode.class))
+                                        .build())
+                                //?}
                                 .group(OptionGroup.createBuilder()
                                         .name(Text.translatable("soundCategory.block"))
                                         .option(Option.<Boolean>createBuilder()
@@ -127,7 +141,6 @@ public class BetterGrassifyGui {
                                                 .build())
                                         .build())
                                 .build())
-                        //? if !forge {
                         .category(ConfigCategory.createBuilder()
                                 .name(Text.translatable("createWorld.customize.custom.page2"))
                                 .group(ListOption.<String>createBuilder()
@@ -145,7 +158,6 @@ public class BetterGrassifyGui {
                                         .insertEntriesAtEnd(true)
                                         .build())
                                 .build())
-                        //?}
                         .save(BetterGrassifyConfig.handler()::save)
                 )
                 .generateScreen(parent);

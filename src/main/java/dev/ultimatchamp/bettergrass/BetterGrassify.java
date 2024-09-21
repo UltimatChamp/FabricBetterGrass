@@ -4,7 +4,8 @@ import dev.ultimatchamp.bettergrass.config.BetterGrassifyConfig;
 //? if fabric {
 import net.fabricmc.api.ClientModInitializer;
 //?} elif neo {
-/*import net.neoforged.bus.api.IEventBus;
+/*import net.fabricmc.loader.api.FabricLoader;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
@@ -47,10 +48,17 @@ public final class BetterGrassify {
                 () ->  new ConfigScreenHandler.ConfigScreenFactory((client, parent) -> BetterGrassifyConfig.createConfigScreen(parent))
         );
     *///?}
+
         if (BetterGrassifyConfig.instance().betterGrassMode == BetterGrassifyConfig.BetterGrassMode.OFF)
             LOGGER.info("[BetterGrassify] Better Grass is disabled.");
         else
             LOGGER.info("[BetterGrassify] [" + BetterGrassifyConfig.instance().betterGrassMode.toString() + "] Gamers can finally touch grass!?");
+
+        //? if neo {
+        /*if (!FabricLoader.getInstance().isModLoaded("sodium")) {
+            BetterGrassify.LOGGER.warn("[BetterGrassify] Sodium is not installed. 'Better Snow' feature has been disabled.");
+        }
+        *///?}
     }
 
     //? if !fabric {

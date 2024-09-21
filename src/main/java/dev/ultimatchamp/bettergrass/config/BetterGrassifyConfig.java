@@ -5,7 +5,7 @@ import dev.isxander.yacl3.api.NameableEnum;
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
-import dev.isxander.yacl3.platform.YACLPlatform;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public class BetterGrassifyConfig {
     private static final ConfigClassHandler<BetterGrassifyConfig> GSON = ConfigClassHandler.createBuilder(BetterGrassifyConfig.class)
             .serializer(config -> GsonConfigSerializerBuilder.create(config)
-                    .setPath(YACLPlatform.getConfigDir().resolve("bettergrass.json5"))
+                    .setPath(FabricLoader.getInstance().getConfigDir().resolve("bettergrass.json5"))
                     .setJson5(true)
                     .build())
             .build();
@@ -22,7 +22,7 @@ public class BetterGrassifyConfig {
     @SerialEntry(comment = "General\nOFF/FAST/FANCY (default: FANCY)")
     public BetterGrassMode betterGrassMode = BetterGrassMode.FANCY;
 
-    public static enum BetterGrassMode implements NameableEnum {
+    public enum BetterGrassMode implements NameableEnum {
         OFF("options.off"),
         FAST("options.graphics.fast"),
         FANCY("options.graphics.fancy");
@@ -41,6 +41,28 @@ public class BetterGrassifyConfig {
 
     @SerialEntry(comment = "(default: true)")
     public boolean snowy = true;
+
+    //? if >1.20.1 {
+    @SerialEntry(comment = "General\nOFF/OPTIFINE/LAMBDA (default: OPTIFINE)")
+    public BetterSnowMode betterSnowMode = BetterSnowMode.OPTIFINE;
+
+    public enum BetterSnowMode implements NameableEnum {
+        OFF("options.off"),
+        OPTIFINE("bettergrass.betterSnowMode.optifine"),
+        LAMBDA("bettergrass.betterSnowMode.lambda");
+
+        private final String displayName;
+
+        BetterSnowMode(String displayName) {
+            this.displayName = displayName;
+        }
+
+        @Override
+        public Text getDisplayName() {
+            return Text.translatable(displayName);
+        }
+    }
+    //?}
 
     @SerialEntry(comment = "\nConnected Blocks\n(default: true)")
     public boolean grassBlocks = true;

@@ -101,9 +101,14 @@ processResources {
             mod_version          : project.version,
             mod_authors          : mod_authors,
             mod_description      : mod_description,
-            sodium_incompat_range: project.property("deps.sodium_incompat_range")
+            sodium_incompat_range: project.property("deps.sodium_incompat_range"),
+            mixins               : project.property("deps.mixins")
     ]
     replaceProperties.each { key, value -> inputs.property(key, value) }
+
+    filesMatching("bettergrass.mixins.json") {
+        expand replaceProperties
+    }
 
     if (isFabric) {
         filesMatching("fabric.mod.json") {

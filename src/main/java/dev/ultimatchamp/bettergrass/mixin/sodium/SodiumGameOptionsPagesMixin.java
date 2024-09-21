@@ -1,4 +1,4 @@
-package dev.ultimatchamp.bettergrass.mixin;
+package dev.ultimatchamp.bettergrass.mixin.sodium;
 
 import dev.ultimatchamp.bettergrass.config.BetterGrassifyConfig;
 import dev.ultimatchamp.bettergrass.config.SodiumOptionsStorage;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.List;
 
-//? if !=1.20.1 {
+//? if >1.20.1 {
 import net.caffeinemc.mods.sodium.client.gui.SodiumGameOptionPages;
 import net.caffeinemc.mods.sodium.client.gui.options.*;
 import net.caffeinemc.mods.sodium.client.gui.options.control.CyclingControl;
@@ -54,6 +54,21 @@ public class SodiumGameOptionsPagesMixin {
                         .setImpact(OptionImpact.LOW)
                         .setFlags(OptionFlag.REQUIRES_ASSET_RELOAD)
                         .build()
+                //? if >1.20.1 {
+                ).add(OptionImpl.createBuilder(BetterGrassifyConfig.BetterSnowMode.class, SodiumOptionsStorage.INSTANCE)
+                                .setName(Text.translatable("bettergrass.betterSnowMode"))
+                                .setTooltip(Text.translatable("bettergrass.betterSnowMode.desc"))
+                                .setControl((opt) -> new CyclingControl<>(opt, BetterGrassifyConfig.BetterSnowMode.class, new Text[]{
+                                        Text.translatable("options.off"),
+                                        Text.translatable("bettergrass.betterSnowMode.optifine"),
+                                        Text.translatable("bettergrass.betterSnowMode.lambda")
+                                }))
+                                .setBinding((options, value) -> BetterGrassifyConfig.instance().betterSnowMode = value,
+                                        (options) -> BetterGrassifyConfig.instance().betterSnowMode)
+                                .setImpact(OptionImpact.VARIES)
+                                .setFlags(OptionFlag.REQUIRES_RENDERER_RELOAD)
+                                .build()
+                //?}
                 ).add(OptionImpl.createBuilder(boolean.class, SodiumOptionsStorage.INSTANCE)
                         .setName(Text.translatable("block.minecraft.grass_block"))
                         .setTooltip(Text.translatable("bettergrass.grassBlocks.desc"))

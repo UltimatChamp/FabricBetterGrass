@@ -36,7 +36,7 @@ public class BetterGrassifyUnbakedModel implements UnbakedModel {
     public BakedModel bake(Baker loader, Function<SpriteIdentifier, Sprite> textureGetter, ModelBakeSettings rotationContainer) {
         return new BetterGrassifyBakedModel(this.baseModel.bake(loader, textureGetter, rotationContainer));
     }
-    //?} elif =1.20.1 {
+    //?} else {
     /*public BakedModel bake(Baker loader, Function<SpriteIdentifier, Sprite> textureGetter, ModelBakeSettings rotationContainer, Identifier modelId) {
         return new BetterGrassifyBakedModel(this.baseModel.bake(loader, textureGetter, rotationContainer, modelId));
     }

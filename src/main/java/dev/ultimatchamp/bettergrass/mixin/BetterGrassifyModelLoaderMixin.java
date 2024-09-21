@@ -5,7 +5,6 @@ import dev.ultimatchamp.bettergrass.config.BetterGrassifyConfig;
 import net.minecraft.client.render.model.ModelLoader;
 import net.minecraft.client.render.model.UnbakedModel;
 import net.minecraft.client.util.ModelIdentifier;
-import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -14,7 +13,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
+
+//? if =1.20.1 {
+/*import net.minecraft.util.Identifier;
 import java.util.Set;
+*///?}
 
 @Mixin(ModelLoader.class)
 public class BetterGrassifyModelLoaderMixin {
@@ -22,7 +25,7 @@ public class BetterGrassifyModelLoaderMixin {
     @Final
     //? if >1.20.1 {
     private Map<ModelIdentifier, UnbakedModel> modelsToBake;
-    //?} elif =1.20.1 {
+    //?} else {
     /*private Map<Identifier, UnbakedModel> unbakedModels;
 
     @Shadow
@@ -33,7 +36,7 @@ public class BetterGrassifyModelLoaderMixin {
     //? if >1.20.1 {
     @Inject(method = "addModelToBake", at = @At("HEAD"), cancellable = true)
     private void onAddModelToBake(ModelIdentifier id, UnbakedModel unbakedModel, CallbackInfo ci) {
-    //?} elif =1.20.1 {
+    //?} else {
     /*@Inject(method = "putModel", at = @At("HEAD"), cancellable = true)
     private void onPutModel(Identifier id, UnbakedModel unbakedModel, CallbackInfo ci) {
     *///?}
@@ -44,7 +47,7 @@ public class BetterGrassifyModelLoaderMixin {
                         var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
                         //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
-                        //?} elif =1.20.1 {
+                        //?} else {
                         /*this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         *///?}
@@ -55,7 +58,7 @@ public class BetterGrassifyModelLoaderMixin {
                             var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
                             //? if >1.20.1 {
                             this.modelsToBake.put(id, newModel);
-                            //?} elif =1.20.1 {
+                            //?} else {
                             /*this.unbakedModels.put(id, newModel);
                             this.modelsToLoad.addAll(newModel.getModelDependencies());
                             *///?}
@@ -69,7 +72,7 @@ public class BetterGrassifyModelLoaderMixin {
                         var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
                         //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
-                        //?} elif =1.20.1 {
+                        //?} else {
                         /*this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         *///?}
@@ -78,7 +81,7 @@ public class BetterGrassifyModelLoaderMixin {
                         var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
                         //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
-                        //?} elif =1.20.1 {
+                        //?} else {
                         /*this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         *///?}
@@ -91,7 +94,7 @@ public class BetterGrassifyModelLoaderMixin {
                         var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
                         //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
-                        //?} elif =1.20.1 {
+                        //?} else {
                         /*this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         *///?}
@@ -104,7 +107,7 @@ public class BetterGrassifyModelLoaderMixin {
                         var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
                         //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
-                        //?} elif =1.20.1 {
+                        //?} else {
                         /*this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         *///?}
@@ -117,7 +120,7 @@ public class BetterGrassifyModelLoaderMixin {
                         var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
                         //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
-                        //?} elif =1.20.1 {
+                        //?} else {
                         /*this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         *///?}
@@ -126,7 +129,7 @@ public class BetterGrassifyModelLoaderMixin {
                         var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
                         //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
-                        //?} elif =1.20.1 {
+                        //?} else {
                         /*this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         *///?}
@@ -139,7 +142,7 @@ public class BetterGrassifyModelLoaderMixin {
                         var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
                         //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
-                        //?} elif =1.20.1 {
+                        //?} else {
                         /*this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         *///?}
@@ -148,7 +151,7 @@ public class BetterGrassifyModelLoaderMixin {
                         var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
                         //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
-                        //?} elif =1.20.1 {
+                        //?} else {
                         /*this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         *///?}
@@ -161,7 +164,7 @@ public class BetterGrassifyModelLoaderMixin {
                         var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
                         //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
-                        //?} elif =1.20.1 {
+                        //?} else {
                         /*this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         *///?}
@@ -174,7 +177,7 @@ public class BetterGrassifyModelLoaderMixin {
                         var newModel = new BetterGrassifyUnbakedModel(unbakedModel);
                         //? if >1.20.1 {
                         this.modelsToBake.put(id, newModel);
-                        //?} elif =1.20.1 {
+                        //?} else {
                         /*this.unbakedModels.put(id, newModel);
                         this.modelsToLoad.addAll(newModel.getModelDependencies());
                         *///?}
