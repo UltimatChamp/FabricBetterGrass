@@ -1,4 +1,4 @@
-//? if >1.20.1 && fabric {
+//? if >1.20.6 && fabric {
 package dev.ultimatchamp.bettergrass.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;

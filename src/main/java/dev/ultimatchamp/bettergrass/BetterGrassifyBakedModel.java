@@ -89,7 +89,7 @@ public class BetterGrassifyBakedModel extends ForwardingBakedModel {
         }
         *///?}
 
-        //? if >1.20.1 {
+        //? if >1.20.6 {
         var world = MinecraftClient.getInstance().world;
         var self = world.getBlockState(selfPos);
 

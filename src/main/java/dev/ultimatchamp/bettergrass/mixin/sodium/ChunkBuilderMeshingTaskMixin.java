@@ -1,4 +1,4 @@
-//? if >1.20.1 {
+//? if >1.20.6 {
 package dev.ultimatchamp.bettergrass.mixin.sodium;
 
 import com.llamalad7.mixinextras.sugar.Local;

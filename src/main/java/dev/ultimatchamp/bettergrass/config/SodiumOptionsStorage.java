@@ -1,6 +1,6 @@
 package dev.ultimatchamp.bettergrass.config;
 
-//? if >1.20.1 {
+//? if >1.20.6 {
 import net.caffeinemc.mods.sodium.client.gui.options.storage.OptionStorage;
 //?} else {
 /*import me.jellysquid.mods.sodium.client.gui.options.storage.OptionStorage;

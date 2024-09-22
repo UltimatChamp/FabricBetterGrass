@@ -32,7 +32,7 @@ public class BetterGrassifyUnbakedModel implements UnbakedModel {
 
     @Nullable
     @Override
-    //? if >1.20.1 {
+    //? if >1.20.6 {
     public BakedModel bake(Baker loader, Function<SpriteIdentifier, Sprite> textureGetter, ModelBakeSettings rotationContainer) {
         return new BetterGrassifyBakedModel(this.baseModel.bake(loader, textureGetter, rotationContainer));
     }

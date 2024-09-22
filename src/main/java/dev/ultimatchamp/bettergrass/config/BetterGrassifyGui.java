@@ -39,7 +39,7 @@ public class BetterGrassifyGui {
                                         )
                                         .controller(TickBoxControllerBuilder::create)
                                         .build())
-                                //? if >1.20.1 {
+                                //? if >1.20.6 {
                                 .option(Option.<BetterGrassifyConfig.BetterSnowMode>createBuilder()
                                         .name(Text.translatable("bettergrass.betterSnowMode"))
                                         .description(OptionDescription.createBuilder()

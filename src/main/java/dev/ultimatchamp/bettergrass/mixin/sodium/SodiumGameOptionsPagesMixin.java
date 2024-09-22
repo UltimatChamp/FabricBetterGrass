@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.List;
 
-//? if >1.20.1 {
+//? if >1.20.6 {
 import net.caffeinemc.mods.sodium.client.gui.SodiumGameOptionPages;
 import net.caffeinemc.mods.sodium.client.gui.options.*;
 import net.caffeinemc.mods.sodium.client.gui.options.control.CyclingControl;
