@@ -3,7 +3,7 @@
   "bettergrass.betterGrassMode": "Modo de Melhor Grama",
   "bettergrass.betterGrassMode.desc": "§4Não §r- Blocos de grama aparentam normal\n§3Rápidas §r- A textura do topo da grama será aplicado em todos os lados do bloco (rápido)\n§dDetalhadas §r- A textura do topo de grama será aplicado dinamicamente aos lados do bloco (lento)",
   "bettergrass.snowy.desc": "Conecta grama com neve também!",
-  "bettergrass.betterSnowMode": "Better Snow",
+  "bettergrass.betterSnowMode": "Neve Melhorada",
   "bettergrass.betterSnowMode.desc": "§4Não §r- Nenhuma camada de neve será gerada.\n§3Tipo-OptiFine §r- Mostra neve embaixo de blocos específicos que tenham ao menos uma camada de neve ou bloco de neve perto.\n§dTipo-LambdaBetterGrass §r- Mostra neve embaixo de blocos específicos que tenham ao menos \"duas\" camadas de neve ou blocos de neve perto.",
   "bettergrass.betterSnowMode.optifine": "OptiFine-like",
   "bettergrass.betterSnowMode.lambda": "LambdaBetterGrass-like",
