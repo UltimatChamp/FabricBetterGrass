@@ -1,0 +1,19 @@
+{
+  "bettergrass.title": "Configuração BetterGrassify",
+  "bettergrass.betterGrassMode": "Modo de Grama Melhorada",
+  "bettergrass.betterGrassMode.desc": "§4Não §r- Blocos de grama aparentam normal\n§3Rápidas §r- A textura do topo da grama será aplicado em todos os lados do bloco (rápido)\n§dDetalhadas §r- A textura do topo de grama será aplicado dinamicamente aos lados do bloco (lento)",
+  "bettergrass.snowy.desc": "Conecta grama com neve também!",
+  "bettergrass.betterSnowMode": "Neve Melhorada",
+  "bettergrass.betterSnowMode.desc": "§4Não §r- Nenhuma camada de neve será gerada.\n§3Tipo-OptiFine §r- Mostra neve embaixo de blocos específicos que tenham ao menos uma camada de neve ou bloco de neve perto.\n§dTipo-LambdaBetterGrass §r- Mostra neve embaixo de blocos específicos que tenham ao menos \"duas\" camadas de neve ou blocos de neve perto.",
+  "bettergrass.betterSnowMode.optifine": "Tipo-OptiFine",
+  "bettergrass.betterSnowMode.lambda": "Tipo-LambdaBetterGrass",
+  "bettergrass.grassBlocks.desc": "Conecta bloco de grama também!",
+  "bettergrass.dirtPaths.desc": "Conecta caminho de terra também!\n\n§cTalvez cause alguns bugs visuais!",
+  "bettergrass.farmLands.desc": "Conecta terra arada também!\n\n§cTalvez cause alguns bugs visuais!",
+  "bettergrass.podzol.desc": "Conecta podzol também!",
+  "bettergrass.mycelium.desc": "Conecta micélio também!",
+  "bettergrass.crimsonNylium.desc": "Conecta nicélio carmesim também!",
+  "bettergrass.warpedNylium.desc": "Conecta nicélio distorcido também!",
+  "bettergrass.moreBlocks.desc": "Blocos tipo grama que deveriam conectar em rampas.",
+  "bettergrass.noconfig.warn": "§cBetterGrassify para (Neo)Forge 1.20.1 está indisponivel para mostrar a tela de configuração devido à uma limitação no Forge. Por favor, utilize os arquivos de configuração no lugar. Desculpe pela inconveniência!§r\n\nIf you're using Embeddium, you can change most of the configurations in the \"Video Settings Menu.\""
+}
