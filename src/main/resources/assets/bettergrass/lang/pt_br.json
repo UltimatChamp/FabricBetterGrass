@@ -1,7 +1,7 @@
 {
   "bettergrass.title": "Configuração BetterGrassify",
   "bettergrass.betterGrassMode": "Modo de Melhor Grama",
-  "bettergrass.betterGrassMode.desc": "§4Desligado §r- Blocos de grama aparentam normal\n§3Rápido §r- A textura do topo da grama será aplicado em todos os lados do bloco (rápido)\n§dBonito §r- A textura do topo de grama será aplicado dinamicamente aos lados do bloco (lento)",
+  "bettergrass.betterGrassMode.desc": "§4Não §r- Blocos de grama aparentam normal\n§3Rápidas §r- A textura do topo da grama será aplicado em todos os lados do bloco (rápido)\n§dDetalhadas §r- A textura do topo de grama será aplicado dinamicamente aos lados do bloco (lento)",
   "bettergrass.snowy.desc": "Conecta grama com neve também!",
   "bettergrass.betterSnowMode": "Better Snow",
   "bettergrass.betterSnowMode.desc": "§4Off §r- No snow layer will be generated.\n§3OptiFine-like §r- Shows a snow layer beneath specific blocks that have at-least one snow layer or snow block near them.\n§dLambdaBetterGrass-like §r- Shows a snow layer beneath specific blocks that have at-least \"two\" snow layers or snow blocks near them.",
