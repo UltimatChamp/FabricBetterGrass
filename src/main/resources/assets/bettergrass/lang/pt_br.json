@@ -6,7 +6,7 @@
   "bettergrass.betterSnowMode": "Neve Melhorada",
   "bettergrass.betterSnowMode.desc": "§4Não §r- Nenhuma camada de neve será gerada.\n§3Tipo-OptiFine §r- Mostra neve embaixo de blocos específicos que tenham ao menos uma camada de neve ou bloco de neve perto.\n§dTipo-LambdaBetterGrass §r- Mostra neve embaixo de blocos específicos que tenham ao menos \"duas\" camadas de neve ou blocos de neve perto.",
   "bettergrass.betterSnowMode.optifine": "Tipo-OptiFine",
-  "bettergrass.betterSnowMode.lambda": "LambdaBetterGrass-like",
+  "bettergrass.betterSnowMode.lambda": "Tipo-LambdaBetterGrass",
   "bettergrass.grassBlocks.desc": "Conecta bloco de grama também!",
   "bettergrass.dirtPaths.desc": "Conecta caminhos de grama também!\n\n§cTalvez cause alguns bugs visuais!",
   "bettergrass.farmLands.desc": "Conecta terra arada também!\n\n§cTalvez cause alguns bugs visuais!",
