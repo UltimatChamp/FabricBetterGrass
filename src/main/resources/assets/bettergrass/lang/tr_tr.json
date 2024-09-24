@@ -1,0 +1,19 @@
+{
+  "bettergrass.title": "BetterGrassify Konfigürasyonu",
+  "bettergrass.betterGrassMode": "Daha İyi Çimen Modu",
+  "bettergrass.betterGrassMode.desc": "§4Kapalı §r- Çimen Blokları normal görünür\n§3Hızlı §r- Üst Çimen dokusu Çimen Bloklarının her tarafına uygulanır (hızlı)\n§dHoş §r- Üst Çimen dokusu, Çimen Bloklarının gerekli taraflarına dinamik olarak uygulanır (yavaş)",
+  "bettergrass.snowy.desc": "Karlı çimenide bağlar",
+  "bettergrass.betterSnowMode": "Daha İyi Kar",
+  "bettergrass.betterSnowMode.desc": "§4Kapalı §r- Kar tabakası oluşmayacaktır.\n§3OptiFine-benzeri §r- Yakınlarında en az bir kar tabakası veya kar bloğu bulunan belirli blokların altında bir kar tabakası gösterir.\n§dLambdaBetterGrass-benzeri §r- Yakınlarında en az \"iki\" kar tabakası veya kar bloğu bulunan belirli blokların altındaki kar tabakasını gösterir.",
+  "bettergrass.betterSnowMode.optifine": "OptiFine-benzeri",
+  "bettergrass.betterSnowMode.lambda": "LambdaBetterGrass-benzeri",
+  "bettergrass.grassBlocks.desc": "Çimenli toprak bloklarını bağlar!",
+  "bettergrass.dirtPaths.desc": "Toprak yolları da birbirine bağlar!“\n\n§cBazı görsel hatalar sebep olabilir!",
+  "bettergrass.farmLands.desc": "Tarım arazilerini de birbirine bağlar!“\n\n§cBazı görsel hatalara sebep olabilir!",
+  "bettergrass.podzol.desc": "Podzolu da bağlar!",
+  "bettergrass.mycelium.desc": "Miselyumu da bağlar!",
+  "bettergrass.crimsonNylium.desc": "Kızıl nesilyumu da bağlar!",
+  "bettergrass.warpedNylium.desc": "Çarpık niselyumu da bağlar!",
+  "bettergrass.moreBlocks.desc": "Yamaçlarda bağlanması gereken çimen benzeri bloklar.",
+  "bettergrass.noconfig.warn": "§cBetterGrassify (Neo)Forge 1.20.1 için Forge'daki bir sınırlama nedeniyle bir konfigürasyon ekranı görüntülenemiyor. Lütfen bunun yerine konfigürasyon dosyasını kullanın. Rahatsızlık için özür dileriz!“§r\n\nEğer Embeddium kullanıyorsanız, konfigürasyonların çoğunu \"Video Ayarları Menüsü.\" üzerinden değiştirebilirsiniz."
+}
