@@ -42,6 +42,11 @@ _OptiFine's Fancy_ and _Fast **better grass**_ implemented on Fabric and NeoForg
 
 <hr>
 
+### **Better Snow**
+<center><img alt="Preview" width="500px" src="https://optifine.readthedocs.io/_images/selection1.webp"></center>
+
+<hr>
+
 ### **Fully Configurable**
 <center>
     <img alt="YACL" width="250px" src="https://cdn.modrinth.com/data/m5T5xmUy/images/04353df9655cb5d933546399bbcb6f36c943292c.png">
