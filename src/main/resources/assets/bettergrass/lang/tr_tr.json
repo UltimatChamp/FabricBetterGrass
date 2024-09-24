@@ -1,7 +1,7 @@
 {
   "bettergrass.title": "BetterGrassify Konfigürasyonu",
   "bettergrass.betterGrassMode": "Daha İyi Çimen Modu",
-  "bettergrass.betterGrassMode.desc": "§4Kapalı §r- Çimen Blokları normal görünür\n§3Hızlı §r- Üst Çimen dokusu Çimen Bloklarının her tarafına uygulanır (hızlı)\n§dŞahane §r- Üst Çimen dokusu, Çimen Bloklarının gerekli taraflarına dinamik olarak uygulanır (yavaş)",
+  "bettergrass.betterGrassMode.desc": "§4Kapalı §r- Çimen Blokları normal görünür\n§3Hızlı §r- Üst Çimen dokusu Çimen Bloklarının her tarafına uygulanır (hızlı)\n§dHoş §r- Üst Çimen dokusu, Çimen Bloklarının gerekli taraflarına dinamik olarak uygulanır (yavaş)",
   "bettergrass.snowy.desc": "Karlı çimenide bağlar",
   "bettergrass.betterSnowMode": "Daha İyi Kar",
   "bettergrass.betterSnowMode.desc": "§4Kapalı §r- Kar tabakası oluşmayacaktır.\n§3OptiFine-benzeri §r- Yakınlarında en az bir kar tabakası veya kar bloğu bulunan belirli blokların altında bir kar tabakası gösterir.\n§dLambdaBetterGrass-benzeri §r- Yakınlarında en az \"iki\" kar tabakası veya kar bloğu bulunan belirli blokların altındaki kar tabakasını gösterir.",
