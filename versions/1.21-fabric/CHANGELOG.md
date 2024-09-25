@@ -1,12 +1,9 @@
-🗃️**Detailed Changelog: [1.1.1+fabric.1.21.1 --> 1.2.0+fabric.1.21.1](https://github.com/UltimatChamp/BetterGrassify/compare/1.1.1+fabric.1.21.1...1.2.0+fabric.1.21.1)**
+🗃️**Detailed Changelog: [1.2.0+fabric.1.21.1 --> 1.2.1+fabric.1.21.1](https://github.com/UltimatChamp/BetterGrassify/compare/1.2.0+fabric.1.21.1...1.2.1+fabric.1.21.1)**
 
 ### 🛠️Changes
 
-- Added _OptiFine's_ **Better Snow** feature. _(Different from **Better Snowy Grass**)_
-  ![](https://optifine.readthedocs.io/_images/selection1.webp)
-    - **Better Snow** comes in two variants.
-        - **OptiFine-like:** Shows a snow layer beneath specific blocks that have at-least one snow layer or snow block near them.
-        - **LambdaBetterGrass-like:** Shows a snow layer beneath specific blocks that have at-least "two" snow layers or snow blocks near them.
-- Added **Turkish** localization. [(**#24**)](https://github.com/UltimatChamp/BetterGrassify/pull/24)
-- Added **Portuguese Brazilian** localization. [(**#25**)](https://github.com/UltimatChamp/BetterGrassify/pull/25)
+- Prevent some unwanted blocks from getting **better snow**-ified.
+- Added an option to exclude desired blocks from **Better Snow**. 
+- Some visual changes to the config screen.
+- Fix a _rare crash_ when saving a world. [**[#28]**](https://github.com/UltimatChamp/BetterGrassify/issues/28)
 - Help **translate** the mod to your language! [**[GitHub]**](https://github.com/UltimatChamp/BetterGrassify)
