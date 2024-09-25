@@ -42,28 +42,6 @@ public class BetterGrassifyConfig {
     @SerialEntry(comment = "(default: true)")
     public boolean snowy = true;
 
-    //? if >1.20.1 {
-    @SerialEntry(comment = "General\nOFF/OPTIFINE/LAMBDA (default: OPTIFINE)")
-    public BetterSnowMode betterSnowMode = BetterSnowMode.OPTIFINE;
-
-    public enum BetterSnowMode implements NameableEnum {
-        OFF("options.off"),
-        OPTIFINE("bettergrass.betterSnowMode.optifine"),
-        LAMBDA("bettergrass.betterSnowMode.lambda");
-
-        private final String displayName;
-
-        BetterSnowMode(String displayName) {
-            this.displayName = displayName;
-        }
-
-        @Override
-        public Text getDisplayName() {
-            return Text.translatable(displayName);
-        }
-    }
-    //?}
-
     @SerialEntry(comment = "\nConnected Blocks\n(default: true)")
     public boolean grassBlocks = true;
 
@@ -85,8 +63,46 @@ public class BetterGrassifyConfig {
     @SerialEntry(comment = "(default: true)")
     public boolean warpedNylium = true;
 
-    @SerialEntry(comment = "\nAdvanced")
+    @SerialEntry
     public List<String> moreBlocks = Lists.newArrayList();
+
+    //? if >1.20.6 {
+    @SerialEntry(comment = "\nBetter Snow\nOFF/OPTIFINE/LAMBDA (default: OPTIFINE)")
+    public BetterSnowMode betterSnowMode = BetterSnowMode.OPTIFINE;
+
+    public enum BetterSnowMode implements NameableEnum {
+        OFF("options.off"),
+        OPTIFINE("bettergrass.betterSnowMode.optifine"),
+        LAMBDA("bettergrass.betterSnowMode.lambda");
+
+        private final String displayName;
+
+        BetterSnowMode(String displayName) {
+            this.displayName = displayName;
+        }
+
+        @Override
+        public Text getDisplayName() {
+            return Text.translatable(displayName);
+        }
+    }
+
+    @SerialEntry
+    public List<String> excludedTags = Lists.newArrayList(
+            "leaves",
+            "buttons",
+            "rails",
+            "wooden_pressure_plates"
+    );
+
+    @SerialEntry
+    public List<String> excludedBlocks = Lists.newArrayList(
+            "heavy_weighted_pressure_plate",
+            "light_weighted_pressure_plate",
+            "polished_blackstone_pressure_plate",
+            "stone_pressure_plate"
+    );
+    //?}
 
     public static ConfigClassHandler<BetterGrassifyConfig> handler() {
         return GSON;

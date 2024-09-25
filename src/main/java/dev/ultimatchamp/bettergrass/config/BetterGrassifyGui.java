@@ -27,32 +27,6 @@ public class BetterGrassifyGui {
                                         )
                                         .customController(opt -> new EnumController<>(opt, BetterGrassifyConfig.BetterGrassMode.class))
                                         .build())
-                                .option(Option.<Boolean>createBuilder()
-                                        .name(Text.translatable("block.minecraft.snow"))
-                                        .description(OptionDescription.createBuilder()
-                                                .text(Text.translatable("bettergrass.snowy.desc"))
-                                                .build())
-                                        .binding(
-                                                defaults.snowy,
-                                                () -> config.snowy,
-                                                (value) -> config.snowy = value
-                                        )
-                                        .controller(TickBoxControllerBuilder::create)
-                                        .build())
-                                //? if >1.20.6 {
-                                .option(Option.<BetterGrassifyConfig.BetterSnowMode>createBuilder()
-                                        .name(Text.translatable("bettergrass.betterSnowMode"))
-                                        .description(OptionDescription.createBuilder()
-                                                .text(Text.translatable("bettergrass.betterSnowMode.desc"))
-                                                .build())
-                                        .binding(
-                                                defaults.betterSnowMode,
-                                                () -> config.betterSnowMode,
-                                                (value) -> config.betterSnowMode = value
-                                        )
-                                        .customController(opt -> new EnumController<>(opt, BetterGrassifyConfig.BetterSnowMode.class))
-                                        .build())
-                                //?}
                                 .group(OptionGroup.createBuilder()
                                         .name(Text.translatable("soundCategory.block"))
                                         .option(Option.<Boolean>createBuilder()
@@ -64,6 +38,18 @@ public class BetterGrassifyGui {
                                                         defaults.grassBlocks,
                                                         () -> config.grassBlocks,
                                                         (value) -> config.grassBlocks = value
+                                                )
+                                                .controller(TickBoxControllerBuilder::create)
+                                                .build())
+                                        .option(Option.<Boolean>createBuilder()
+                                                .name(Text.translatable("block.minecraft.snow"))
+                                                .description(OptionDescription.createBuilder()
+                                                        .text(Text.translatable("bettergrass.snowy.desc"))
+                                                        .build())
+                                                .binding(
+                                                        defaults.snowy,
+                                                        () -> config.snowy,
+                                                        (value) -> config.snowy = value
                                                 )
                                                 .controller(TickBoxControllerBuilder::create)
                                                 .build())
@@ -140,11 +126,7 @@ public class BetterGrassifyGui {
                                                 .controller(TickBoxControllerBuilder::create)
                                                 .build())
                                         .build())
-                                .build())
-                        .category(ConfigCategory.createBuilder()
-                                .name(Text.translatable("createWorld.customize.custom.page2"))
                                 .group(ListOption.<String>createBuilder()
-                                        .name(Text.translatable("soundCategory.block"))
                                         .description(OptionDescription.createBuilder()
                                                 .text(Text.translatable("bettergrass.moreBlocks.desc"))
                                                 .build())
@@ -154,10 +136,49 @@ public class BetterGrassifyGui {
                                                 val -> config.moreBlocks = val
                                         )
                                         .controller(StringControllerBuilder::create)
+                                        .initial("minecraft:")
+                                        .insertEntriesAtEnd(true)
+                                        .build())
+                                .build())
+                        //? if >1.20.6 {
+                        .category(ConfigCategory.createBuilder()
+                                .name(Text.translatable("bettergrass.betterSnow"))
+                                .option(Option.<BetterGrassifyConfig.BetterSnowMode>createBuilder()
+                                        .name(Text.translatable("bettergrass.betterSnowMode"))
+                                        .description(OptionDescription.createBuilder()
+                                                .text(Text.translatable("bettergrass.betterSnowMode.desc"))
+                                                .build())
+                                        .binding(
+                                                defaults.betterSnowMode,
+                                                () -> config.betterSnowMode,
+                                                (value) -> config.betterSnowMode = value
+                                        )
+                                        .customController(opt -> new EnumController<>(opt, BetterGrassifyConfig.BetterSnowMode.class))
+                                        .build())
+                                .group(ListOption.<String>createBuilder()
+                                        .name(Text.translatable("bettergrass.excludedTags"))
+                                        .binding(
+                                                defaults.excludedTags,
+                                                () -> config.excludedTags,
+                                                val -> config.excludedTags = val
+                                        )
+                                        .controller(StringControllerBuilder::create)
+                                        .initial("")
+                                        .insertEntriesAtEnd(true)
+                                        .build())
+                                .group(ListOption.<String>createBuilder()
+                                        .name(Text.translatable("bettergrass.excludedBlocks"))
+                                        .binding(
+                                                defaults.excludedBlocks,
+                                                () -> config.excludedBlocks,
+                                                val -> config.excludedBlocks = val
+                                        )
+                                        .controller(StringControllerBuilder::create)
                                         .initial("")
                                         .insertEntriesAtEnd(true)
                                         .build())
                                 .build())
+                        //?}
                         .save(BetterGrassifyConfig.handler()::save)
                 )
                 .generateScreen(parent);

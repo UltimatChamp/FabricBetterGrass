@@ -46,35 +46,20 @@ public class SodiumGameOptionsPagesMixin {
                     .setFlags(OptionFlag.REQUIRES_RENDERER_RELOAD)
                     .build()
                 ).add(OptionImpl.createBuilder(boolean.class, SodiumOptionsStorage.INSTANCE)
-                        .setName(Text.translatable("block.minecraft.snow"))
-                        .setTooltip(Text.translatable("bettergrass.snowy.desc"))
-                        .setControl(TickBoxControl::new)
-                        .setBinding((options, value) -> BetterGrassifyConfig.instance().snowy = value,
-                                (options) -> BetterGrassifyConfig.instance().snowy)
-                        .setImpact(OptionImpact.LOW)
-                        .setFlags(OptionFlag.REQUIRES_ASSET_RELOAD)
-                        .build()
-                //? if >1.20.1 {
-                ).add(OptionImpl.createBuilder(BetterGrassifyConfig.BetterSnowMode.class, SodiumOptionsStorage.INSTANCE)
-                                .setName(Text.translatable("bettergrass.betterSnowMode"))
-                                .setTooltip(Text.translatable("bettergrass.betterSnowMode.desc"))
-                                .setControl((opt) -> new CyclingControl<>(opt, BetterGrassifyConfig.BetterSnowMode.class, new Text[]{
-                                        Text.translatable("options.off"),
-                                        Text.translatable("bettergrass.betterSnowMode.optifine"),
-                                        Text.translatable("bettergrass.betterSnowMode.lambda")
-                                }))
-                                .setBinding((options, value) -> BetterGrassifyConfig.instance().betterSnowMode = value,
-                                        (options) -> BetterGrassifyConfig.instance().betterSnowMode)
-                                .setImpact(OptionImpact.VARIES)
-                                .setFlags(OptionFlag.REQUIRES_RENDERER_RELOAD)
-                                .build()
-                //?}
-                ).add(OptionImpl.createBuilder(boolean.class, SodiumOptionsStorage.INSTANCE)
                         .setName(Text.translatable("block.minecraft.grass_block"))
                         .setTooltip(Text.translatable("bettergrass.grassBlocks.desc"))
                         .setControl(TickBoxControl::new)
                         .setBinding((options, value) -> BetterGrassifyConfig.instance().grassBlocks = value,
                                 (options) -> BetterGrassifyConfig.instance().grassBlocks)
+                        .setImpact(OptionImpact.LOW)
+                        .setFlags(OptionFlag.REQUIRES_ASSET_RELOAD)
+                        .build()
+                ).add(OptionImpl.createBuilder(boolean.class, SodiumOptionsStorage.INSTANCE)
+                        .setName(Text.translatable("block.minecraft.snow"))
+                        .setTooltip(Text.translatable("bettergrass.snowy.desc"))
+                        .setControl(TickBoxControl::new)
+                        .setBinding((options, value) -> BetterGrassifyConfig.instance().snowy = value,
+                                (options) -> BetterGrassifyConfig.instance().snowy)
                         .setImpact(OptionImpact.LOW)
                         .setFlags(OptionFlag.REQUIRES_ASSET_RELOAD)
                         .build()
@@ -132,6 +117,21 @@ public class SodiumGameOptionsPagesMixin {
                         .setImpact(OptionImpact.LOW)
                         .setFlags(OptionFlag.REQUIRES_ASSET_RELOAD)
                         .build()
+                //? if >1.20.6 {
+                ).add(OptionImpl.createBuilder(BetterGrassifyConfig.BetterSnowMode.class, SodiumOptionsStorage.INSTANCE)
+                .setName(Text.translatable("bettergrass.betterSnowMode"))
+                .setTooltip(Text.translatable("bettergrass.betterSnowMode.desc"))
+                .setControl((opt) -> new CyclingControl<>(opt, BetterGrassifyConfig.BetterSnowMode.class, new Text[]{
+                        Text.translatable("options.off"),
+                        Text.translatable("bettergrass.betterSnowMode.optifine"),
+                        Text.translatable("bettergrass.betterSnowMode.lambda")
+                }))
+                .setBinding((options, value) -> BetterGrassifyConfig.instance().betterSnowMode = value,
+                        (options) -> BetterGrassifyConfig.instance().betterSnowMode)
+                .setImpact(OptionImpact.VARIES)
+                .setFlags(OptionFlag.REQUIRES_RENDERER_RELOAD)
+                .build()
+                //?}
                 )
                 .build()
         );

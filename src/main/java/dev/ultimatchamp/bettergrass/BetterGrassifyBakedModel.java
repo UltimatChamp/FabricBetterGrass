@@ -8,6 +8,10 @@ import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.model.BakedModel;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -83,14 +87,19 @@ public class BetterGrassifyBakedModel extends ForwardingBakedModel {
     }
 
     public static boolean canHaveSnowLayer(BlockPos selfPos) {
+        //? if >1.20.6 {
+
         //? if neo {
         /*if (!FabricLoader.getInstance().isModLoaded("sodium")) {
             return false;
         }
         *///?}
 
-        //? if >1.20.6 {
         var world = MinecraftClient.getInstance().world;
+        if (world == null) {
+            return false;
+        }
+
         var self = world.getBlockState(selfPos);
 
         var isBottomSnowy = String.valueOf(world.getBlockState(selfPos.down())).contains("[snowy=false]");
@@ -101,14 +110,37 @@ public class BetterGrassifyBakedModel extends ForwardingBakedModel {
         var isWest = String.valueOf(world.getBlockState(selfPos.west())).contains("snow}[layers=") || String.valueOf(world.getBlockState(selfPos.west())).contains("snow_block");
 
         var snowDetectionMode = false;
-
         if (BetterGrassifyConfig.instance().betterSnowMode == BetterGrassifyConfig.BetterSnowMode.OPTIFINE) {
             snowDetectionMode = isNorth || isSouth || isEast || isWest;
         } else if (BetterGrassifyConfig.instance().betterSnowMode == BetterGrassifyConfig.BetterSnowMode.LAMBDA) {
             snowDetectionMode = ((isNorth || isSouth) && (isEast || isWest)) || (isNorth && isSouth) || (isEast && isWest);
         }
 
-        return snowDetectionMode && !self.isAir() && isBottomSnowy && !self.isSideSolidFullSquare(world, selfPos, Direction.DOWN);
+        var isExcludedTag = false;
+        for (String tag : BetterGrassifyConfig.instance().excludedTags) {
+            Identifier identifier = Identifier.tryParse(tag);
+
+            var tagKey = TagKey.of(RegistryKeys.BLOCK, identifier);
+
+            if (self.isIn(tagKey)) {
+                isExcludedTag = true;
+            }
+        }
+
+        var isExcludedBlock = false;
+        for (String block : BetterGrassifyConfig.instance().excludedBlocks) {
+            Identifier identifier = Identifier.tryParse(block);
+
+            var blockCheck = Registries.BLOCK.getOrEmpty(identifier);
+
+            if (blockCheck.isPresent()) {
+                if (self.getBlock().equals(blockCheck.get())) {
+                    isExcludedBlock = true;
+                }
+            }
+        }
+
+        return snowDetectionMode && !self.isAir() && !(isExcludedTag || isExcludedBlock) && isBottomSnowy && !self.isSideSolidFullSquare(world, selfPos, Direction.DOWN);
         //?} else {
         /*return false;
         *///?}
