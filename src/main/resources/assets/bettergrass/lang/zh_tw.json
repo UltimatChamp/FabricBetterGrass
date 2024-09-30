@@ -12,7 +12,7 @@
   "bettergrass.warpedNylium.desc": "也會連接扭曲菌絲石！",
   "bettergrass.moreBlocks.desc": "應該在斜坡上連接的類似草地的方塊。",
   "bettergrass.betterSnow": "更好的雪地",
-  "bettergrass.betterSnowMode": "更好的雪地",
+  "bettergrass.betterSnowMode": "更好的雪地模式",
   "bettergrass.betterSnowMode.desc": "§4關閉 §r- 預設的雪地，不會在特定方塊下方顯示雪。\n§3類似 OptiFine §r- 在附近至少有一個雪或雪塊的特定方塊下方顯示雪。\n§d類似 LambdaBetterGrass §r- 在附近至少有「兩個」雪或雪塊的特定方塊下方顯示雪。",
   "bettergrass.betterSnowMode.optifine": "類似 OptiFine",
   "bettergrass.betterSnowMode.lambda": "類似 LambdaBetterGrass",
