@@ -3,9 +3,11 @@ package dev.ultimatchamp.bettergrass.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.blaze3d.systems.VertexSorter;
-import dev.ultimatchamp.bettergrass.BetterGrassifyBakedModel;
+import dev.ultimatchamp.bettergrass.config.BetterGrassifyConfig;
+import dev.ultimatchamp.bettergrass.model.BetterGrassifyBakedModel;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.BufferBuilder;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.render.chunk.BlockBufferAllocatorStorage;
@@ -41,8 +43,19 @@ public class SectionBuilderMixin {
                         @Local MatrixStack matrixStack,
                         @Local BufferBuilder bufferBuilder,
                         @Local Random random) {
+        var isNorth = renderRegion.getBlockState(blockPos.up().north()).isOf(Blocks.SNOW) || renderRegion.getBlockState(blockPos.up().north()).isOf(Blocks.SNOW_BLOCK);
+        var isSouth = renderRegion.getBlockState(blockPos.up().south()).isOf(Blocks.SNOW) || renderRegion.getBlockState(blockPos.up().south()).isOf(Blocks.SNOW_BLOCK);
+        var isEast = renderRegion.getBlockState(blockPos.up().east()).isOf(Blocks.SNOW) || renderRegion.getBlockState(blockPos.up().east()).isOf(Blocks.SNOW_BLOCK);
+        var isWest = renderRegion.getBlockState(blockPos.up().west()).isOf(Blocks.SNOW) || renderRegion.getBlockState(blockPos.up().west()).isOf(Blocks.SNOW_BLOCK);
 
-        if (BetterGrassifyBakedModel.canHaveSnowLayer(blockPos.up())) {
+        var canHaveSnowLayer = false;
+        if (BetterGrassifyConfig.instance().betterSnowMode != BetterGrassifyConfig.BetterSnowMode.OFF) {
+            if (isNorth || isSouth || isEast || isWest) {
+                canHaveSnowLayer = BetterGrassifyBakedModel.canHaveSnowLayer(renderRegion, blockPos.up());
+            }
+        }
+
+        if (canHaveSnowLayer) {
             matrixStack.push();
             matrixStack.translate(0, 1, 0);
             blockRenderManager.renderBlock(Blocks.SNOW.getDefaultState(), blockPos.up(), renderRegion, matrixStack, bufferBuilder, true, random);
@@ -52,11 +65,26 @@ public class SectionBuilderMixin {
 
     @ModifyVariable(method = "build", at = @At("STORE"), ordinal = 0)
     private BlockState setGrassState(BlockState state, @Local(ordinal = 2) BlockPos blockPos) {
-        if (BetterGrassifyBakedModel.canHaveSnowLayer(blockPos.up())) {
-            return state.with(Properties.SNOWY, true);
-        } else {
-            return state;
+        var world = MinecraftClient.getInstance().world;
+
+        if (world != null) {
+            var isNorth = world.getBlockState(blockPos.up().north()).isOf(Blocks.SNOW) || world.getBlockState(blockPos.up().north()).isOf(Blocks.SNOW_BLOCK);
+            var isSouth = world.getBlockState(blockPos.up().south()).isOf(Blocks.SNOW) || world.getBlockState(blockPos.up().south()).isOf(Blocks.SNOW_BLOCK);
+            var isEast = world.getBlockState(blockPos.up().east()).isOf(Blocks.SNOW) || world.getBlockState(blockPos.up().east()).isOf(Blocks.SNOW_BLOCK);
+            var isWest = world.getBlockState(blockPos.up().west()).isOf(Blocks.SNOW) || world.getBlockState(blockPos.up().west()).isOf(Blocks.SNOW_BLOCK);
+
+            var canHaveSnowLayer = false;
+            if (BetterGrassifyConfig.instance().betterSnowMode != BetterGrassifyConfig.BetterSnowMode.OFF) {
+                if (isNorth || isSouth || isEast || isWest) {
+                    canHaveSnowLayer = BetterGrassifyBakedModel.canHaveSnowLayer(world, blockPos.up());
+                }
+            }
+
+            if (canHaveSnowLayer) {
+                return state.with(Properties.SNOWY, true);
+            }
         }
+        return state;
     }
 }
 //?}

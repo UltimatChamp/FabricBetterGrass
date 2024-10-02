@@ -1,4 +1,4 @@
-package dev.ultimatchamp.bettergrass;
+package dev.ultimatchamp.bettergrass.model;
 
 import dev.ultimatchamp.bettergrass.config.BetterGrassifyConfig;
 import dev.ultimatchamp.bettergrass.util.SpriteCalculator;
@@ -6,11 +6,12 @@ import net.fabricmc.fabric.api.renderer.v1.mesh.MutableQuadView;
 import net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel;
 import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -19,7 +20,7 @@ import net.minecraft.world.BlockRenderView;
 
 import java.util.function.Supplier;
 
-//? if neo {
+//? if neo || <1.21 {
 /*import net.fabricmc.loader.api.FabricLoader;
 *///?}
 
@@ -83,31 +84,53 @@ public class BetterGrassifyBakedModel extends ForwardingBakedModel {
     }
 
     private static boolean isSnowy(BlockRenderView world, BlockPos selfPos, BlockPos upPos) {
-        return String.valueOf(world.getBlockState(selfPos)).contains("[snowy=true]") || canHaveSnowLayer(upPos);
+        var self = world.getBlockState(selfPos);
+
+        var snowyCheck = false;
+        if (self.getOrEmpty(Properties.SNOWY).isPresent()) {
+            snowyCheck =
+                    self == self.with(Properties.SNOWY, true);
+        }
+
+        return snowyCheck || canHaveSnowLayer(world, upPos);
     }
 
-    public static boolean canHaveSnowLayer(BlockPos selfPos) {
-        //? if >1.20.6 {
-
+    public static boolean canHaveSnowLayer(BlockRenderView world, BlockPos selfPos) {
         //? if neo {
         /*if (!FabricLoader.getInstance().isModLoaded("sodium")) {
             return false;
         }
         *///?}
 
-        var world = MinecraftClient.getInstance().world;
-        if (world == null) {
+        //? if fabric && <1.21 {
+        /*if (!FabricLoader.getInstance().isModLoaded("sodium")) {
+            return false;
+        }
+        *///?}
+
+        //? if forge && <1.21 {
+        /*if (!FabricLoader.getInstance().isModLoaded("embeddium")) {
+            return false;
+        }
+        *///?}
+
+        if (BetterGrassifyConfig.instance().betterSnowMode == BetterGrassifyConfig.BetterSnowMode.OFF) {
             return false;
         }
 
         var self = world.getBlockState(selfPos);
+        var bottom = world.getBlockState(selfPos.down());
 
-        var isBottomSnowy = String.valueOf(world.getBlockState(selfPos.down())).contains("[snowy=false]");
+        var isBottomSnowy = false;
+        if (bottom.getOrEmpty(Properties.SNOWY).isPresent()) {
+            isBottomSnowy =
+                    bottom == bottom.with(Properties.SNOWY, false);
+        }
 
-        var isNorth = String.valueOf(world.getBlockState(selfPos.north())).contains("snow}[layers=") || String.valueOf(world.getBlockState(selfPos.north())).contains("snow_block");
-        var isSouth = String.valueOf(world.getBlockState(selfPos.south())).contains("snow}[layers=") || String.valueOf(world.getBlockState(selfPos.south())).contains("snow_block");
-        var isEast = String.valueOf(world.getBlockState(selfPos.east())).contains("snow}[layers=") || String.valueOf(world.getBlockState(selfPos.east())).contains("snow_block");
-        var isWest = String.valueOf(world.getBlockState(selfPos.west())).contains("snow}[layers=") || String.valueOf(world.getBlockState(selfPos.west())).contains("snow_block");
+        var isNorth = world.getBlockState(selfPos.north()).isOf(Blocks.SNOW) || world.getBlockState(selfPos.north()).isOf(Blocks.SNOW_BLOCK);
+        var isSouth = world.getBlockState(selfPos.south()).isOf(Blocks.SNOW) || world.getBlockState(selfPos.south()).isOf(Blocks.SNOW_BLOCK);
+        var isEast = world.getBlockState(selfPos.east()).isOf(Blocks.SNOW) || world.getBlockState(selfPos.east()).isOf(Blocks.SNOW_BLOCK);
+        var isWest = world.getBlockState(selfPos.west()).isOf(Blocks.SNOW) || world.getBlockState(selfPos.west()).isOf(Blocks.SNOW_BLOCK);
 
         var snowDetectionMode = false;
         if (BetterGrassifyConfig.instance().betterSnowMode == BetterGrassifyConfig.BetterSnowMode.OPTIFINE) {
@@ -140,21 +163,16 @@ public class BetterGrassifyBakedModel extends ForwardingBakedModel {
             }
         }
 
-        return snowDetectionMode && !self.isAir() && !(isExcludedTag || isExcludedBlock) && isBottomSnowy && !self.isSideSolidFullSquare(world, selfPos, Direction.DOWN);
-        //?} else {
-        /*return false;
-        *///?}
+        return snowDetectionMode && !self.isAir() && !self.isOf(Blocks.WATER) && !(isExcludedTag || isExcludedBlock) && isBottomSnowy && !self.isSideSolidFullSquare(world, selfPos, Direction.DOWN);
     }
 
-    @SuppressWarnings("deprecation")
+    @SuppressWarnings({"deprecation", "UnusedReturnValue"})
     private static boolean spriteBake(MutableQuadView quad, BlockState state, Supplier<Random> randomSupplier) {
         var sprite = SpriteCalculator.calculateSprite(state, Direction.UP, randomSupplier);
 
-        if (sprite != null && !String.valueOf(sprite).contains("missingno")) {
+        if (sprite != null) {
             quad.spriteBake(0, sprite, MutableQuadView.BAKE_LOCK_UV);
-            return true;
-        } else {
-            return false;
         }
+        return sprite != null;
     }
 }
