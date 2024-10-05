@@ -1,7 +1,6 @@
 package dev.ultimatchamp.bettergrass.mixin.sodium;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import dev.ultimatchamp.bettergrass.config.BetterGrassifyConfig;
 import dev.ultimatchamp.bettergrass.model.BetterGrassifyBakedModel;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.property.Properties;
@@ -37,24 +36,16 @@ public class ChunkBuilderMeshingTaskMixin {
                          @Local(ordinal = 0) BlockPos.Mutable pos,
                          @Local(ordinal = 1) BlockPos.Mutable modelOffset,
                          @Local LocalRef<BlockState> blockState) {
-        var isNorth = slice.getBlockState(pos.up().north()).isOf(Blocks.SNOW) || slice.getBlockState(pos.up().north()).isOf(Blocks.SNOW_BLOCK);
-        var isSouth = slice.getBlockState(pos.up().south()).isOf(Blocks.SNOW) || slice.getBlockState(pos.up().south()).isOf(Blocks.SNOW_BLOCK);
-        var isEast = slice.getBlockState(pos.up().east()).isOf(Blocks.SNOW) || slice.getBlockState(pos.up().east()).isOf(Blocks.SNOW_BLOCK);
-        var isWest = slice.getBlockState(pos.up().west()).isOf(Blocks.SNOW) || slice.getBlockState(pos.up().west()).isOf(Blocks.SNOW_BLOCK);
+        var hasSnowNeighbour = BetterGrassifyBakedModel.hasSnowNeighbour(slice, pos.up());
 
-        var canHaveSnowLayer = false;
-        if (BetterGrassifyConfig.instance().betterSnowMode != BetterGrassifyConfig.BetterSnowMode.OFF) {
-            if (isNorth || isSouth || isEast || isWest) {
-                canHaveSnowLayer = BetterGrassifyBakedModel.canHaveSnowLayer(slice, pos.up());
+        if (hasSnowNeighbour) {
+            if (BetterGrassifyBakedModel.canHaveSnowLayer(slice, pos.up())) {
+                blockState.set(blockState.get().with(Properties.SNOWY, true));
+
+                var snow = Blocks.SNOW.getDefaultState();
+                var model = cache.getBlockModels().getModel(snow);
+                cache.getBlockRenderer().renderModel(model, snow, pos.up(), modelOffset.up());
             }
-        }
-
-        if (canHaveSnowLayer) {
-            blockState.set(blockState.get().with(Properties.SNOWY, true));
-
-            var snow = Blocks.SNOW.getDefaultState();
-            var model = cache.getBlockModels().getModel(snow);
-            cache.getBlockRenderer().renderModel(model, snow, pos.up(), modelOffset.up());
         }
     }
 //?} else {
@@ -77,36 +68,28 @@ public class ChunkBuilderMeshingTaskMixin {
             remap = false
     )
     private void execute(ChunkBuildContext buildContext, CancellationToken cancellationToken, CallbackInfoReturnable<ChunkBuildOutput> cir, @Local BlockRenderContext ctx, @Local ChunkBuildBuffers buffers, @Local BlockRenderCache cache, @Local WorldSlice slice, @Local(ordinal = 1) BlockPos.Mutable modelOffset) {
-        var isNorth = slice.getBlockState(ctx.pos().up().north()).isOf(Blocks.SNOW) || slice.getBlockState(ctx.pos().up().north()).isOf(Blocks.SNOW_BLOCK);
-        var isSouth = slice.getBlockState(ctx.pos().up().south()).isOf(Blocks.SNOW) || slice.getBlockState(ctx.pos().up().south()).isOf(Blocks.SNOW_BLOCK);
-        var isEast = slice.getBlockState(ctx.pos().up().east()).isOf(Blocks.SNOW) || slice.getBlockState(ctx.pos().up().east()).isOf(Blocks.SNOW_BLOCK);
-        var isWest = slice.getBlockState(ctx.pos().up().west()).isOf(Blocks.SNOW) || slice.getBlockState(ctx.pos().up().west()).isOf(Blocks.SNOW_BLOCK);
+        var hasSnowNeighbour = BetterGrassifyBakedModel.hasSnowNeighbour(slice, ctx.pos().up());
 
-        var canHaveSnowLayer = false;
-        if (BetterGrassifyConfig.instance().betterSnowMode != BetterGrassifyConfig.BetterSnowMode.OFF) {
-            if (isNorth || isSouth || isEast || isWest) {
-                canHaveSnowLayer = BetterGrassifyBakedModel.canHaveSnowLayer(slice, ctx.pos().up());
+        if (hasSnowNeighbour) {
+            if (BetterGrassifyBakedModel.canHaveSnowLayer(slice, ctx.pos().up())) {
+                var newState = ctx.state().with(Properties.SNOWY, true);
+                var newModel = cache.getBlockModels().getModel(newState);
+                //? if fabric {
+                ctx.update(ctx.pos(), modelOffset, newState, newModel, ctx.seed());
+                //?} else {
+                /^ctx.update(ctx.pos(), modelOffset, newState, newModel, ctx.seed(), ctx.modelData(), ctx.renderLayer());
+                ^///?}
+
+                var context = new BlockRenderContext(slice);
+                var snow = Blocks.SNOW.getDefaultState();
+                var model = cache.getBlockModels().getModel(snow);
+                //? if fabric {
+                context.update(ctx.pos().up(), modelOffset.up(), snow, model, ctx.seed());
+                //?} else {
+                /^context.update(ctx.pos().up(), modelOffset.up(), snow, model, ctx.seed(), ctx.modelData(), ctx.renderLayer());
+                ^///?}
+                cache.getBlockRenderer().renderModel(context, buffers);
             }
-        }
-
-        if (canHaveSnowLayer) {
-            var newState = ctx.state().with(Properties.SNOWY, true);
-            var newModel = cache.getBlockModels().getModel(newState);
-            //? if fabric {
-            ctx.update(ctx.pos(), modelOffset, newState, newModel, ctx.seed());
-            //?} else {
-            /^ctx.update(ctx.pos(), modelOffset, newState, newModel, ctx.seed(), ctx.modelData(), ctx.renderLayer());
-            ^///?}
-
-            var context = new BlockRenderContext(slice);
-            var snow = Blocks.SNOW.getDefaultState();
-            var model = cache.getBlockModels().getModel(snow);
-            //? if fabric {
-            context.update(ctx.pos().up(), modelOffset.up(), snow, model, ctx.seed());
-            //?} else {
-            /^context.update(ctx.pos().up(), modelOffset.up(), snow, model, ctx.seed(), ctx.modelData(), ctx.renderLayer());
-            ^///?}
-            cache.getBlockRenderer().renderModel(context, buffers);
         }
     }
 *///?}
